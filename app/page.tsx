@@ -58,7 +58,7 @@ export default function Home() {
 
       {/* 2 — Full-bleed parallax image */}
       <ParallaxHero
-        image="/images/hero-running.jpg"
+        image="/images/2024_11_29_FTC_Jules_Jonathan-20.jpeg"
         eyebrow="A 900km run for men's mental health"
         title="Project Portugal 2026"
         subtitle="Running the entire coastline of Portugal — starting August 1st."
