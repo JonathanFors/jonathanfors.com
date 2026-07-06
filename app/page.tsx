@@ -1,6 +1,11 @@
 import ParallaxHero from "@/components/ParallaxHero";
 import SponsorGrid from "@/components/SponsorGrid";
-import { CalendarIcon, InstagramIcon, LinkedInIcon } from "@/components/icons";
+import {
+  CalendarIcon,
+  DownloadIcon,
+  InstagramIcon,
+  LinkedInIcon,
+} from "@/components/icons";
 import { siteLinks } from "@/lib/site";
 
 export default function Home() {
@@ -119,6 +124,23 @@ export default function Home() {
             <h2 className="max-w-2xl text-2xl font-semibold tracking-tight text-bright-snow sm:text-3xl">
               Back the run. Reach a community that goes the distance.
             </h2>
+            <p className="max-w-2xl text-base leading-relaxed text-pale-slate">
+              The presentation below covers the project, the route, and the ways
+              we can collaborate. Have a read, then get in touch.
+            </p>
+            <div className="mt-2">
+              <a
+                href="/project-portugal-2026.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                download
+                className="inline-flex items-center gap-2 rounded-full border border-border px-6 py-3 text-sm font-medium text-platinum transition-colors hover:border-slate-grey hover:text-bright-snow"
+              >
+                <DownloadIcon className="h-4 w-4" />
+                Download the presentation
+                <span className="text-slate-grey">(PDF)</span>
+              </a>
+            </div>
           </div>
 
           <SponsorGrid email={siteLinks.email} />
