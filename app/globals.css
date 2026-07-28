@@ -1,69 +1,288 @@
 @import "tailwindcss";
 
-:root {
-  /* Palette */
-  --bright-snow: #f8f9fa;
-  --platinum: #e9ecef;
-  --alabaster-grey: #dee2e6;
-  --pale-slate: #ced4da;
-  --pale-slate-2: #adb5bd;
-  --slate-grey: #6c757d;
-  --iron-grey: #495057;
-  --gunmetal: #343a40;
-  --carbon-black: #212529;
+/*
+  Design language — "modern editorial brutalism, endurance grade"
+  Warm off-white paper canvas · near-black ink · one decisive Atlantic accent.
+  Full-bleed photographic sections run dark (--night) with snow-white type.
+*/
 
-  /* Semantic (dark mode) */
-  --background: var(--carbon-black);
-  --surface: var(--gunmetal);
-  --border: var(--iron-grey);
-  --foreground: var(--bright-snow);
-  --muted: var(--pale-slate-2);
-  --subtle: var(--slate-grey);
+:root {
+  /* Paper (light canvas) */
+  --paper: #f2eee4; /* warm off-white */
+  --paper-dim: #e7e1d3; /* alt band / card fill */
+  --paper-edge: #ddd6c4; /* deeper paper for chips */
+
+  /* Ink (near-black) */
+  --ink: #17140f; /* primary text on paper */
+  --ink-soft: #4a463c; /* body copy on paper */
+  --ink-faint: #7c766a; /* eyebrows, captions, meta */
+  --rule: #cfc7b6; /* hairline rules on paper */
+
+  /* Atlantic accent */
+  --atlantic: #0d5765; /* accent on paper (AA) */
+  --atlantic-deep: #063039; /* darkest */
+  --atlantic-bright: #3aa9bd; /* accent on dark surfaces */
+
+  /* Night (dark photographic sections) */
+  --night: #0f1211;
+  --night-2: #171b1a;
+  --snow: #f4f2ec; /* text on night */
+  --snow-dim: #b9bbb5; /* muted text on night */
+  --night-rule: #2b302e;
+
+  /* Semantic defaults (paper theme) */
+  --background: var(--paper);
+  --foreground: var(--ink);
 }
 
 @theme inline {
   --color-background: var(--background);
-  --color-surface: var(--surface);
-  --color-border: var(--border);
   --color-foreground: var(--foreground);
-  --color-muted: var(--muted);
-  --color-subtle: var(--subtle);
 
-  --color-bright-snow: var(--bright-snow);
-  --color-platinum: var(--platinum);
-  --color-alabaster-grey: var(--alabaster-grey);
-  --color-pale-slate: var(--pale-slate);
-  --color-pale-slate-2: var(--pale-slate-2);
-  --color-slate-grey: var(--slate-grey);
-  --color-iron-grey: var(--iron-grey);
-  --color-gunmetal: var(--gunmetal);
-  --color-carbon-black: var(--carbon-black);
+  --color-paper: var(--paper);
+  --color-paper-dim: var(--paper-dim);
+  --color-paper-edge: var(--paper-edge);
 
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-ink-faint: var(--ink-faint);
+  --color-rule: var(--rule);
+
+  --color-atlantic: var(--atlantic);
+  --color-atlantic-deep: var(--atlantic-deep);
+  --color-atlantic-bright: var(--atlantic-bright);
+
+  --color-night: var(--night);
+  --color-night-2: var(--night-2);
+  --color-snow: var(--snow);
+  --color-snow-dim: var(--snow-dim);
+  --color-night-rule: var(--night-rule);
+
+  --font-display: var(--font-archivo);
+  --font-body: var(--font-inter);
+  --font-sans: var(--font-inter);
 }
 
 html {
   scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden; /* the broken grid never bleeds the page sideways */
 }
 
-/* Rich text within the project description */
+/* ---- Display type ---------------------------------------------------- */
+/* Archivo carries a width axis; expand + tighten for that poster feel.    */
+.font-display {
+  font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+  font-variation-settings: "wght" 800, "wdth" 115;
+  letter-spacing: -0.02em;
+  line-height: 0.95;
+}
+.font-display-tight {
+  font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+  font-variation-settings: "wght" 700, "wdth" 100;
+  letter-spacing: -0.015em;
+}
+
+/* Fluid display scale */
+.text-display {
+  font-size: clamp(2.6rem, 7.4vw, 6.75rem);
+}
+.text-display-sm {
+  font-size: clamp(2.1rem, 5.6vw, 4.5rem);
+}
+.text-kicker {
+  font-size: clamp(0.68rem, 1.1vw, 0.8rem);
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+/* Big index numerals for the broken grid */
+.numeral {
+  font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+  font-variation-settings: "wght" 800, "wdth" 90;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.03em;
+}
+
+/* ---- Rich text (project story) -------------------------------------- */
 .prose p {
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.35rem;
   line-height: 1.8;
-  color: var(--pale-slate);
+  color: var(--ink-soft);
 }
 .prose p:last-child {
   margin-bottom: 0;
 }
 .prose strong {
-  color: var(--bright-snow);
+  color: var(--ink);
   font-weight: 600;
+}
+/* On dark surfaces */
+.prose-invert p {
+  color: var(--snow-dim);
+}
+.prose-invert strong {
+  color: var(--snow);
+}
+
+/* ---- Focus + selection ---------------------------------------------- */
+:where(a, button, [tabindex]):focus-visible {
+  outline: 2px solid var(--atlantic);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+.on-night :where(a, button):focus-visible {
+  outline-color: var(--atlantic-bright);
+}
+::selection {
+  background: var(--atlantic);
+  color: var(--snow);
+}
+
+/* ---- Scroll reveal --------------------------------------------------- */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, transform;
+}
+[data-reveal].is-in {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* ---- Buttons: non-standard "sweep fill" hover ---------------------- */
+/* A skewed colour panel wipes across the button on hover/focus while the
+   label stays put. Layout (padding, radius, flex) stays on Tailwind classes. */
+.btn {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  transition:
+    color 0.35s ease,
+    border-color 0.35s ease;
+}
+.btn::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  bottom: -2px;
+  left: -15%;
+  width: 130%;
+  z-index: -1;
+  transform: translateX(-118%) skewX(-12deg);
+  transition: transform 0.5s cubic-bezier(0.65, 0, 0.35, 1);
+}
+.btn:hover::before,
+.btn:focus-visible::before {
+  transform: translateX(0) skewX(-12deg);
+}
+@media (prefers-reduced-motion: reduce) {
+  .btn::before {
+    transition: transform 0.15s ease;
+  }
+}
+
+.btn-atlantic {
+  background: var(--atlantic);
+  color: var(--snow);
+}
+.btn-atlantic::before {
+  background: var(--ink);
+}
+
+.btn-ink {
+  background: var(--ink);
+  color: var(--paper);
+}
+.btn-ink::before {
+  background: var(--atlantic);
+}
+
+.btn-snow {
+  background: var(--snow);
+  color: var(--ink);
+}
+.btn-snow::before {
+  background: var(--atlantic);
+}
+.btn-snow:hover,
+.btn-snow:focus-visible {
+  color: var(--snow);
+}
+
+.btn-ghost-dark {
+  border: 1px solid rgba(244, 242, 236, 0.32);
+  color: var(--snow);
+}
+.btn-ghost-dark::before {
+  background: var(--snow);
+}
+.btn-ghost-dark:hover,
+.btn-ghost-dark:focus-visible {
+  color: var(--ink);
+  border-color: var(--snow);
+}
+
+.btn-ghost-light {
+  border: 1px solid var(--rule);
+  color: var(--ink);
+}
+.btn-ghost-light::before {
+  background: var(--ink);
+}
+.btn-ghost-light:hover,
+.btn-ghost-light:focus-visible {
+  color: var(--snow);
+  border-color: var(--ink);
+}
+
+/* ---- Certification seal --------------------------------------------- */
+@keyframes seal-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.seal-ring {
+  transform-origin: center;
+  animation: seal-spin 26s linear infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .seal-ring {
+    animation: none;
+  }
+}
+
+/* Hide horizontal scrollbars on the pinned route track */
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
 }

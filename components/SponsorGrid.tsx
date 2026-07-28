@@ -20,6 +20,10 @@ function CheckIcon(props: React.SVGProps<SVGSVGElement>) {
   );
 }
 
+/**
+ * Open sponsor slots. Each is a placeholder — TODO:CONTENT swap for real
+ * partner logos as they come on board. Clicking copies the contact email.
+ */
 export default function SponsorGrid({ email }: { email: string }) {
   const [copiedIndex, setCopiedIndex] = useState<number | null>(null);
 
@@ -27,7 +31,6 @@ export default function SponsorGrid({ email }: { email: string }) {
     try {
       await navigator.clipboard.writeText(email);
     } catch {
-      // Fallback for browsers without clipboard API / insecure contexts
       const el = document.createElement("textarea");
       el.value = email;
       el.style.position = "fixed";
@@ -53,14 +56,16 @@ export default function SponsorGrid({ email }: { email: string }) {
             key={i}
             type="button"
             onClick={() => handleCopy(i)}
+            data-cta="become-a-sponsor"
+            data-cta-location="sponsors"
             aria-label={`Become a sponsor — copy ${email} to clipboard`}
-            className="group flex min-h-52 flex-col items-center justify-center gap-4 rounded-2xl border border-dashed border-border bg-surface/40 p-8 text-center transition-colors hover:border-slate-grey hover:bg-surface/70 focus:outline-none focus-visible:border-slate-grey focus-visible:ring-2 focus-visible:ring-slate-grey"
+            className="group flex min-h-48 flex-col items-center justify-center gap-4 rounded-2xl border border-dashed border-rule bg-paper-dim/50 p-8 text-center transition-colors hover:border-atlantic hover:bg-paper-dim focus:outline-none"
           >
             <span
               className={`flex h-12 w-12 items-center justify-center rounded-full border transition-colors ${
                 copied
-                  ? "border-bright-snow text-bright-snow"
-                  : "border-border text-slate-grey group-hover:border-slate-grey group-hover:text-bright-snow"
+                  ? "border-atlantic bg-atlantic text-snow"
+                  : "border-rule text-ink-faint group-hover:border-atlantic group-hover:text-atlantic"
               }`}
             >
               {copied ? (
@@ -70,17 +75,15 @@ export default function SponsorGrid({ email }: { email: string }) {
               )}
             </span>
             <span
-              className={`text-sm font-medium transition-colors ${
-                copied
-                  ? "text-bright-snow"
-                  : "text-pale-slate-2 group-hover:text-bright-snow"
+              className={`text-sm font-semibold transition-colors ${
+                copied ? "text-atlantic" : "text-ink group-hover:text-atlantic"
               }`}
             >
-              {copied ? "Email copied!" : "Become a sponsor"}
+              {copied ? "Email copied" : "Your brand here"}
             </span>
             <span
               className={`text-xs transition-opacity ${
-                copied ? "text-slate-grey opacity-100" : "opacity-0"
+                copied ? "text-ink-faint opacity-100" : "opacity-0"
               }`}
             >
               {email}
