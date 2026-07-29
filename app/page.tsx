@@ -6,6 +6,7 @@ import SponsorGrid from "@/components/SponsorGrid";
 import StickyNav from "@/components/StickyNav";
 import MobileCtaBar from "@/components/MobileCtaBar";
 import CtaTracker from "@/components/CtaTracker";
+import BookingModal from "@/components/BookingModal";
 import Reveal from "@/components/Reveal";
 import CountUp from "@/components/CountUp";
 import CertBadge from "@/components/CertBadge";
@@ -84,6 +85,7 @@ export default function Home() {
       />
       <StickyNav />
       <CtaTracker />
+      <BookingModal />
       <MobileCtaBar />
 
       <main>
