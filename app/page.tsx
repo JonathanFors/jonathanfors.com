@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import Hero from "@/components/Hero";
 import RouteScroll from "@/components/RouteScroll";
 import SponsorGrid from "@/components/SponsorGrid";
@@ -416,14 +415,6 @@ export default function Home() {
                   Book a free intro call
                   <ArrowIcon className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </a>
-                <Link
-                  href={siteLinks.intake}
-                  data-cta="athlete-intake"
-                  data-cta-location="final"
-                  className="btn btn-ghost-dark inline-flex items-center justify-center gap-2 rounded-full px-8 py-4 text-sm font-semibold"
-                >
-                  Start the athlete intake
-                </Link>
               </div>
             </Reveal>
           </div>
@@ -457,12 +448,6 @@ export default function Home() {
                 >
                   Book a call
                 </a>
-                <Link
-                  href={siteLinks.intake}
-                  className="text-ink-soft transition-colors hover:text-atlantic"
-                >
-                  Athlete intake
-                </Link>
                 <a
                   href={`mailto:${siteLinks.email}`}
                   className="text-ink-soft transition-colors hover:text-atlantic"

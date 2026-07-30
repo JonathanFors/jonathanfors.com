@@ -3,6 +3,8 @@
 
 export const siteLinks = {
   booking: "https://meet.jonathanfors.com/discovery",
+  // The athlete-intake page is intentionally NOT linked anywhere on the site
+  // (noindex). Jonathan sends this URL manually to athletes he has spoken to.
   intake: "/athlete-intake",
   instagram: "https://www.instagram.com/jonathans.pov/",
   linkedin: "https://www.linkedin.com/in/jonathanfors/",
