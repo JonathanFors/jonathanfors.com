@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { clubNav, siteLinks } from "@/lib/site";
+import { lockBodyScroll } from "@/lib/scrollLock";
 import { CloseIcon, MenuIcon } from "@/components/icons";
 import SlashMark from "@/components/SlashMark";
 import Wordmark from "@/components/club/Wordmark";
@@ -40,10 +41,12 @@ export default function ClubNav() {
   useEffect(() => {
     if (!open) return;
     const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false);
-    document.body.style.overflow = "hidden";
+    // Shared, counted lock — the booking modal opens from inside this menu on
+    // mobile, so both hold it at once. See lib/scrollLock.
+    const releaseScroll = lockBodyScroll();
     window.addEventListener("keydown", onKey);
     return () => {
-      document.body.style.overflow = "";
+      releaseScroll();
       window.removeEventListener("keydown", onKey);
     };
   }, [open]);

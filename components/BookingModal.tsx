@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { CloseIcon } from "@/components/icons";
 import SlashMark from "@/components/SlashMark";
+import { lockBodyScroll } from "@/lib/scrollLock";
 
 const TIDYCAL_SRC = "https://asset-tidycal.b-cdn.net/js/embed.js";
 const TIDYCAL_PATH = "jonathanfors/discovery";
@@ -63,11 +64,14 @@ export default function BookingModal() {
   useEffect(() => {
     if (!open) return;
     const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false);
-    document.body.style.overflow = "hidden";
+    // Shared, counted lock. On mobile this modal is reached through the nav
+    // menu, so it opens while the menu still holds the lock — writing
+    // body.style.overflow directly here used to strand the page unscrollable.
+    const releaseScroll = lockBodyScroll();
     window.addEventListener("keydown", onKey);
     const focusTimer = window.setTimeout(() => closeBtnRef.current?.focus(), 50);
     return () => {
-      document.body.style.overflow = "";
+      releaseScroll();
       window.removeEventListener("keydown", onKey);
       window.clearTimeout(focusTimer);
       lastFocused.current?.focus?.();
@@ -79,8 +83,18 @@ export default function BookingModal() {
       role="dialog"
       aria-modal="true"
       aria-label="Book a free intro call"
-      className={`club club-on-ink fixed inset-0 z-[60] transition-opacity duration-300 ${
-        open ? "opacity-100" : "pointer-events-none opacity-0"
+      aria-hidden={!open}
+      /* `invisible` when closed, not just transparent + pointer-events-none.
+         This sheet stays mounted to keep the TidyCal iframe loaded, and both
+         transitions here promote it to its own compositing layer — a
+         full-viewport composited layer holding a cross-origin iframe is exactly
+         what iOS Safari fails to let touches through, pointer-events or not.
+         visibility:hidden takes the whole subtree out of hit-testing (and out
+         of the a11y tree). allow-discrete holds the flip to hidden until the
+         fade has finished, so the close animation survives; browsers without it
+         just lose the fade-out rather than breaking. */
+      className={`club club-on-ink fixed inset-0 z-[60] transition-[opacity,visibility] [transition-behavior:allow-discrete] duration-300 ${
+        open ? "visible opacity-100" : "invisible pointer-events-none opacity-0"
       }`}
     >
       {/* Full-screen sheet — no backdrop gap, no rounded corners */}
