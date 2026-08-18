@@ -1,8 +1,11 @@
-# Homepage copy — `/redesign`
+# Site copy — `/redesign` homepage + 404
 
 Every word on the page, in the order it appears. **Edit this file freely** — change
 the text in the right-hand column / quoted blocks, then tell me and I'll apply it to
 the code.
+
+Sections 0–10 are the redesigned homepage at `/redesign`. Section 11 is the 404
+page, which is live site-wide already — it's what any wrong URL shows.
 
 **How to read this**
 - `▸ Field` — a label naming the slot, so we both know which bit we mean.
@@ -321,13 +324,51 @@ The calendar itself is TidyCal — its wording is set in your TidyCal account.
 
 ---
 
+## 11 · 404 page
+
+Shown for any URL that doesn't exist — mistyped links, old addresses, anything
+removed. Unlike the rest of this file it's **already live across the whole site**,
+not just on `/redesign`.
+
+| ▸ Field | Current text |
+| --- | --- |
+| Browser tab title | Page not found — Jonathan Fors |
+| Top-right label | Error 404 |
+| Eyebrow | Page not found |
+
+> ▸ **Headline** — "off the map." is in red.
+> You've run **off the map.**
+
+> ▸ **Body**
+> This page isn't here — it may have moved, or the link that brought you may be wrong. Nothing's broken. Head back and start from the top.
+
+| ▸ Field | Current text |
+| --- | --- |
+| Button 1 (red) | Back to the homepage |
+| Button 2 (outline) | Book 1:1 call |
+| Footer copyright | © 2026 Jonathan Fors. All rights reserved. |
+| Footer links | Email · Instagram |
+
+The big outlined **404** is the section-index numeral treatment from the homepage,
+scaled up — it's decorative and hidden from screen readers, so the "Page not found"
+eyebrow is what actually gets read out.
+
+Two deliberate omissions: no nav bar (its links are in-page anchors that would
+land on nothing from a 404) and no newsletter signup (a dead end is the wrong
+place to ask for an email).
+
+---
+
 ## Notes
 
 - **The signup fields are ours now**, not a beehiiv embed — so the placeholder,
-  button label and confirmation line above are all editable copy. Submitting opens
-  the signup completes on the page — no redirect — and swaps in the success message.
-  Both are told apart in beehiiv by `utm_medium`: `group-coaching-waitlist` for the
-  waitlist, `newsletter` for Shuffle Club.
+  button label and confirmation line above are all editable copy. Submitting
+  completes the signup on the page — no redirect — and swaps in the success
+  message. The two forms are told apart in beehiiv by `utm_medium`:
+  `group-coaching-waitlist` for the waitlist, `newsletter` for Shuffle Club.
+  Verified working against the live beehiiv API on 18 Aug 2026. If beehiiv is
+  ever unreachable the form quietly falls back to the old magic link instead of
+  failing, so a signup is never lost.
 
 - **Photos** — there are three, all from the recent shoot. Each has alt text, which is
   what screen readers and search engines see:
