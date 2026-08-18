@@ -13,18 +13,84 @@ export const siteLinks = {
 } as const;
 
 export const facts = {
-  routeKm: 900, // ~900 km — coastline of Portugal
+  routeKm: 900, // ~900 km — the planned route. Only the live page still uses this.
   previousKm: 480, // reached ~480 km on the first attempt
   startDate: "1 August 2026",
   startDateISO: "2026-08-01",
   cause: "men's mental health",
   certification: "UESCA-certified",
+
+  // The run as it actually happened — completed 10 August 2026. The redesign
+  // treats Portugal as social proof, not an upcoming project.
+  ranKm: 744, // exactly 744 km
+  ranDays: 10,
+  ranDates: "1–10 August 2026",
+
+  instagramHandle: "@jonathans.pov",
+  instagramFollowers: "11.1k",
 } as const;
+
+/**
+ * beehiiv "magic link" — a GET endpoint that subscribes the address in `email`.
+ * Used as a plain form action so the signup field can be built natively instead
+ * of iframed, which is what the embed forced.
+ *
+ * Both forms share the link; `utm_medium` is what tells them apart in beehiiv.
+ */
+export const beehiivMagicLink =
+  "https://magic.beehiiv.com/v1/7acd9c66-dec5-40ec-990a-bfd12f0e29e0";
+
+/** The `utm_medium` value each signup form reports. */
+export const subscribeSource = {
+  newsletter: "newsletter",
+  groupWaitlist: "group-coaching-waitlist",
+} as const;
+
+// 1:1 coaching — the main offer.
+export const oneToOne = {
+  price: "€200",
+  period: "/mo",
+  includes: [
+    "24/7 access to me on WhatsApp",
+    "A weekly 1:1 call",
+    "No template workouts — every session written for you",
+    "Extra calls whenever you need them",
+    "No minimum period. Cancel anytime",
+  ],
+} as const;
+
+// Group coaching — not launched yet.
+export const groupCoaching = {
+  freeSpots: 5,
+  price: "€50",
+  period: "/mo",
+  beehiivFormId: "e13cc671-c933-430e-be05-8e185c4ee9d2", // waitlist
+} as const;
+
+// Newsletter — three editions a week, free.
+export const shuffleClub = {
+  name: "Shuffle Club",
+  beehiivFormId: "5d6e4078-8f3a-49cc-9ce5-fc272223ffbd",
+  editions: [
+    ["Tuesday", "The science", "What the research actually says."],
+    ["Friday", "My take", "The same subject from the road, in my own words."],
+    ["Sunday", "Your questions", "Reader questions, answered."],
+  ],
+} as const;
+
+// Anchor targets for the redesigned (club) page. Separate from `nav` below,
+// which the current live page still needs — its sections haven't moved yet.
+export const clubNav = [
+  { label: "Approach", href: "#approach" },
+  { label: "How it works", href: "#coaching" },
+  { label: "Coaching", href: "#coaching-options" },
+  { label: "Newsletter", href: "#newsletter" },
+] as const;
 
 // Anchor targets used by the nav + in-page links.
 export const nav = [
   { label: "Approach", href: "#approach" },
-  { label: "Coaching", href: "#coaching" },
+  { label: "How it works", href: "#coaching" },
   { label: "Portugal 2026", href: "#portugal" },
   { label: "Sponsors", href: "#sponsors" },
 ] as const;

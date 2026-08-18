@@ -1,20 +1,23 @@
 import type { Metadata } from "next";
-import { Archivo, Inter } from "next/font/google";
+import { Roboto, Roboto_Condensed } from "next/font/google";
 import "./globals.css";
 
-// Bold grotesque display face — carries a width axis for the poster headlines.
-const archivo = Archivo({
+// Titles, eyebrows, labels, buttons, numerals — anything short and declarative.
+// Loaded as the variable font with italics: the club design language needs the
+// heaviest weight (900) in italic to match the logo's slanted condensed caps.
+const robotoCondensed = Roboto_Condensed({
   subsets: ["latin"],
-  variable: "--font-archivo",
+  variable: "--font-roboto-condensed",
   display: "swap",
-  axes: ["wdth"],
+  style: ["normal", "italic"],
 });
 
-// Clean, highly legible body face.
-const inter = Inter({
+// Paragraphs and anything meant to be read at length.
+const roboto = Roboto({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-roboto",
   display: "swap",
+  weight: ["300", "400", "500", "700"],
 });
 
 const description =
@@ -75,7 +78,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${archivo.variable} ${inter.variable} h-full antialiased`}
+      className={`${robotoCondensed.variable} ${roboto.variable} h-full antialiased`}
     >
       <body className="min-h-full bg-paper text-ink">
         <noscript>

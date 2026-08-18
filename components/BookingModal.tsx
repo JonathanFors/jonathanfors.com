@@ -2,16 +2,18 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { CloseIcon } from "@/components/icons";
+import SlashMark from "@/components/SlashMark";
 
 const TIDYCAL_SRC = "https://asset-tidycal.b-cdn.net/js/embed.js";
 const TIDYCAL_PATH = "jonathanfors/discovery";
 
 /**
- * Global booking popup. Instead of wiring every CTA, this listens for clicks
- * on any `[data-cta="book-intro-call"]` element, cancels the navigation, and
- * opens a modal that lazy-loads the TidyCal embed on first open. The triggers
- * keep their href, so modified/middle clicks and no-JS still reach the booking
- * page in a new tab.
+ * Global booking popup, in the club language: full-screen black sheet, hard
+ * corners, red rules. Instead of wiring every CTA, this listens for clicks on
+ * any `[data-cta="book-intro-call"]` element, cancels the navigation, and opens
+ * the dialog, lazy-loading the TidyCal embed on first open. The triggers keep
+ * their href, so modified/middle clicks and no-JS still reach the booking page
+ * in a new tab.
  */
 export default function BookingModal() {
   const [open, setOpen] = useState(false);
@@ -77,51 +79,55 @@ export default function BookingModal() {
       role="dialog"
       aria-modal="true"
       aria-label="Book a free intro call"
-      className={`fixed inset-0 z-[60] flex items-center justify-center p-4 transition-opacity duration-300 sm:p-6 ${
+      className={`club club-on-ink fixed inset-0 z-[60] transition-opacity duration-300 ${
         open ? "opacity-100" : "pointer-events-none opacity-0"
       }`}
     >
-      {/* Backdrop */}
-      <button
-        type="button"
-        aria-label="Close booking dialog"
-        tabIndex={open ? 0 : -1}
-        onClick={() => setOpen(false)}
-        className="absolute inset-0 cursor-default bg-night/70 backdrop-blur-sm"
-      />
-
-      {/* Panel */}
+      {/* Full-screen sheet — no backdrop gap, no rounded corners */}
       <div
-        className={`relative z-10 flex max-h-[90vh] w-full max-w-3xl flex-col overflow-hidden rounded-2xl border border-rule bg-paper shadow-2xl transition-[transform,opacity] duration-300 ease-out ${
-          open ? "translate-y-0 scale-100 opacity-100" : "translate-y-2 scale-95 opacity-0"
+        className={`flex h-full w-full flex-col bg-ink transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+          open ? "translate-y-0" : "translate-y-4"
         }`}
       >
-        <div className="flex shrink-0 items-center justify-between gap-4 border-b border-rule px-5 py-4">
-          <div>
-            <p className="text-kicker text-ink-faint">Free · 30 minutes</p>
-            <h2 className="mt-1 font-display-tight text-xl text-ink">
-              Book an intro call
-            </h2>
+        {/* Header bar, mirroring the site nav */}
+        <div className="flex shrink-0 items-stretch border-b-2 border-red">
+          <div className="flex flex-1 items-center gap-4 px-5 py-4 sm:px-8 sm:py-5">
+            <SlashMark className="h-6 w-[1.65rem] shrink-0 text-red" />
+            <div>
+              <p className="club-label text-red-bright">Free · 30 minutes</p>
+              <h2 className="font-club mt-1.5 text-2xl text-snow sm:text-3xl">
+                Book an intro call
+              </h2>
+            </div>
           </div>
           <button
             ref={closeBtnRef}
             type="button"
             onClick={() => setOpen(false)}
             aria-label="Close"
-            className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-rule text-ink-soft transition-colors hover:border-atlantic hover:text-atlantic"
+            className="club-label inline-flex shrink-0 items-center gap-2.5 border-l-2 border-red/30 px-5 text-snow transition-colors duration-200 hover:bg-red hover:text-ink sm:px-8"
           >
             <CloseIcon className="h-5 w-5" />
+            <span className="hidden sm:inline">Close</span>
           </button>
         </div>
 
-        <div className="min-h-0 flex-1 overflow-y-auto px-3 py-4 sm:px-5">
-          <div className="relative min-h-[560px]">
-            {/* Fallback text sits behind; the TidyCal iframe covers it once loaded */}
-            <p className="absolute inset-0 -z-10 flex items-center justify-center text-sm text-ink-faint">
-              Loading the calendar…
-            </p>
-            {/* React keeps this empty; TidyCal injects the calendar here */}
-            <div ref={embedRef} />
+        {/* Calendar — the embed brings its own light styling, so it sits on a
+            paper sheet rather than straight on the black.
+            TidyCal sizes its own iframe to its content and expects the page to
+            scroll. Forcing the iframe to the sheet height just cropped it, so
+            the iframe keeps its natural height and this panel scrolls instead.
+            `overscroll-contain` stops the scroll chaining to the page behind. */}
+        <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain bg-paper">
+          <div className="mx-auto w-full max-w-5xl px-3 py-5 sm:px-6 sm:py-8">
+            <div className="relative min-h-[32rem] [&_iframe]:!w-full">
+              {/* Fallback sits behind; the TidyCal iframe covers it once loaded */}
+              <p className="club-label absolute inset-0 -z-10 flex items-center justify-center text-ink-faint">
+                Loading the calendar…
+              </p>
+              {/* React keeps this empty; TidyCal injects the calendar here */}
+              <div ref={embedRef} />
+            </div>
           </div>
         </div>
       </div>

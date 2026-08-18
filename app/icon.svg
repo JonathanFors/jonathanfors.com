@@ -1,9 +1,9 @@
 <svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-  <rect x="4" y="4" width="92" height="92" rx="23" fill="#141210"/>
-  <!-- Topographic contours + summit -->
-  <g transform="rotate(-14 50 50)" fill="none" stroke="#39b6c8" stroke-width="5">
-    <rect x="20" y="26" width="60" height="48" rx="24"/>
-    <rect x="32" y="37" width="36" height="26" rx="13"/>
+  <!-- The slash mark from the logo: three leaning bars, red on black. -->
+  <rect width="100" height="100" fill="#000000"/>
+  <g fill="#e83737">
+    <path d="M27 18h13L27 82H14z"/>
+    <path d="M48 18h13L48 82H35z"/>
+    <path d="M69 18h13L69 82H56z"/>
   </g>
-  <circle cx="50" cy="50" r="5.5" fill="#39b6c8"/>
 </svg>

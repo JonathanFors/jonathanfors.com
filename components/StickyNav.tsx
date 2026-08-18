@@ -55,8 +55,6 @@ export default function StickyNav() {
     };
   }, [open]);
 
-  const light = !solid && !open; // light treatment over the dark hero
-
   return (
     // Wrapper handles the surrounding space + the smooth slide.
     <div
@@ -65,10 +63,8 @@ export default function StickyNav() {
       }`}
     >
       <header
-        className={`mx-auto flex h-14 w-full max-w-[1180px] items-center justify-between gap-4 rounded-full border pl-4 pr-2 shadow-lg transition-colors duration-300 sm:h-16 sm:pl-6 sm:pr-3 ${
-          light
-            ? "border-white/15 bg-night/40 text-snow shadow-black/20 backdrop-blur-md"
-            : "border-rule bg-paper/85 text-ink shadow-black/5 backdrop-blur-md"
+        className={`mx-auto flex h-14 w-full max-w-[1180px] items-center justify-between gap-4 rounded-full border border-rule pl-4 pr-2 text-ink shadow-lg shadow-black/5 backdrop-blur-md transition-colors duration-300 sm:h-16 sm:pl-6 sm:pr-3 ${
+          solid ? "bg-paper/90" : "bg-paper/50"
         }`}
       >
         <nav
@@ -86,11 +82,7 @@ export default function StickyNav() {
               <span className="font-display-tight text-[0.95rem] tracking-tight sm:text-base">
                 Jonathan Fors
               </span>
-              <span
-                className={`mt-0.5 text-[0.56rem] font-semibold uppercase tracking-[0.24em] transition-colors ${
-                  light ? "text-snow/55" : "text-ink-faint"
-                }`}
-              >
+              <span className="mt-0.5 text-[0.56rem] font-semibold uppercase tracking-[0.24em] text-ink-faint">
                 Ultra Coach
               </span>
             </span>
@@ -102,11 +94,7 @@ export default function StickyNav() {
               <li key={item.href}>
                 <a
                   href={item.href}
-                  className={`relative py-1 text-sm font-medium transition-colors after:absolute after:inset-x-0 after:-bottom-0.5 after:h-[2px] after:origin-left after:scale-x-0 after:bg-atlantic-bright after:transition-transform after:duration-300 after:ease-out hover:after:scale-x-100 ${
-                    light
-                      ? "text-snow/80 hover:text-snow"
-                      : "text-ink-soft hover:text-ink"
-                  }`}
+                  className="relative py-1 text-sm font-medium text-ink-soft transition-colors after:absolute after:inset-x-0 after:-bottom-0.5 after:h-[2px] after:origin-left after:scale-x-0 after:bg-atlantic-bright after:transition-transform after:duration-300 after:ease-out hover:text-ink hover:after:scale-x-100"
                 >
                   {item.label}
                 </a>
@@ -122,9 +110,7 @@ export default function StickyNav() {
           rel="noopener noreferrer"
           data-cta="book-intro-call"
           data-cta-location="nav"
-          className={`btn group hidden items-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold sm:inline-flex ${
-            light ? "btn-snow" : "btn-atlantic"
-          }`}
+          className="btn btn-atlantic group hidden items-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold sm:inline-flex"
         >
           Book an intro call
           <ArrowIcon className="h-4 w-4 transition-transform group-hover:translate-x-1" />

@@ -1,29 +1,37 @@
 @import "tailwindcss";
 
 /*
-  Design language — "modern editorial brutalism, endurance grade"
-  Warm off-white paper canvas · near-black ink · one decisive Atlantic accent.
-  Full-bleed photographic sections run dark (--night) with snow-white type.
+  Design language — rebuilding on the new brand system (see the style guide):
+  ink / paper / red as the three fixed checkpoints, extended for fills and
+  states. Atlantic + night/snow are the *previous* system — left in place
+  below because sections not yet migrated still depend on them; remove once
+  the whole page has moved onto ink/paper/red.
 */
 
 :root {
-  /* Paper (light canvas) */
-  --paper: #f2eee4; /* warm off-white */
-  --paper-dim: #e7e1d3; /* alt band / card fill */
-  --paper-edge: #ddd6c4; /* deeper paper for chips */
+  /* Paper (light canvas) — CP.02 + extended */
+  --paper: #f8f1e8; /* warm off-white */
+  --paper-dim: #efe1cb; /* alt band / card fill */
+  --paper-edge: #e3d2b4; /* deeper paper for chips */
 
-  /* Ink (near-black) */
-  --ink: #17140f; /* primary text on paper */
-  --ink-soft: #4a463c; /* body copy on paper */
+  /* Ink (near-black) — CP.01 + extended */
+  --ink: #000000; /* primary text on paper, dark full-bleed surfaces */
+  --ink-soft: #201d18; /* body copy on paper */
   --ink-faint: #7c766a; /* eyebrows, captions, meta */
-  --rule: #cfc7b6; /* hairline rules on paper */
+  --rule: #ded0b8; /* hairline rules on paper */
 
-  /* Atlantic accent */
+  /* Red — CP.03, the one accent, + extended */
+  --red: #e83737; /* headlines, tags, numerals, UI fills — not small text */
+  --red-deep: #b72b2b; /* hover / pressed state only */
+  --red-tint: #f6dfdb; /* pale wash behind tags + small callouts */
+  --red-bright: #ff5c48; /* red on ink surfaces — CP.03 red loses contrast on black */
+
+  /* Atlantic accent — previous system, still used by unmigrated sections */
   --atlantic: #0d5765; /* accent on paper (AA) */
   --atlantic-deep: #063039; /* darkest */
   --atlantic-bright: #3aa9bd; /* accent on dark surfaces */
 
-  /* Night (dark photographic sections) */
+  /* Night (dark photographic sections) — previous system */
   --night: #0f1211;
   --night-2: #171b1a;
   --snow: #f4f2ec; /* text on night */
@@ -48,6 +56,11 @@
   --color-ink-faint: var(--ink-faint);
   --color-rule: var(--rule);
 
+  --color-red: var(--red);
+  --color-red-deep: var(--red-deep);
+  --color-red-tint: var(--red-tint);
+  --color-red-bright: var(--red-bright);
+
   --color-atlantic: var(--atlantic);
   --color-atlantic-deep: var(--atlantic-deep);
   --color-atlantic-bright: var(--atlantic-bright);
@@ -58,9 +71,9 @@
   --color-snow-dim: var(--snow-dim);
   --color-night-rule: var(--night-rule);
 
-  --font-display: var(--font-archivo);
-  --font-body: var(--font-inter);
-  --font-sans: var(--font-inter);
+  --font-display: var(--font-roboto-condensed);
+  --font-body: var(--font-roboto);
+  --font-sans: var(--font-roboto);
 }
 
 html {
@@ -84,17 +97,17 @@ body {
 }
 
 /* ---- Display type ---------------------------------------------------- */
-/* Archivo carries a width axis; expand + tighten for that poster feel.    */
+/* Roboto Condensed is condensed by construction — only a weight axis to set. */
 .font-display {
   font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
-  font-variation-settings: "wght" 800, "wdth" 115;
-  letter-spacing: -0.02em;
-  line-height: 0.95;
+  font-variation-settings: "wght" 800;
+  letter-spacing: -0.01em;
+  line-height: 0.98;
 }
 .font-display-tight {
   font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
-  font-variation-settings: "wght" 700, "wdth" 100;
-  letter-spacing: -0.015em;
+  font-variation-settings: "wght" 700;
+  letter-spacing: -0.005em;
 }
 
 /* Fluid display scale */
@@ -105,16 +118,36 @@ body {
   font-size: clamp(2.1rem, 5.6vw, 4.5rem);
 }
 .text-kicker {
+  font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
   font-size: clamp(0.68rem, 1.1vw, 0.8rem);
   letter-spacing: 0.34em;
   text-transform: uppercase;
-  font-weight: 600;
+  font-weight: 700;
+}
+
+/* ---- New-system labels — exact to the style guide's type scale --------
+   .text-kicker above is the *old* system's much-wider-tracked label,
+   still used by sections that haven't been redesigned yet. Everything
+   built against the new ink/paper/red system should use these instead. */
+.eyebrow {
+  font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+.btn-label {
+  font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-weight: 700;
 }
 
 /* Big index numerals for the broken grid */
 .numeral {
   font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
-  font-variation-settings: "wght" 800, "wdth" 90;
+  font-variation-settings: "wght" 800;
   font-variant-numeric: tabular-nums;
   letter-spacing: -0.03em;
 }
@@ -224,6 +257,37 @@ body {
   background: var(--atlantic);
 }
 
+/* Primary CTA on the new system: red fill, black label (5:1) — sweeps to
+   red-deep on hover, label flips to paper to hold contrast (5.5:1). */
+.btn-red {
+  background: var(--red);
+  color: var(--ink);
+}
+.btn-red::before {
+  background: var(--red-deep);
+}
+.btn-red:hover,
+.btn-red:focus-visible {
+  color: var(--paper);
+}
+
+/* Secondary CTA on the new system: ink outline, sweeps to a filled ink
+   button on hover. Border is full ink, not the faint --rule hairline the
+   old .btn-ghost-light uses — the style guide's secondary button reads
+   more structured than a quiet ghost button. */
+.btn-ink-outline {
+  background: transparent;
+  color: var(--ink);
+  border-color: var(--ink);
+}
+.btn-ink-outline::before {
+  background: var(--ink);
+}
+.btn-ink-outline:hover,
+.btn-ink-outline:focus-visible {
+  color: var(--paper);
+}
+
 .btn-snow {
   background: var(--snow);
   color: var(--ink);
@@ -285,4 +349,339 @@ body {
 }
 .no-scrollbar::-webkit-scrollbar {
   display: none;
+}
+
+/* ---- Hero: achievements marquee -------------------------------------- */
+@keyframes marquee-scroll {
+  to {
+    transform: translateX(-50%);
+  }
+}
+.marquee-track {
+  animation: marquee-scroll 32s linear infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
+}
+
+/* ======================================================================
+   CLUB SYSTEM — the sport-specific design language, taken straight off the
+   logo: heavy condensed italic caps, black / red / paper only, hard corners,
+   and the logo's leaning slash bars reused as rules, tickers and panel edges.
+   Everything here is prefixed `club-` (or is a `.font-club*` type class) so it
+   can live alongside the editorial system while sections migrate over.
+   ====================================================================== */
+
+:root {
+  /* The logo's slant. One angle, used by every skewed element on the page. */
+  --slant: 13deg;
+  /* Depth of the diagonal corner cut on club panels. */
+  --club-cut: 1.75rem;
+}
+
+/* ---- Club display type ----------------------------------------------- */
+/* Roboto Condensed 900 italic — the closest match to the logo lettering. */
+.font-club {
+  font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+  font-weight: 900;
+  font-style: italic;
+  text-transform: uppercase;
+  letter-spacing: -0.015em;
+  line-height: 0.84;
+}
+/* Same face, upright — for panel headings that shouldn't shout. */
+.font-club-upright {
+  font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.005em;
+  line-height: 0.95;
+}
+
+.text-club-xl {
+  font-size: clamp(3.1rem, 11.5vw, 10rem);
+}
+.text-club-lg {
+  font-size: clamp(2.5rem, 7.2vw, 5.75rem);
+}
+.text-club-md {
+  font-size: clamp(1.6rem, 3.4vw, 2.75rem);
+}
+.text-club-sm {
+  font-size: clamp(1.15rem, 1.9vw, 1.5rem);
+}
+
+/* Index numerals — 01 / 02 / 03. Italic, tabular, tight. */
+.club-numeral {
+  font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+  font-weight: 900;
+  font-style: italic;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.04em;
+  line-height: 0.8;
+}
+
+/* Hollow type — a stroked outline instead of a fill, for layered numerals.
+   Only the *fill* is cleared, so `color` still drives the stroke via
+   currentColor (clearing `color` itself would make currentColor transparent
+   and the outline would vanish with it). */
+.club-hollow {
+  -webkit-text-stroke: 2px currentColor;
+  -webkit-text-fill-color: transparent;
+  /* The stroke is drawn on each glyph's own outline, so the tight tracking
+     inherited from .club-numeral makes neighbouring glyphs cut through each
+     other. Open it back up — only outlined numerals need this. */
+  letter-spacing: 0.06em;
+  padding-inline-end: 0.06em;
+}
+
+/* Small caps label — the tagline voice from the logo. */
+.club-label {
+  font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+/* ---- The slash motif -------------------------------------------------
+   Leaning bars, drawn as a repeating gradient in `currentColor`. The gradient
+   axis is 90deg + the slant so the bars lean the same way the italic does. */
+.club-slashes {
+  background-image: repeating-linear-gradient(
+    103deg,
+    currentColor 0 var(--bar, 7px),
+    transparent var(--bar, 7px) var(--gap, 16px)
+  );
+}
+
+/* Red highlight tape behind a word — skewed block, black text on top.
+   Held on one line: the tape is a single skewed box, so a phrase that wrapped
+   would leave the block slashing across both lines. Keep taped phrases short. */
+.club-tape {
+  position: relative;
+  isolation: isolate;
+  display: inline-block;
+  white-space: nowrap;
+  color: var(--ink);
+  padding-inline: 0.3em 0.1em;
+}
+.club-tape::before {
+  content: "";
+  position: absolute;
+  inset: 0.06em -0.05em 0.1em;
+  z-index: -1;
+  background: var(--red);
+  transform: skewX(calc(var(--slant) * -1));
+}
+
+/* ---- Club panels ----------------------------------------------------- */
+/* Hard-cornered panel with one corner sliced off on the logo's diagonal. */
+.club-cut-br {
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% calc(100% - var(--club-cut)),
+    calc(100% - var(--club-cut)) 100%,
+    0 100%
+  );
+}
+.club-cut-tl {
+  clip-path: polygon(
+    var(--club-cut) 0,
+    100% 0,
+    100% 100%,
+    0 100%,
+    0 var(--club-cut)
+  );
+}
+
+/* Full-bleed band sliced top and bottom on the diagonal. Sits over its
+   neighbours, so give it a negative margin where it's used. */
+.club-band {
+  clip-path: polygon(0 var(--club-cut), 100% 0, 100% 100%, 0 calc(100% - var(--club-cut)));
+}
+
+/* ---- Club buttons ---------------------------------------------------- */
+/* Skewed parallelogram; the label counter-skews so text stays upright. */
+.btn-club {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  transform: skewX(calc(var(--slant) * -1));
+  border-radius: 0;
+  transition:
+    color 0.3s ease,
+    background-color 0.3s ease,
+    border-color 0.3s ease;
+}
+.btn-club > * {
+  transform: skewX(var(--slant));
+}
+.btn-club::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  transform: translateX(-101%);
+  transition: transform 0.45s cubic-bezier(0.65, 0, 0.35, 1);
+}
+.btn-club:hover::before,
+.btn-club:focus-visible::before {
+  transform: translateX(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  .btn-club::before {
+    transition: transform 0.15s ease;
+  }
+}
+
+/* Primary: red block, black label (5:1). Sweeps to black, label to paper. */
+.btn-club-red {
+  background: var(--red);
+  color: var(--ink);
+}
+.btn-club-red::before {
+  background: var(--ink);
+}
+.btn-club-red:hover,
+.btn-club-red:focus-visible {
+  color: var(--paper);
+}
+
+/* Ink block — used on red surfaces, where a red button would disappear. */
+.btn-club-ink {
+  background: var(--ink);
+  color: var(--paper);
+}
+.btn-club-ink::before {
+  background: var(--paper);
+}
+.btn-club-ink:hover,
+.btn-club-ink:focus-visible {
+  color: var(--ink);
+}
+
+/* Secondary on black: paper outline, sweeps to a solid paper fill. */
+.btn-club-outline-light {
+  border: 2px solid rgba(244, 242, 236, 0.5);
+  color: var(--snow);
+}
+.btn-club-outline-light::before {
+  background: var(--snow);
+}
+.btn-club-outline-light:hover,
+.btn-club-outline-light:focus-visible {
+  color: var(--ink);
+  border-color: var(--snow);
+}
+
+/* Secondary on paper: ink outline, sweeps to a solid ink fill. */
+.btn-club-outline-dark {
+  border: 2px solid var(--ink);
+  color: var(--ink);
+}
+.btn-club-outline-dark::before {
+  background: var(--ink);
+}
+.btn-club-outline-dark:hover,
+.btn-club-outline-dark:focus-visible {
+  color: var(--paper);
+}
+
+/* ---- Club focus ring -------------------------------------------------- */
+.club :where(a, button, [tabindex]):focus-visible {
+  outline: 3px solid var(--red);
+  outline-offset: 2px;
+  border-radius: 0;
+}
+.club-on-ink :where(a, button, [tabindex]):focus-visible {
+  outline-color: var(--red-bright);
+}
+
+/* ---- Club ticker ------------------------------------------------------ */
+.club-ticker-track {
+  animation: marquee-scroll 38s linear infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .club-ticker-track {
+    animation: none;
+  }
+}
+
+/* ---- Programme rows: red wipe on hover -------------------------------- */
+.club-row {
+  position: relative;
+  isolation: isolate;
+  transition: color 0.3s ease;
+}
+.club-row::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--red);
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.club-row:hover::before,
+.club-row:focus-within::before {
+  transform: scaleY(1);
+}
+@media (prefers-reduced-motion: reduce) {
+  .club-row::before {
+    transition: transform 0.15s ease;
+  }
+}
+
+/* ---- Hero: background icon grid --------------------------------------
+   Desktop (real cursor): the layer sits at a fixed low opacity and a
+   pointer-driven mask (--hero-mx/--hero-my, set from Hero.tsx) reveals it
+   in a soft radius around the cursor. Touch: the mask is dropped and each
+   icon ambiently glows in and out on its own loop instead. ---------------- */
+.hero-icon-layer {
+  -webkit-mask-image: radial-gradient(
+    circle at var(--hero-mx, -50%) var(--hero-my, -50%),
+    black 0,
+    black 130px,
+    transparent 360px
+  );
+  mask-image: radial-gradient(
+    circle at var(--hero-mx, -50%) var(--hero-my, -50%),
+    black 0,
+    black 130px,
+    transparent 360px
+  );
+}
+.hero-icon {
+  opacity: 0.4;
+}
+@keyframes hero-icon-glow {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.22;
+  }
+}
+@media (hover: none), (pointer: coarse) {
+  .hero-icon-layer {
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+  .hero-icon {
+    opacity: 0;
+    animation: hero-icon-glow var(--dur, 7s) ease-in-out infinite;
+    animation-delay: var(--delay, 0s);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-icon {
+    animation: none !important;
+    opacity: 0.05 !important;
+  }
 }
