@@ -1,11 +1,15 @@
-# Site copy — `/redesign` homepage + 404
+# Site copy — homepage + 404
 
 Every word on the page, in the order it appears. **Edit this file freely** — change
 the text in the right-hand column / quoted blocks, then tell me and I'll apply it to
 the code.
 
-Sections 0–10 are the redesigned homepage at `/redesign`. Section 11 is the 404
-page, which is live site-wide already — it's what any wrong URL shows.
+Sections 0–10 are the homepage at `jonathanfors.com`. Section 11 is the 404 page,
+shown for any URL that doesn't exist. Both are live.
+
+The homepage used to live at `/redesign` while it was being built. That route is
+gone — this copy went live as the homepage on 18 Aug 2026, replacing the previous
+editorial page.
 
 **How to read this**
 - `▸ Field` — a label naming the slot, so we both know which bit we mean.

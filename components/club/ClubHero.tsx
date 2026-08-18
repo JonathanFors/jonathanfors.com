@@ -51,8 +51,13 @@ export default function ClubHero() {
             <span className="block text-club-xl">Train for</span>
             <span className="block text-club-xl">the ultra.</span>
             {/* Sized below text-club-lg: the tape can't wrap, so this line has
-                to fit the narrowest viewport on one line. */}
-            <span className="mt-3 block text-[clamp(1.95rem,6.6vw,5.75rem)] sm:mt-4">
+                to fit the narrowest viewport on one line.
+                The leading override is what makes the tape hold the whole word:
+                .club-tape draws the red block to its inline box, and the display
+                line-height of 0.84 makes that box shorter than the glyphs, so
+                the caps and tails fell outside the red — invisible, being ink on
+                ink. 1.15 is the threshold; 1.2 leaves a margin. */}
+            <span className="mt-3 block text-[clamp(1.95rem,6.6vw,5.75rem)] leading-[1.2] sm:mt-4">
               <span className="club-tape">Keep your life.</span>
             </span>
           </h1>
