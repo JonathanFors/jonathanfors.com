@@ -374,16 +374,19 @@ place to ask for an email).
   ever unreachable the form quietly falls back to the old magic link instead of
   failing, so a signup is never lost.
 
-- **Photos** — there are three, all from the recent shoot. Each has alt text, which is
-  what screen readers and search engines see:
+- **Photos** — there are three, all shot on the Portugal run. Each has alt text, which
+  is what screen readers and search engines see:
 
-  | ▸ Where | ▸ Alt text |
-  | --- | --- |
-  | Hero | Jonathan Fors in a running top and visor, smiling, on a sunlit coastal trail. |
-  | The approach | Jonathan Fors running up a sandy trail between low cliffs. |
-  | Portugal band | Jonathan Fors running a sandy coastal trail. |
+  | ▸ Where | ▸ Alt text | ▸ File |
+  | --- | --- | --- |
+  | Hero | Jonathan Fors running towards the camera along a coastal road, a lighthouse and his support truck behind him. | `2X6A5151` |
+  | The approach | Jonathan Fors standing on a coastal path above a beach, the Atlantic behind him. | `2X6A5137` |
+  | Portugal band | Jonathan Fors running a coastal path with the Atlantic behind him. | `2X6A5141` |
 
-  Tell me if any of these describe the wrong thing.
+  Tell me if any of these describe the wrong thing. The source files live in
+  `0. Coaching/Photos/`; the site copies are rotated upright, stripped of camera
+  metadata and re-compressed, so swapping one means re-exporting rather than just
+  dropping a new file in.
 - **Voice check** before you rewrite anything: direct, grounded, understated. No hype,
   no exclamation marks, no "unlock your potential".
 - **Prices and dates** are held in one file (`lib/site.ts`) so they can never disagree

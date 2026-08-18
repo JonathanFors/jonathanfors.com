@@ -91,10 +91,10 @@ export default function ClubApproach() {
             <figure className="club-cut-tl relative aspect-[4/3] overflow-hidden bg-paper-dim sm:aspect-[16/10] lg:aspect-[3/4]">
               <Image
                 src="/images/coach-trail.jpg"
-                alt="Jonathan Fors running up a sandy trail between low cliffs."
+                alt="Jonathan Fors standing on a coastal path above a beach, the Atlantic behind him."
                 fill
                 sizes="(min-width: 1024px) 40vw, 100vw"
-                className="object-cover object-[50%_45%]"
+                className="object-cover object-[52%_62%]"
               />
             </figure>
           </Reveal>

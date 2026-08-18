@@ -101,11 +101,11 @@ export default function ClubHero() {
               <div className="club-cut-br relative aspect-[4/5] overflow-hidden bg-night-2 lg:aspect-[3/4]">
                 <Image
                   src="/images/coach-hero.jpg"
-                  alt="Jonathan Fors in a running top and visor, smiling, on a sunlit coastal trail."
+                  alt="Jonathan Fors running towards the camera along a coastal road, a lighthouse and his support truck behind him."
                   fill
                   priority
                   sizes="(min-width: 1024px) 32vw, 100vw"
-                  className="object-cover object-[55%_42%]"
+                  className="object-cover object-[62%_52%]"
                 />
               </div>
               {/* Bib plate over the bottom-left corner */}

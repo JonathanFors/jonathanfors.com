@@ -16,10 +16,10 @@ export default function ClubProofBand() {
     >
       <Image
         src="/images/run-coast.jpg"
-        alt="Jonathan Fors running a sandy coastal trail."
+        alt="Jonathan Fors running a coastal path with the Atlantic behind him."
         fill
         sizes="100vw"
-        className="object-cover object-[55%_55%]"
+        className="object-cover object-[42%_58%]"
       />
       {/* Scrim: heavy enough for text on the left, opens up to the photo right */}
       <div className="absolute inset-0 bg-ink/40" />
