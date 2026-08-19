@@ -64,6 +64,14 @@ export const groupCoaching = {
   freeSpots: 5,
   price: "€50",
   period: "/mo",
+  /** Launches end of September 2026. */
+  launch: "end of September",
+  /**
+   * The free places are drawn at random from the waitlist — deliberately not
+   * given to the first five to sign up, so signing up early is no advantage.
+   * Any copy about them has to avoid implying a race.
+   */
+  freeSpotsAreRandom: true,
   beehiivFormId: "e13cc671-c933-430e-be05-8e185c4ee9d2", // waitlist
 } as const;
 

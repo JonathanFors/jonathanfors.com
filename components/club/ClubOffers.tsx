@@ -59,7 +59,7 @@ export default function ClubOffers() {
               <SlashMark className="h-4 w-[1.1rem] shrink-0 text-red" />
               <p className="club-label text-snow">Group coaching</p>
               <p className="club-label bg-red px-3 py-1.5 text-[0.6rem] text-ink">
-                Coming soon
+                Launching {groupCoaching.launch}
               </p>
             </div>
 
@@ -71,7 +71,7 @@ export default function ClubOffers() {
                     Free
                   </span>
                   <span className="club-label text-[0.7rem] text-snow-dim">
-                    For the first {groupCoaching.freeSpots} athletes
+                    For {groupCoaching.freeSpots} athletes, drawn at random
                   </span>
                 </div>
                 <p className="club-label mt-4 text-[0.7rem] text-snow-dim">
@@ -82,7 +82,7 @@ export default function ClubOffers() {
                 <p className="mt-8 max-w-xl text-lg leading-relaxed text-snow-dim">
                   Same structure and the same holistic approach as the 1:1 work,
                   with people around you doing it at the same time. The easiest
-                  way in — and for the first five, it costs nothing.
+                  way in — and for five people, it costs nothing.
                 </p>
 
                 <ul className="mt-9 border-t border-snow/20">
@@ -107,13 +107,16 @@ export default function ClubOffers() {
                     0{groupCoaching.freeSpots}
                   </p>
                   <p className="club-label mt-3 text-[0.66rem] text-snow-dim">
-                    Free spots, first come
+                    Free spots, drawn at random
                   </p>
 
                   <div className="mt-6 border-t border-snow/20 pt-6">
                     <p className="club-label text-snow">Join the waitlist</p>
                     <p className="mt-3 text-sm leading-relaxed text-snow-dim">
-                      The free spots go in the order people sign up.
+                      The five free places are drawn at random from the
+                      waitlist when the group opens at the {groupCoaching.launch}.
+                      Signing up early is no advantage — it just puts you in the
+                      draw.
                     </p>
                     <SubscribeForm
                       action="Notify me"

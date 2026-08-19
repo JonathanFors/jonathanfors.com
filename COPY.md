@@ -195,13 +195,13 @@ Six items, repeated. Keep them short — they scroll past.
 | ▸ Field | Current text |
 | --- | --- |
 | Top bar label | Group coaching |
-| Status tag (red) | Coming soon |
+| Status tag (red) 🔒 | Launching end of September |
 | Price figure | Free |
-| Price note | For the first 5 athletes 🔒 |
+| Price note 🔒 | For 5 athletes, drawn at random |
 | Second price line 🔒 | Then €50/mo |
 
 > ▸ **Body**
-> Same structure and the same holistic approach as the 1:1 work, with people around you doing it at the same time. The easiest way in — and for the first five, it costs nothing.
+> Same structure and the same holistic approach as the 1:1 work, with people around you doing it at the same time. The easiest way in — and for five people, it costs nothing.
 
 **How the groups are built** — each row is a title plus a line of detail:
 
@@ -216,12 +216,17 @@ Six items, repeated. Keep them short — they scroll past.
 | ▸ Field | Current text |
 | --- | --- |
 | Big figure | 05 🔒 |
-| Figure label | Free spots, first come |
+| Figure label 🔒 | Free spots, drawn at random |
 | Heading | Join the waitlist |
-| Note | The free spots go in the order people sign up. |
+| Note 🔒 | The five free places are drawn at random from the waitlist when the group opens at the end of September. Signing up early is no advantage — it just puts you in the draw. |
 | Field placeholder | Enter your email |
 | Button (red) | Notify me |
 | Success message | You're in — check your inbox |
+
+The five free places are **drawn at random**, not given to the first five to sign
+up. So nothing in this section should imply a race — no "first come", no
+countdown, no "spots going fast". The reason to sign up early is simply to be in
+the draw at all, which is what the note says.
 
 ### 6b · 1:1 coaching — the bar underneath
 
