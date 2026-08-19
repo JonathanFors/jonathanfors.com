@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Roboto, Roboto_Condensed } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 // Titles, eyebrows, labels, buttons, numerals — anything short and declarative.
@@ -85,6 +86,8 @@ export default function RootLayout({
           <style>{`[data-reveal]{opacity:1!important;transform:none!important}`}</style>
         </noscript>
         {children}
+        {/* Vercel Web Analytics — page views only, no cookies. */}
+        <Analytics />
       </body>
     </html>
   );
