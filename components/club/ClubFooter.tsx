@@ -10,8 +10,8 @@ export default function ClubFooter() {
           <div>
             <Wordmark size="md" />
             <p className="mt-6 max-w-xs leading-relaxed text-snow-dim">
-              Ultra-endurance running coach, {facts.certification}. Coaching
-              built around the whole athlete.
+              Ultra-endurance running coach, {facts.certification}. Remote
+              coaching built around your whole life, not just your training.
             </p>
           </div>
 
@@ -44,7 +44,7 @@ export default function ClubFooter() {
                     data-cta-location="footer"
                     className="text-snow transition-colors hover:text-red-bright"
                   >
-                    Book a 1:1 call
+                    Book a free call
                   </a>
                 </li>
                 <li>

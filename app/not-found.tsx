@@ -96,7 +96,7 @@ export default function NotFound() {
               data-cta-location="404"
               className="btn-club btn-club-outline-light club-label inline-flex items-center justify-center px-8 py-4"
             >
-              <span>Book 1:1 call</span>
+              <span>Book a free call</span>
             </a>
           </div>
         </div>

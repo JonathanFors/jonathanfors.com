@@ -22,7 +22,7 @@ const roboto = Roboto({
 });
 
 const description =
-  "Ultra-endurance running coach, UESCA-certified. Holistic coaching that fits training around your life — from your first ultra to a hundred-miler. Book a free intro call.";
+  "UESCA-certified ultra-endurance running coach. Remote 1:1 and small-group coaching that builds training around your life — from a first ultra to a hundred-miler. Free 30-minute intro call.";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://jonathanfors.com"),

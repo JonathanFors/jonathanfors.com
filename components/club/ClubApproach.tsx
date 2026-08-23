@@ -4,8 +4,8 @@ import SlashMark from "@/components/SlashMark";
 
 const WHO = [
   "Runners going from a first ultra up to a hundred-miler.",
-  "Ambitious adults with real jobs, families, and not enough hours.",
-  "People who distrust hype and want a coach who does the work.",
+  "People with real jobs, families, and not enough hours in the week.",
+  "Anyone who has watched a training plan fall apart in month two.",
 ];
 
 export default function ClubApproach() {
@@ -29,9 +29,8 @@ export default function ClubApproach() {
 
         <Reveal className="mt-10 sm:mt-12">
           <h2 className="font-club text-club-lg max-w-[22ch] text-ink">
-            Training fits around{" "}
-            <span className="club-tape">your life.</span> Not the other way
-            around.
+            Everything else first. The training comes{" "}
+            <span className="club-tape">last.</span>
           </h2>
         </Reveal>
 
@@ -46,16 +45,18 @@ export default function ClubApproach() {
                 <p className="club-label text-red-bright">Holistic health</p>
                 <div className="prose prose-invert mt-6 text-lg">
                   <p>
-                    Most training plans assume your life will bend to the
-                    schedule. Mine assumes the opposite. We start with your
-                    work, your family, and the stress you&apos;re already
-                    carrying — then build the training to fit inside it.
+                    Most plans start with the schedule and expect your life to
+                    bend around it. I start at the other end. Your work, your
+                    family, the worries you&apos;re already carrying — all of it
+                    changes how your body handles training, so all of it gets
+                    counted before a single session is written.
                   </p>
                   <p>
-                    The whole athlete comes first.{" "}
+                    Rest, and everything else off the road, is part of the work
+                    rather than a gap in it.{" "}
                     <strong>
-                      Consistency you can actually sustain beats a perfect week
-                      you can only manage once.
+                      A week you can repeat is worth more than a perfect week
+                      you manage once.
                     </strong>
                   </p>
                 </div>
@@ -81,6 +82,11 @@ export default function ClubApproach() {
                   </li>
                 ))}
               </ul>
+              <p className="mt-6 max-w-xl text-sm leading-relaxed text-ink-faint">
+                And who it isn&apos;t for: if what you want is a plan file and
+                no conversation, I&apos;m not your coach — there are cheaper
+                ways to get one.
+              </p>
             </Reveal>
           </div>
 

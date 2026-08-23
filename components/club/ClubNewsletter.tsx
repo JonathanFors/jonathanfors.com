@@ -50,9 +50,10 @@ export default function ClubNewsletter() {
                 <span className="text-red-bright">Free forever.</span>
               </h2>
               <p className="mt-6 max-w-xl text-lg leading-relaxed text-snow-dim">
-                Every week takes one subject and works it from three sides — the
-                research, my own read on it from the road, and whatever you ask.
-                No fee, no upsell, no plans to change that.
+                One subject a week, from three sides: what the research
+                actually says, what I think about it after running on it, and
+                whatever you send back. No fee, and nothing to buy at the end
+                of it.
               </p>
             </Reveal>
 

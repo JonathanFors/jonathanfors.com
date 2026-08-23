@@ -90,7 +90,7 @@ export default function ClubNav() {
             data-cta-location="nav"
             className="club-label hidden items-center bg-red px-6 text-ink transition-colors duration-200 hover:bg-snow sm:inline-flex lg:px-8"
           >
-            Book 1:1 Call
+            Book a call
           </a>
 
           {/* Mobile toggle */}
@@ -144,7 +144,7 @@ export default function ClubNav() {
           onClick={() => setOpen(false)}
           className="club-label flex items-center justify-center bg-red py-5 text-ink"
         >
-          Book 1:1 Call
+          Book a call
         </a>
       </div>
     </div>

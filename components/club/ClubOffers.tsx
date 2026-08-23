@@ -7,15 +7,15 @@ import { groupCoaching, oneToOne, siteLinks, subscribeSource } from "@/lib/site"
 const GROUP_POINTS = [
   [
     "Kept small",
-    "Small enough that you're coached, not processed — and that everyone knows who you are.",
+    "Small enough that I know what your week looks like, and that everyone in the group knows your name.",
   ],
   [
     "Matched on purpose",
-    "Runners whose goals and constraints look like yours, so the conversation stays relevant.",
+    "Grouped with runners whose goals and constraints look like yours, so the conversation is actually about you.",
   ],
   [
     "Mixed on level",
-    "Close enough to relate, far enough apart to pull each other along.",
+    "Deliberately not all at the same standard. Close enough to relate to, far enough apart to pull each other along.",
   ],
 ] as const;
 
@@ -46,8 +46,8 @@ export default function ClubOffers() {
 
         <Reveal className="mt-10 sm:mt-12">
           <h2 className="font-club text-club-lg max-w-[18ch] text-ink">
-            Start with a{" "}
-            <span className="club-tape">small group.</span>
+            Two ways to work{" "}
+            <span className="club-tape">together.</span>
           </h2>
         </Reveal>
 
@@ -80,9 +80,11 @@ export default function ClubOffers() {
                 </p>
 
                 <p className="mt-8 max-w-xl text-lg leading-relaxed text-snow-dim">
-                  Same structure and the same holistic approach as the 1:1 work,
-                  with people around you doing it at the same time. The easiest
-                  way in — and for five people, it costs nothing.
+                  The same approach as the 1:1 work, with a few people doing it
+                  alongside you. Training for something long is a lot of
+                  solitary hours, and having other people inside the same week
+                  changes that. It hasn&apos;t opened yet — the waitlist is how
+                  you hear first.
                 </p>
 
                 <ul className="mt-9 border-t border-snow/20">
@@ -147,9 +149,10 @@ export default function ClubOffers() {
                 </span>
               </div>
               <p className="mt-5 leading-relaxed text-ink-soft">
-                The premium option. We set goals that fit your life and the
-                direction you want it to go, then work at them together — week by
-                week, adjusting as things change. First ultra or hundredth.
+                Open now. We set the goals together — ones that fit your life
+                and the direction you want it to go — then work at them week by
+                week. A call every week, and me on WhatsApp in between for the
+                days that don&apos;t go to plan. First ultra or hundredth.
               </p>
             </div>
 
@@ -172,7 +175,7 @@ export default function ClubOffers() {
                 className="btn-club btn-club-outline-dark club-label group inline-flex items-center justify-center px-8 py-4"
               >
                 <span className="inline-flex items-center gap-3">
-                  Book a 1:1 call
+                  Book a free call
                   <ArrowIcon className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </span>
               </a>
@@ -181,6 +184,17 @@ export default function ClubOffers() {
               </p>
             </div>
           </div>
+        </Reveal>
+
+        {/* Said plainly rather than left for the reader to notice: the practice
+            is new and there are no testimonials to show yet. */}
+        <Reveal className="mt-8" delay={120}>
+          <p className="max-w-2xl text-sm leading-relaxed text-ink-faint">
+            Worth saying plainly: I certified in 2026 and I&apos;m building this
+            practice now, so there are no testimonials on this page. I&apos;d
+            rather show you the running I&apos;ve actually done and let you
+            judge the coaching on a conversation.
+          </p>
         </Reveal>
       </div>
     </section>

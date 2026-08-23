@@ -66,9 +66,10 @@ export default function ClubHero() {
           <div className="mt-12 grid grid-cols-1 gap-x-10 gap-y-12 lg:grid-cols-12">
             <div className="lg:col-span-6 lg:col-start-1">
               <p className="max-w-xl text-lg leading-relaxed text-snow-dim">
-                Holistic coaching for ambitious runners with jobs, families, and
-                a long race on the horizon. The training is built to fit your
-                life — not the other way around.
+                I coach runners training for a first ultra, or a next
+                hundred-miler. Most of them have jobs, families and not enough
+                hours in the week. We build the training around that life
+                instead of asking you to clear space for it.
               </p>
 
               <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
@@ -81,7 +82,7 @@ export default function ClubHero() {
                   className="btn-club btn-club-red club-label group inline-flex items-center justify-center gap-3 px-8 py-4"
                 >
                   <span className="inline-flex items-center gap-3">
-                    Book 1:1 call
+                    Book a free call
                     <ArrowIcon className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </span>
                 </a>

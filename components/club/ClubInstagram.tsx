@@ -22,7 +22,7 @@ export default function ClubInstagram() {
           >
             <span className="flex items-center gap-3.5">
               <InstagramIcon className="h-6 w-6 shrink-0 text-red transition-colors duration-300 group-hover:text-ink" />
-              <span className="club-label text-ink">As seen on Instagram</span>
+              <span className="club-label text-ink">Follow along</span>
             </span>
 
             <span className="flex items-baseline gap-3">

@@ -20,15 +20,15 @@ export default function ClubFinalCta() {
 
         <Reveal className="mt-8">
           <h2 className="font-club text-club-xl max-w-[14ch]">
-            Let&apos;s find your distance.
+            Tell me about your race.
           </h2>
         </Reveal>
 
         <Reveal className="mt-10 flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between" delay={70}>
           <p className="max-w-lg text-lg leading-relaxed">
-            Start with a free intro call. If it&apos;s a fit, we build from
-            there. If it&apos;s not, you&apos;ll still leave with a clearer idea
-            of your next step.
+            Thirty minutes, free, and nothing to buy at the end. If we&apos;re
+            a fit, we build from there. If we&apos;re not, you&apos;ll still
+            leave knowing what your next step is.
           </p>
           <a
             href={siteLinks.booking}
@@ -39,7 +39,7 @@ export default function ClubFinalCta() {
             className="btn-club btn-club-ink club-label group inline-flex shrink-0 items-center justify-center px-10 py-5"
           >
             <span className="inline-flex items-center gap-3">
-              Book a free 1:1 call
+              Book a free intro call
               <ArrowIcon className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </span>
           </a>

@@ -6,19 +6,19 @@ import { ArrowIcon } from "@/components/icons";
 const STEPS = [
   [
     "The intro call",
-    "A free, no-pressure conversation about where you are and where you want to go.",
+    "Thirty minutes, free. You tell me where you are and what you're aiming at; I tell you whether I think I can help.",
   ],
   [
     "Your full picture",
-    "A short intake covers your running history, your life, and your constraints — not just your splits.",
+    "A short intake about your running history, your work, your sleep and who depends on you — not just your splits.",
   ],
   [
     "A plan that fits",
-    "Structured training mapped onto your real schedule, with the load and recovery balanced for you.",
+    "Training mapped onto the week you actually have, with the load and the rest balanced for you rather than for an average runner.",
   ],
   [
-    "Ongoing adjustment",
-    "The plan moves when life moves. We adapt as work, travel, and fatigue shift week to week.",
+    "Every week after",
+    "We talk weekly. When work, travel or a bad run of sleep changes what's possible, the plan changes with it. That's normal, not failure.",
   ],
 ] as const;
 
@@ -51,8 +51,8 @@ export default function ClubProcess() {
 
         <Reveal className="mt-10 sm:mt-12">
           <h2 className="font-club text-club-lg max-w-[20ch] text-snow">
-            A plan built for your week — and{" "}
-            <span className="text-red-bright">rebuilt</span> when it changes.
+            The plan will change, because{" "}
+            <span className="text-red-bright">your week does.</span>
           </h2>
         </Reveal>
 
@@ -85,18 +85,19 @@ export default function ClubProcess() {
           ))}
         </ol>
 
-        {/* Callout — the one solid red block in the section.
-            TODO:CONTENT — concrete deliverables, cadence and pricing are set
-            per athlete and confirmed on the call (see PLACEHOLDERS.md). */}
+        {/* Callout — the one solid red block in the section. Prices are stated
+            in section 03, so this block sells the call rather than hedging on
+            cost: what it promises is an honest answer, not a quote. */}
         <Reveal className="mt-16">
           <div className="club-cut-br flex flex-col items-start justify-between gap-8 bg-red p-8 text-ink sm:flex-row sm:items-center sm:p-12">
             <div className="max-w-2xl">
               <h3 className="font-club text-club-md">
-                Programs are tailored, not off-the-shelf.
+                There&apos;s no pitch at the end of the call.
               </h3>
               <p className="mt-4 max-w-xl leading-relaxed">
-                What that looks like — and what it costs — depends on you and
-                your race. We map it out together on the call.
+                Thirty minutes, free, and you leave with my honest read on where
+                you are and what your race actually needs. If I&apos;m not the
+                right coach for it, I&apos;ll tell you on the call.
               </p>
             </div>
             <a
@@ -108,7 +109,7 @@ export default function ClubProcess() {
               className="btn-club btn-club-ink club-label group inline-flex shrink-0 items-center gap-3 px-8 py-4"
             >
               <span className="inline-flex items-center gap-3">
-                Book 1:1 call
+                Book a free intro call
                 <ArrowIcon className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </span>
             </a>
