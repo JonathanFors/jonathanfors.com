@@ -1,11 +1,14 @@
-# Site copy — homepage + 404
+# Site copy — homepage, 404, video library
 
 Every word on the page, in the order it appears. **Edit this file freely** — change
 the text in the right-hand column / quoted blocks, then tell me and I'll apply it to
 the code.
 
 Sections 0–10 are the homepage at `jonathanfors.com`. Section 11 is the 404 page,
-shown for any URL that doesn't exist. Both are live.
+shown for any URL that doesn't exist. Both are live. Section 12 is the training
+video library at `/videos` — built, but not published: nothing is filmed yet, so
+it's hidden from search. Section 13 is the group-coaching waitlist landing page at
+`/waitlist` — built, not pushed live yet.
 
 **Rewritten 23 Aug 2026** against one brief: human over sales, honesty over cool
 claims, lead with facts, then go deeper with the feeling underneath them. What that
@@ -237,8 +240,8 @@ slimmer outlined bar.
 | Top bar label | Group coaching |
 | Status tag (red) 🔒 | Launching end of September |
 | Price figure | Free |
-| Price note 🔒 | For 5 athletes, drawn at random |
-| Second price line 🔒 | Then €50/mo |
+| Price note 🔒 | Forever, for 5 athletes drawn at random |
+| Second price line 🔒 | Everyone else · €50/mo |
 
 > ▸ **Body**
 > The same approach as the 1:1 work, with a few people doing it alongside you. Training for something long is a lot of solitary hours, and having other people inside the same week changes that. It hasn't opened yet — the waitlist is how you hear first.
@@ -268,6 +271,12 @@ up. So nothing in this section should imply a race — no "first come", no
 countdown, no "spots going fast". The reason to sign up early is simply to be in
 the draw at all, which is what the note says. (The waitlist note is deliberately
 unchanged by the rewrite — it was already doing the honest thing.)
+
+**Changed 24 Aug 2026.** The two price lines used to read *"For 5 athletes, drawn
+at random"* and *"Then €50/mo"*. Read together, "Free … then €50/mo" is how a free
+trial is worded — free now, paying later — which is the opposite of the offer. The
+five drawn places are free for good. The lines now say who pays what rather than
+when, and "Forever" is the first word a reader hits.
 
 ### 6b · 1:1 coaching — the bar underneath
 
@@ -421,6 +430,270 @@ eyebrow is what actually gets read out.
 Two deliberate omissions: no nav bar (its links are in-page anchors that would
 land on nothing from a 404) and no newsletter signup (a dead end is the wrong
 place to ask for an email).
+
+---
+
+## 12 · Video library (`/videos`)
+
+A separate page holding the training videos, plus one page per movement at
+`/videos/<slug>` — that per-movement URL is what you send an athlete. Not linked
+from the homepage or the nav; like the athlete intake form, you share the link
+yourself.
+
+**One clip per movement, not per session.** These are the individual exercises a
+plan names, so an athlete can see one done properly before doing it.
+
+**Nothing is filmed yet.** All 21 movements below are your real list, but every
+card is empty and the whole page is hidden from search until they exist. That
+lifts itself once each entry has a video — nothing to remember to switch off.
+
+**The blurbs are my first draft, not your words.** Each one guesses at what the
+clip will cover (setup, common errors, regressions). Reword freely — that's what
+this file is for.
+
+### The page itself
+
+| ▸ Field | Current text |
+| --- | --- |
+| Browser tab title | Training videos — Jonathan Fors |
+| Header label | Video library |
+| Header button (red) | Book a call |
+| Eyebrow | For my athletes |
+
+> ▸ **Headline** — "library." is in red.
+> The video **library.**
+
+> ▸ **Body**
+> One movement per clip — strength work, core, mobility drills and stretches. Not whole sessions: these are the exercises your plan names, so you can see one done properly before you do it. Search it, or filter by what you're looking for.
+
+| ▸ Field | Current text |
+| --- | --- |
+| Search placeholder | Search the library |
+| First filter button | All |
+| Result count | 21 videos · "3 videos of 21" when filtered |
+| Clear button | Clear filters |
+| Card badge (unfilmed) | Not filmed yet |
+| Empty-state heading | Nothing matches that. |
+| Empty-state body | Try a shorter phrase, or clear the filters and browse the whole library. |
+| Empty-state button | Show all videos |
+
+The warning shown while the library is unfilmed:
+
+> ▸ **Notice** — disappears on its own once every entry has a video.
+> **Not filmed yet.** The 21 movements below are the list — none of them are filmed yet, so every card is still empty. This page stays hidden from search until they are.
+
+### A single movement's page
+
+| ▸ Field | Current text |
+| --- | --- |
+| Back link | ← All *[category]* videos |
+| Equipment heading | What you need |
+| Related heading | Watch next |
+| Related button | Back to the library |
+| Stand-in player label | Video coming |
+| Stand-in player body | This one hasn't been filmed yet. The player will appear here. |
+
+### The four categories
+
+Split by what a movement is *for*, not by body part — body parts are handled by
+tags instead, so searching "glutes" or "hips" crosses all four.
+
+Strength (11) · Core & trunk (3) · Mobility (3) · Stretches (4)
+
+### The 21 movements
+
+Titles use the most widely recognised name; where I changed what you wrote, the
+reason is in the last column. Anything you'd search instead is kept as a tag, so
+the old name still finds it.
+
+| ▸ Category | Title | Blurb | Kit | ▸ Renamed from |
+| --- | --- | --- | --- | --- |
+| Strength | Squat | The pattern most of the rest is built on. Foot position, depth, and keeping the weight through the whole foot. | Dumbbell, kettlebell or band (optional) | — |
+| Strength | Bulgarian split squat | Back foot raised, one leg doing the work. Setup, how far forward to stand, and the torso position that keeps it honest. | A bench, chair or step; dumbbells optional | — |
+| Strength | ATG split squat | The long-stride, full-depth split squat. How far to reach the front foot, how low to go, and where to start if the range isn't there yet. | — | — |
+| Strength | Forward walking lunge | Stepping through the lunge rather than returning to the start. Stride length, where the front knee tracks, and staying tall between steps. | Dumbbells (optional) | "forward walking lounges" — typo |
+| Strength | Reverse walking lunge | The same walk, stepping backwards. Where the load shifts compared with the forward version, and why the step back takes more control. | Dumbbells (optional) | "backward walking lounges" — "reverse lunge" is the standard term |
+| Strength | Glute bridge | Both feet down, hips to full extension. Foot placement, and what to change if you feel it in your hamstrings or your lower back instead. | Resistance band (optional, above the knees) | — |
+| Strength | Single-leg glute bridge | The same movement on one leg. Keeping the hips level and the ribs down instead of arching to get higher. | Resistance band (optional) | — |
+| Strength | Banded lateral walk | Sideways steps against a band. Where to put the band, how low to stay, and keeping the steps deliberate rather than bouncing along. | Resistance band | — |
+| Strength | Single-leg Romanian deadlift | Hinging on one leg. Hips square, spine long, and how to stop it turning into a balance test instead of a hamstring exercise. | Dumbbell or kettlebell (optional) | capitalised "Romanian" |
+| Strength | Single-leg calf raise | One leg, through the whole range at both ends. Where most people quietly cut it short, and how to load it once bodyweight is easy. | A step or kerb (optional) | hyphenated "single-leg" |
+| Strength | Single-leg hip flexor hold | One leg held up under tension from the hip flexor. Position, height, and how long to hold it for. | Resistance band (optional) | ⚠️ kept your name — see below |
+| Core & trunk | Side plank | Stacked, straight, and held. Elbow position, hip height, and what to drop back to when it starts to sag. | — | — |
+| Core & trunk | Copenhagen plank raise | Side plank with the top leg supported and the bottom leg lifting to meet it. The easier versions to build from first. | A bench, chair or sofa | dropped "side" — "Copenhagen plank" is the common form |
+| Core & trunk | Bird-dog | Opposite arm and leg from all fours, without the hips rolling. Slower and through less range than most people use. | — | — |
+| Mobility | Leg swings | Front-to-back and side-to-side. What to hold on to, how far to swing, and how many before it stops doing anything. | Something to hold on to | — |
+| Mobility | 90/90 hip switches | Seated, rotating between the two 90/90 positions. Internal and external rotation, and where to stop rather than force it. | — | — |
+| Mobility | Rocking frog stretch | Knees wide, rocking back and forward instead of holding still. How wide to set up and where the limit is. | — | — |
+| Stretches | Head-to-knee forward bend | Seated with one leg out, folding over it. Where the fold should come from, and what to do when the hamstring locks up early. | — | — |
+| Stretches | Lizard stretch | Deep lunge with the hands inside the front foot, plus the shallower versions to work back from. | — | — |
+| Stretches | Standing quad stretch | Heel towards the backside, standing. Keeping the hips square and the knee under you rather than drifting behind. | — | — |
+| Stretches | Reclined figure-4 stretch | On your back, ankle across the opposite thigh. Where to pull from, and what to change if the hip pinches instead of stretching. | — | — |
+
+### ⚠️ One to confirm
+
+**Single-leg hip flexor hold** — there are a few different movements that go by
+roughly this name (a supine knee-hold, a standing march hold, the ATG-style
+banded raise). I've kept your wording and written a deliberately vague blurb
+rather than guess at the wrong one. Tell me which you mean and I'll fix the title
+and blurb.
+
+### Resistance bands
+
+Five movements can use one, and only **banded lateral walk** requires it. The
+others — squat, glute bridge, single-leg glute bridge, single-leg hip flexor hold
+— say "(optional)". Every one of them is tagged `band`, so searching "band" pulls
+up the full set.
+
+### How to fill it in
+
+Everything above lives in one file, `lib/videos.ts`, with instructions at the
+top. Per movement you need: a title, a blurb, a category, the YouTube or Vimeo
+link, and a handful of **tags**. Tags never appear on the page but are searched —
+so put the words an athlete would actually type in there, including ones you'd
+never write in a title ("rfess", "groin", "no gym", "fueling" spelled the
+American way). That's what makes the search feel like it reads your mind.
+
+Two things worth knowing:
+
+- **A movement's URL is permanent once you've sent it.** The slug in
+  `/videos/<slug>` is what an athlete has in their messages; changing it breaks
+  their link.
+- **Runtimes are left blank on purpose.** They'll be filled in with the real
+  ones — a card just doesn't show a duration until then.
+
+---
+
+## 13 · Group coaching waitlist page (`/waitlist`)
+
+A standalone landing page whose only job is getting an email address onto the
+waitlist — the link to put in your Instagram bio or a post. **Built 24 Aug 2026,
+not pushed live yet.**
+
+It's deliberately not the homepage: no navigation, no section index, nothing to
+click except the email field until the footer. The offer, the field and the Join
+button all sit above the fold on a laptop and on a phone.
+
+It signs people up to **the same beehiiv list, with the same tag**
+(`group-coaching-waitlist`) as the homepage form — so the draw is still one list,
+not two. How many people arrive via this page is measured in Vercel Analytics
+instead.
+
+### Header
+
+| ▸ Field | Current text |
+| --- | --- |
+| Left | The logo (links to the homepage) |
+| Right | Group coaching |
+
+### The offer
+
+| ▸ Field | Current text |
+| --- | --- |
+| Eyebrow 🔒 | Waitlist · Opens end of September |
+
+> ▸ **Headline** — three lines; the tape sits on "coached free." and cannot wrap.
+> 5 people get **coached free.** Forever.
+
+> ▸ **Body** 🔒
+> Group coaching opens at the end of September. Five places are free — drawn at random from this waitlist, and free for as long as those five athletes want them. Everyone else pays €50/mo.
+
+**Signup box** (the first thing on the page you can interact with):
+
+| ▸ Field | Current text |
+| --- | --- |
+| Heading | Join the waitlist |
+| Field placeholder | Enter your email |
+| Button (red) | Join |
+| Note under the field | One field, and that's the whole signup. No payment details, no commitment — unsubscribe whenever you like. |
+| Success message | You're in — check your inbox |
+| Success note 🔒 | You're on the list. The draw happens when the group opens at the end of September — I'll email you either way, and nothing before then. |
+
+**The 05 panel** (right-hand side, big outlined numeral):
+
+| ▸ Field | Current text |
+| --- | --- |
+| Figure 🔒 | 05 |
+| Label 🔒 | Free places, drawn at random |
+| Line under it 🔒 | Free means free. Those five never pay for group coaching, for as long as they stay. |
+
+### What you're joining — three columns
+
+| ▸ Figure | ▸ Title | ▸ Detail |
+| --- | --- | --- |
+| Free | Free forever 🔒 | The five drawn places never pay. Not a free trial, not a discounted first month — free for as long as you stay in the group. |
+| 05 | Drawn at random 🔒 | Not the first five to sign up. Everyone on the waitlist when the group opens has the same chance, so joining now and joining tonight are worth exactly the same. |
+| Sept | Opens end of September 🔒 | That's when the group starts and the draw happens. If you're not one of the five, it's €50/mo and you can walk away — nothing is owed for being on a list. |
+
+These three are the whole pitch: **what free means, how you get it, and when.**
+"Free forever" is said in the headline, in the panel and again here, because
+"free" next to a monthly price is read as a trial unless you rule it out.
+
+### What the coaching is
+
+> ▸ **Headline** — the red emphasis sits on "at the same time."
+> A few people training for the same kind of thing, **at the same time.**
+
+> ▸ **Body**
+> The same approach as my 1:1 work — training built around your job, your family and the week you actually have — with a few other runners doing it alongside you. Training for something long is a lot of solitary hours, and having other people inside the same week changes that.
+
+**How the groups are built** — the same three rows as the homepage (§6a): Kept
+small / Matched on purpose / Mixed on level.
+
+### "Who's coaching" callout
+
+A bordered card inside the black section — photo on the left, then:
+
+| ▸ Field | Current text |
+| --- | --- |
+| Eyebrow | Who's coaching |
+| Name | Jonathan Fors |
+| Credential line (red) 🔒 | UESCA-certified · Ultra-endurance running coach |
+| Photo | `coach-trail` — the same shot as the homepage's "approach" section |
+
+> ▸ **Body** 🔒
+> I coach runners training for a first ultra, or a next hundred-miler — most of them with jobs, families and not enough hours in the week. In August 2026 I ran the coastline of Portugal, 744 km in 10 days, for men's mental health. Two years earlier the same route stopped me at 480 km, which is the more useful half of the experience.
+
+> ▸ **Pull line** — set off by a red rule, because it's the most persuasive
+> sentence on the page.
+> I'm building this practice now, which is why five of these places are free. I'd rather fill the first group with people who want to be in it than with people who could afford it.
+
+This was a plain grey paragraph until 24 Aug 2026. A reader about to hand over an
+email wants to see who's asking, and a face does that faster than prose can —
+hence the card and the photo.
+
+⚠️ **Check the pull line.** Giving a reason the places are free is what makes the
+offer read as real rather than as a gimmick — but it is you telling people you're
+new, the same call as the missing-testimonials line on the homepage. Delete it and
+nothing else breaks. Same for the 480 km sentence: it's honest and it's already on
+the homepage, but it's your first attempt you're volunteering.
+
+### The field again, at the bottom
+
+| ▸ Field | Current text |
+| --- | --- |
+| Headline | Get in the **draw.** |
+| Body 🔒 | Five free places, drawn when the group opens at the end of September. Signing up early is no advantage — it just puts you in the draw. |
+| Button (red) | Join the waitlist |
+| Success note 🔒 | You're on the list — I'll email you when the group opens at the end of September. |
+
+### Footer
+
+| ▸ Field | Current text |
+| --- | --- |
+| Left | Don't want to wait? **1:1 coaching is open now.** (links to the homepage) |
+| Right | Email · Instagram |
+
+The 1:1 link is down here on purpose. It's the answer for someone who read the
+whole page and doesn't want to wait until September — put it any higher and it
+competes with the one thing this page is for.
+
+### Search / share
+
+| ▸ Field | Current text |
+| --- | --- |
+| Browser tab title | Group coaching waitlist — Jonathan Fors |
+| Meta + share description 🔒 | Five athletes get my group coaching free, forever — drawn at random from the waitlist when the group opens at the end of September. Everyone else pays €50/mo. One email to join. |
 
 ---
 

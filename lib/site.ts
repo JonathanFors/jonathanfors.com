@@ -6,6 +6,9 @@ export const siteLinks = {
   // The athlete-intake page is intentionally NOT linked anywhere on the site
   // (noindex). Jonathan sends this URL manually to athletes he has spoken to.
   intake: "/athlete-intake",
+  // Standalone group-coaching waitlist landing page. Public and indexed —
+  // this is the link to put in a bio or a post, not the homepage anchor.
+  waitlist: "/waitlist",
   instagram: "https://www.instagram.com/jonathans.pov/",
   linkedin: "https://www.linkedin.com/in/jonathanfors/",
   email: "coach@jonathanfors.com",
@@ -72,6 +75,12 @@ export const groupCoaching = {
    * Any copy about them has to avoid implying a race.
    */
   freeSpotsAreRandom: true,
+  /**
+   * The five drawn places are free for as long as the athlete stays in the
+   * group — not a free trial and not a discounted first month. Copy has to say
+   * so outright, because "Free … then €50/mo" reads as a trial otherwise.
+   */
+  freeSpotsAreForever: true,
   beehiivFormId: "e13cc671-c933-430e-be05-8e185c4ee9d2", // waitlist
 } as const;
 

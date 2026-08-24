@@ -9,6 +9,19 @@ type Props = {
   action: string;
   /** `utm_medium` value: what tells the two forms apart in beehiiv. */
   utmMedium: string;
+  /**
+   * Click-tracking label, when one page carries the same form more than once.
+   * Defaults to `utmMedium`, which is all a single-form page needs.
+   */
+  location?: string;
+  /**
+   * Reassurance under the field ("no payment details", "unsubscribe whenever").
+   * Rendered only before the signup goes through — once it has, it's answering
+   * a question the reader has stopped asking.
+   */
+  note?: string;
+  /** Extra line under the confirmation — what happens next, if it's worth saying. */
+  successNote?: string;
   /** Surface it sits on. Drives the input's colours, nothing else. */
   tone?: "ink" | "paper";
   className?: string;
@@ -30,6 +43,9 @@ type State = "idle" | "sending" | "done" | "error";
 export default function SubscribeForm({
   action,
   utmMedium,
+  location,
+  note,
+  successNote,
   tone = "ink",
   className,
 }: Props) {
@@ -92,6 +108,15 @@ export default function SubscribeForm({
             You&apos;re in — check your inbox
           </span>
         </p>
+        {successNote && (
+          <p
+            className={`mt-3 text-sm leading-relaxed ${
+              onInk ? "text-snow-dim" : "text-ink-faint"
+            }`}
+          >
+            {successNote}
+          </p>
+        )}
       </div>
     );
   }
@@ -105,7 +130,7 @@ export default function SubscribeForm({
         rel="noopener noreferrer"
         onSubmit={onSubmit}
         data-cta="newsletter-subscribe"
-        data-cta-location={utmMedium}
+        data-cta-location={location ?? utmMedium}
         className="flex w-full flex-col gap-2.5 sm:flex-row sm:gap-0"
       >
         <label htmlFor={id} className="sr-only">
@@ -137,6 +162,16 @@ export default function SubscribeForm({
         {/* Only read on the no-JavaScript path; the fetch sends its own copy. */}
         <input type="hidden" name="utm_medium" value={utmMedium} />
       </form>
+
+      {note && (
+        <p
+          className={`mt-4 text-sm leading-relaxed ${
+            onInk ? "text-snow-dim" : "text-ink-faint"
+          }`}
+        >
+          {note}
+        </p>
+      )}
 
       {state === "error" && (
         <p

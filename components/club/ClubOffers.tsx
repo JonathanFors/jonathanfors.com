@@ -71,11 +71,14 @@ export default function ClubOffers() {
                     Free
                   </span>
                   <span className="club-label text-[0.7rem] text-snow-dim">
-                    For {groupCoaching.freeSpots} athletes, drawn at random
+                    Forever, for {groupCoaching.freeSpots} athletes drawn at
+                    random
                   </span>
                 </div>
+                {/* "Then €50/mo" read as a trial — free now, paying later. It's
+                    who pays, not when. */}
                 <p className="club-label mt-4 text-[0.7rem] text-snow-dim">
-                  Then {groupCoaching.price}
+                  Everyone else · {groupCoaching.price}
                   {groupCoaching.period}
                 </p>
 
