@@ -1,6 +1,6 @@
 "use client";
 
-import { useId, useRef, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import { ArrowIcon } from "@/components/icons";
 import { beehiivMagicLink } from "@/lib/site";
 
@@ -24,6 +24,12 @@ type Props = {
   successNote?: string;
   /** Surface it sits on. Drives the input's colours, nothing else. */
   tone?: "ink" | "paper";
+  /**
+   * `compact` shrinks the padding and keeps the field and button on one row at
+   * every width — for the sticky bar, where a stacked form would eat the
+   * viewport. `default` is the full-size block form used in the page body.
+   */
+  size?: "default" | "compact";
   className?: string;
 };
 
@@ -47,12 +53,14 @@ export default function SubscribeForm({
   note,
   successNote,
   tone = "ink",
+  size = "default",
   className,
 }: Props) {
   const [state, setState] = useState<State>("idle");
   const formRef = useRef<HTMLFormElement>(null);
   const id = useId();
   const onInk = tone === "ink";
+  const compact = size === "compact";
 
   /** Hands off to the magic link in a new tab — the original behaviour. */
   const fallbackToMagicLink = () => {
@@ -92,12 +100,31 @@ export default function SubscribeForm({
     }
   };
 
+  /**
+   * Announce a completed signup to the rest of the page. A page carrying the
+   * form more than once needs to know it has been filled in — the sticky bar
+   * on /waitlist retires itself on this rather than following someone down the
+   * page asking for an address they have already given.
+   *
+   * Same vendor-free CustomEvent pattern as CtaTracker.
+   */
+  useEffect(() => {
+    if (state !== "done") return;
+    window.dispatchEvent(
+      new CustomEvent("subscribe:success", {
+        detail: { utmMedium, location: location ?? utmMedium },
+      }),
+    );
+  }, [state, utmMedium, location]);
+
   if (state === "done") {
     return (
       <div className={className}>
         <p
           aria-live="polite"
-          className={`flex items-center gap-3 border-2 px-4 py-3.5 ${
+          className={`flex items-center gap-3 border-2 ${
+            compact ? "px-3.5 py-2.5" : "px-4 py-3.5"
+          } ${
             onInk
               ? "border-red bg-red/10 text-snow"
               : "border-red bg-red/10 text-ink"
@@ -131,7 +158,11 @@ export default function SubscribeForm({
         onSubmit={onSubmit}
         data-cta="newsletter-subscribe"
         data-cta-location={location ?? utmMedium}
-        className="flex w-full flex-col gap-2.5 sm:flex-row sm:gap-0"
+        className={
+          compact
+            ? "flex w-full flex-row gap-0"
+            : "flex w-full flex-col gap-2.5 sm:flex-row sm:gap-0"
+        }
       >
         <label htmlFor={id} className="sr-only">
           Email address
@@ -144,7 +175,11 @@ export default function SubscribeForm({
           autoComplete="email"
           placeholder="Enter your email"
           aria-invalid={state === "error"}
-          className={`min-w-0 flex-1 border-2 px-4 py-3.5 text-base outline-none transition-colors sm:border-r-0 ${
+          // text-base, not text-sm, even when compact: iOS zooms the page in
+          // on focus for anything under 16px.
+          className={`min-w-0 flex-1 border-2 text-base outline-none transition-colors ${
+            compact ? "border-r-0 px-3.5 py-2.5" : "px-4 py-3.5 sm:border-r-0"
+          } ${
             onInk
               ? "border-snow/30 bg-transparent text-snow placeholder:text-snow-dim focus:border-red"
               : "border-ink/25 bg-paper text-ink placeholder:text-ink-faint focus:border-red"
@@ -154,7 +189,9 @@ export default function SubscribeForm({
         <button
           type="submit"
           disabled={state === "sending"}
-          className="club-label group inline-flex shrink-0 items-center justify-center gap-2.5 border-2 border-red bg-red px-6 py-3.5 text-ink transition-colors duration-200 hover:border-ink hover:bg-ink hover:text-paper disabled:opacity-70"
+          className={`club-label group inline-flex shrink-0 items-center justify-center gap-2.5 border-2 border-red bg-red text-ink transition-colors duration-200 hover:border-ink hover:bg-ink hover:text-paper disabled:opacity-70 ${
+            compact ? "px-4 py-2.5" : "px-6 py-3.5"
+          }`}
         >
           {state === "sending" ? "Sending…" : action}
           <ArrowIcon className="h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -165,7 +202,7 @@ export default function SubscribeForm({
 
       {note && (
         <p
-          className={`mt-4 text-sm leading-relaxed ${
+          className={`text-sm leading-relaxed ${compact ? "mt-2" : "mt-4"} ${
             onInk ? "text-snow-dim" : "text-ink-faint"
           }`}
         >

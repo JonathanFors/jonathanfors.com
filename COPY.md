@@ -637,8 +637,68 @@ These three are the whole pitch: **what free means, how you get it, and when.**
 > ▸ **Body**
 > The same approach as my 1:1 work — training built around your job, your family and the week you actually have — with a few other runners doing it alongside you. Training for something long is a lot of solitary hours, and having other people inside the same week changes that.
 
-**How the groups are built** — the same three rows as the homepage (§6a): Kept
-small / Matched on purpose / Mixed on level.
+The three "how the groups are built" rows that used to sit here have moved into
+"Who you're in it with" below, where they're said once with the group size
+attached, instead of twice in vaguer form.
+
+### How it works
+
+> ▸ **Headline** — red emphasis on the second sentence.
+> Written for you. **Not for everyone.**
+
+> ▸ **Body**
+> The plan is the core of it — yours, written by me, changed when your life changes. The group is what gets you through the weeks it's hard.
+
+**01 — the plan, in its own panel.** It sits above the row of three rather than
+inside it, because it's the part people are actually buying; a fourth cell in a
+row of equals reads as one feature among several.
+
+| ▸ Field | Current text |
+| --- | --- |
+| Title | A training plan, written for you |
+| Body | Every session in it is written by me, for you. Not generated, not a template with your name typed into it, not last year's plan for somebody else. And it gets rewritten as you go — when your week changes, the plan changes. |
+| Pull line (red rule) | And a video for every movement in it — each exercise your plan names, filmed being done properly, so you're never guessing at a name you haven't seen before. |
+
+"Not generated" is doing the no-AI work without saying "AI", which would date the
+page and sound defensive. Change it if you'd rather say it outright.
+
+**Then the three columns:**
+
+| ▸ No. | ▸ Title | ▸ Detail |
+| --- | --- | --- |
+| 02 | A live group call, every week | The whole group on a call, once a week — the week behind you and the week ahead. Questions get answered in front of everyone, because the answer to yours is usually the answer to someone else's. |
+| 03 | Me on WhatsApp, directly | The same number my 1:1 athletes text. A question about tomorrow's session on a Tuesday night doesn't have to sit until the next call. |
+| 04 | A private channel for the group | A space that's only the group — where the runs get posted and the questions get asked between calls. A lot of what makes a group work happens here rather than on the call. |
+
+⚠️ **The video line promises the library that isn't filmed.** `/videos` holds 21
+movements and none of them have a clip yet; the page is `noindex` and 404s in
+production. This line says every movement in a plan has one. It's true by the
+end of September or it isn't — worth knowing that this page now depends on that
+filming getting done.
+
+⚠️ **"The same number my 1:1 athletes text"** is my wording for what you
+described as direct WhatsApp access. If group athletes get a different number, a
+shared thread, or slower response times than 1:1, that line has to change — it
+currently promises parity with the €200/mo offer.
+
+### Who you're in it with
+
+> ▸ **Headline** — the second sentence is red.
+> Close enough to relate to. **Far enough apart to pull you along.**
+
+> ▸ **Body**
+> Groups are built rather than filled. Around five runners, put together so the conversation is actually about you — alike enough in level and in life that you recognise each other's week, far enough apart that there's always someone a little further down the road.
+
+| ▸ Row | Current text |
+| --- | --- |
+| Around five of you | Small enough that I know what your week looks like, and that everyone in the group knows your name. |
+| Matched on purpose | Grouped with runners whose goals and constraints look like yours, so the conversation is actually about you. |
+| Mixed on level | Deliberately not all at the same standard. Close enough to relate to, far enough apart to pull each other along — and far enough that some weeks you're the one doing the pulling. |
+
+⚠️ **Two fives on one page.** Five free places are drawn at random, and a group
+holds around five people. A reader can join those up and conclude the first group
+is entirely free, or that there's only one group. Nothing on the page says which,
+because you haven't told me. Worth a line if the answer is simple.
 
 ### "Who's coaching" callout
 
@@ -676,6 +736,24 @@ the homepage, but it's your first attempt you're volunteering.
 | Body 🔒 | Five free places, drawn when the group opens at the end of September. Signing up early is no advantage — it just puts you in the draw. |
 | Button (red) | Join the waitlist |
 | Success note 🔒 | You're on the list — I'll email you when the group opens at the end of September. |
+
+### The sticky bar
+
+A slim bar pinned to the bottom of the screen, carrying the same field as the
+rest of the page. The label is shortened on a phone, where there's no room for
+the full sentence beside the field.
+
+| ▸ Field | Current text |
+| --- | --- |
+| Label (phone) | 5 free places, drawn at random |
+| Label (wider screens) 🔒 | 5 places free forever, drawn at random when the group opens at the end of September. |
+| Field placeholder | Enter your email |
+| Button (red) | Join |
+
+It stays out of the way rather than following you down the page: it's down
+whenever one of the page's own signup forms is on screen — so it never sits
+under the field in the hero, and never covers the one at the bottom — and it
+retires for good the moment an address goes in, from any of the three forms.
 
 ### Footer
 

@@ -6,6 +6,7 @@ import Reveal from "@/components/Reveal";
 import SlashMark from "@/components/SlashMark";
 import Wordmark from "@/components/club/Wordmark";
 import SubscribeForm from "@/components/club/SubscribeForm";
+import StickyWaitlistBar from "@/components/club/StickyWaitlistBar";
 import { InstagramIcon, MailIcon } from "@/components/icons";
 import { facts, groupCoaching, siteLinks, subscribeSource } from "@/lib/site";
 
@@ -76,10 +77,37 @@ const TERMS = [
   },
 ] as const;
 
-/** How the groups are built — same three points as the homepage. */
+/**
+ * What surrounds the plan, week to week. The plan itself isn't in here — it
+ * leads the section in its own panel, because it's the core of the offer and a
+ * fourth cell in a row of equals would read as one feature among several.
+ */
+const INCLUDED = [
+  {
+    index: "02",
+    title: "A live group call, every week",
+    body: "The whole group on a call, once a week — the week behind you and the week ahead. Questions get answered in front of everyone, because the answer to yours is usually the answer to someone else's.",
+  },
+  {
+    index: "03",
+    title: "Me on WhatsApp, directly",
+    body: "The same number my 1:1 athletes text. A question about tomorrow's session on a Tuesday night doesn't have to sit until the next call.",
+  },
+  {
+    index: "04",
+    title: "A private channel for the group",
+    body: "A space that's only the group — where the runs get posted and the questions get asked between calls. A lot of what makes a group work happens here rather than on the call.",
+  },
+] as const;
+
+/**
+ * How the groups are built. Expanded from the three points on the homepage
+ * with the group size, and moved here out of the section above so the page
+ * doesn't say "kept small" twice.
+ */
 const GROUP_POINTS = [
   [
-    "Kept small",
+    "Around five of you",
     "Small enough that I know what your week looks like, and that everyone in the group knows your name.",
   ],
   [
@@ -88,7 +116,7 @@ const GROUP_POINTS = [
   ],
   [
     "Mixed on level",
-    "Deliberately not all at the same standard. Close enough to relate to, far enough apart to pull each other along.",
+    "Deliberately not all at the same standard. Close enough to relate to, far enough apart to pull each other along — and far enough that some weeks you're the one doing the pulling.",
   ],
 ] as const;
 
@@ -183,7 +211,13 @@ export default function WaitlistPage() {
                 </p>
 
                 {/* Form, high and on the reading side. */}
-                <div className="mt-7 max-w-xl border-2 border-snow/25 p-5 sm:p-6">
+                {/* data-waitlist-anchor: while this is on screen the sticky
+                    bar stays down — it exists for the scroll past this point,
+                    not to sit under a field the reader is already looking at. */}
+                <div
+                  data-waitlist-anchor
+                  className="mt-7 max-w-xl border-2 border-snow/25 p-5 sm:p-6"
+                >
                   <p className="club-label text-snow">Join the waitlist</p>
                   <SubscribeForm
                     action="Join"
@@ -279,22 +313,6 @@ export default function WaitlistPage() {
               </p>
             </Reveal>
 
-            <ul className="mt-10 border-t border-snow/20">
-              {GROUP_POINTS.map(([term, body], i) => (
-                <Reveal
-                  as="li"
-                  key={term}
-                  delay={i * 70}
-                  className="flex flex-col gap-1.5 border-b border-snow/15 py-4 sm:flex-row sm:items-baseline sm:gap-6"
-                >
-                  <span className="font-club-upright shrink-0 text-base text-snow sm:w-52">
-                    {term}
-                  </span>
-                  <span className="text-snow-dim">{body}</span>
-                </Reveal>
-              ))}
-            </ul>
-
             {/* Who's coaching — a bordered callout rather than another
                 paragraph. A reader deciding whether to hand over an email wants
                 to see who's asking, and a face does that faster than prose. The
@@ -360,6 +378,141 @@ export default function WaitlistPage() {
           </div>
         </section>
 
+        {/* ---- How it works, week to week ----------------------------- */}
+        <section className="club border-t-2 border-red bg-paper text-ink">
+          <div className="mx-auto w-full max-w-[1400px] px-5 py-16 sm:px-8 sm:py-20">
+            <Reveal className="flex items-center gap-4">
+              <span className="club-label shrink-0 text-ink">How it works</span>
+              <span
+                aria-hidden="true"
+                className="club-slashes h-6 flex-1 text-red [--bar:5px] [--gap:13px]"
+              />
+            </Reveal>
+
+            <Reveal className="mt-8" delay={60}>
+              <h2 className="font-club text-club-md max-w-[22ch] text-ink">
+                Written for you.{" "}
+                <span className="text-red">Not for everyone.</span>
+              </h2>
+            </Reveal>
+
+            <Reveal className="mt-7" delay={100}>
+              <p className="max-w-2xl text-lg leading-relaxed text-ink-soft">
+                The plan is the core of it — yours, written by me, changed when
+                your life changes. The group is what gets you through the weeks
+                it&apos;s hard.
+              </p>
+            </Reveal>
+
+            {/* The plan, given its own panel above the row of three. It's the
+                part of the offer people are actually buying, and a fourth cell
+                in a row of equals would read as one feature among several. */}
+            <Reveal className="mt-10" delay={140}>
+              <div className="club-cut-br border-2 border-ink bg-ink/[0.03] p-5 sm:p-8">
+                <div className="flex flex-col gap-6 lg:flex-row lg:gap-10">
+                  <p
+                    aria-hidden="true"
+                    className="club-numeral shrink-0 text-[2.75rem] leading-none text-red lg:text-[4rem]"
+                  >
+                    01
+                  </p>
+                  <div className="min-w-0">
+                    <p className="font-club-upright text-xl text-ink sm:text-2xl">
+                      A training plan, written for you
+                    </p>
+                    <p className="mt-3.5 max-w-2xl text-lg leading-relaxed text-ink-soft">
+                      Every session in it is written by me, for you. Not
+                      generated, not a template with your name typed into it,
+                      not last year&apos;s plan for somebody else. And it gets
+                      rewritten as you go — when your week changes, the plan
+                      changes.
+                    </p>
+                    <p className="mt-5 max-w-2xl border-l-2 border-red pl-4 leading-relaxed text-ink">
+                      And a video for every movement in it — each exercise your
+                      plan names, filmed being done properly, so you&apos;re
+                      never guessing at a name you haven&apos;t seen before.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </Reveal>
+
+            <dl className="mt-10 grid grid-cols-1 border-t-2 border-ink sm:grid-cols-3">
+              {INCLUDED.map(({ index, title: item, body }, i) => (
+                <Reveal
+                  key={item}
+                  delay={i * 80}
+                  className={`flex flex-col gap-3 py-8 sm:px-7 sm:first:pl-0 ${
+                    i > 0
+                      ? "border-t-2 border-ink/15 sm:border-l-2 sm:border-t-0"
+                      : ""
+                  }`}
+                >
+                  <dt className="club-numeral text-[2.75rem] leading-none text-red">
+                    {index}
+                  </dt>
+                  <dd>
+                    <p className="font-club-upright text-lg text-ink">{item}</p>
+                    <p className="mt-2.5 leading-relaxed text-ink-soft">
+                      {body}
+                    </p>
+                  </dd>
+                </Reveal>
+              ))}
+            </dl>
+          </div>
+        </section>
+
+        {/* ---- Who's in the group with you ---------------------------- */}
+        <section className="bg-ink">
+          <div className="mx-auto w-full max-w-[1400px] px-5 py-16 sm:px-8 sm:py-20">
+            <Reveal className="flex items-center gap-4">
+              <span className="club-label shrink-0 text-snow">
+                Who you&apos;re in it with
+              </span>
+              <span
+                aria-hidden="true"
+                className="club-slashes h-6 flex-1 text-red [--bar:5px] [--gap:13px]"
+              />
+            </Reveal>
+
+            <Reveal className="mt-8" delay={60}>
+              <h2 className="font-club text-club-md max-w-[26ch] text-snow">
+                Close enough to relate to.{" "}
+                <span className="text-red-bright">
+                  Far enough apart to pull you along.
+                </span>
+              </h2>
+            </Reveal>
+
+            <Reveal className="mt-7" delay={100}>
+              <p className="max-w-2xl text-lg leading-relaxed text-snow-dim">
+                Groups are built rather than filled. Around five runners, put
+                together so the conversation is actually about you — alike
+                enough in level and in life that you recognise each
+                other&apos;s week, far enough apart that there&apos;s always
+                someone a little further down the road.
+              </p>
+            </Reveal>
+
+            <ul className="mt-10 border-t border-snow/20">
+              {GROUP_POINTS.map(([term, body], i) => (
+                <Reveal
+                  as="li"
+                  key={term}
+                  delay={i * 70}
+                  className="flex flex-col gap-1.5 border-b border-snow/15 py-4 sm:flex-row sm:items-baseline sm:gap-6"
+                >
+                  <span className="font-club-upright shrink-0 text-base text-snow sm:w-52">
+                    {term}
+                  </span>
+                  <span className="text-snow-dim">{body}</span>
+                </Reveal>
+              ))}
+            </ul>
+          </div>
+        </section>
+
         {/* ---- The field again, for anyone who read to the bottom ------ */}
         <section className="club border-t-2 border-red bg-paper text-ink">
           <div className="mx-auto w-full max-w-[1400px] px-5 py-16 sm:px-8 sm:py-20">
@@ -388,18 +541,25 @@ export default function WaitlistPage() {
                 </Reveal>
               </div>
               <Reveal className="lg:col-span-6 lg:col-start-7" delay={100}>
-                <SubscribeForm
-                  action="Join the waitlist"
-                  utmMedium={subscribeSource.groupWaitlist}
-                  location="waitlist-footer"
-                  tone="paper"
-                  successNote={`You're on the list — I'll email you when the group opens at the ${groupCoaching.launch}.`}
-                />
+                {/* Anchor on the wrapper rather than on Reveal, whose props are
+                    a closed type. Same job: the sticky bar stays down while
+                    this form is on screen, so it never covers it. */}
+                <div data-waitlist-anchor>
+                  <SubscribeForm
+                    action="Join the waitlist"
+                    utmMedium={subscribeSource.groupWaitlist}
+                    location="waitlist-footer"
+                    tone="paper"
+                    successNote={`You're on the list — I'll email you when the group opens at the ${groupCoaching.launch}.`}
+                  />
+                </div>
               </Reveal>
             </div>
           </div>
         </section>
       </main>
+
+      <StickyWaitlistBar />
 
       {/* Footer — minimal. The 1:1 route is here rather than higher up: it's
           the answer for someone who doesn't want to wait, not a competing CTA. */}
