@@ -35,19 +35,29 @@ changed in practice is listed at the bottom under *What the rewrite changed*.
 
 ### Navigation bar
 
+The same bar on every page now — homepage, /waitlist, /newsletter, the video
+library, the intake form and 404. Links 1–3 are homepage sections and jump home
+from anywhere; links 4–5 are the two standalone pages, and whichever one you're
+on is shown in red.
+
 | ▸ Field | Current text |
 | --- | --- |
 | Logo alt text | Jonathan — Ultra Running Coach |
 | Link 1 | Approach |
 | Link 2 | How it works |
 | Link 3 | Coaching |
-| Link 4 | Newsletter |
+| Link 4 | Group waitlist |
+| Link 5 | Newsletter |
 | Button (red) | Book a call |
 
 Every booking button on the page now says what it actually is — free, and a
 conversation rather than a purchase. The nav one stays short because the bar is
 tight at small widths; the fuller "Book a free intro call" is used wherever
 there's room.
+
+Link 4 is "Group waitlist" rather than "Group coaching" so it can't be misread
+as a second coaching offer sitting next to link 3 — it names the action. The
+footer has room for the full "Group coaching waitlist".
 
 ---
 
@@ -163,21 +173,7 @@ use, and because volunteering it is the strongest honesty signal on the page. Th
 
 ---
 
-## 4 · Instagram strip
-
-| ▸ Field | Current text |
-| --- | --- |
-| Left label | Follow along |
-| Figure | 11.1k |
-| Figure label | Followers |
-| Handle | @jonathans.pov |
-
-("As seen on Instagram" was borrowed press-kit language for a link to your own
-account. "Follow along" is what it actually is.)
-
----
-
-## 5 · Section 02 — The program
+## 4 · Section 02 — The program
 
 | ▸ Field | Current text |
 | --- | --- |
@@ -217,7 +213,7 @@ conversation", but it's now in writing, so say if you'd rather it went softer.
 
 ---
 
-## 6 · Section 03 — Ways to work with me
+## 5 · Section 03 — Ways to work with me
 
 | ▸ Field | Current text |
 | --- | --- |
@@ -313,7 +309,7 @@ paragraph and nothing else breaks.
 
 ---
 
-## 7 · Section 04 — Shuffle Club
+## 6 · Section 04 — Shuffle Club
 
 | ▸ Field | Current text |
 | --- | --- |
@@ -347,7 +343,7 @@ with the slashes and "CLUB" in off-white.
 
 ---
 
-## 8 · Closing call to action (red section)
+## 7 · Closing call to action (red section)
 
 | ▸ Field | Current text |
 | --- | --- |
@@ -369,22 +365,28 @@ about.)
 
 ---
 
-## 9 · Footer
+## 8 · Footer
 
 | ▸ Field | Current text |
 | --- | --- |
 | Blurb | Ultra-endurance running coach, UESCA-certified. Remote coaching built around your whole life, not just your training. |
 | Column 1 heading | Page |
+| Column 1 links | Approach · How it works · Coaching |
 | Column 2 heading | Start |
-| Column 2 links | Book a free call · Email |
+| Column 2 links | Book a free call · Group coaching waitlist · Shuffle Club newsletter |
 | Column 3 heading | Elsewhere |
-| Column 3 links | Instagram · LinkedIn |
+| Column 3 links | Email · Instagram · LinkedIn |
 | Copyright | © 2026 Jonathan Fors. All rights reserved. |
 | Right-hand line 🔒 | 744 km down the coast of Portugal for men's mental health. |
 
+Split by what a link *is*, not where it goes: column 1 is the homepage's own
+sections, column 2 is the three things you can actually do, column 3 is
+everything that leaves the site. Email moved from Start to Elsewhere to make
+room for the two signup pages.
+
 ---
 
-## 10 · Booking popup
+## 9 · Booking popup
 
 Opens full-screen when any "Book a call" button is pressed.
 
@@ -399,7 +401,7 @@ The calendar itself is TidyCal — its wording is set in your TidyCal account.
 
 ---
 
-## 11 · 404 page
+## 10 · 404 page
 
 Shown for any URL that doesn't exist — mistyped links, old addresses, anything
 removed. Untouched by the 23 Aug rewrite apart from the button label, aligned
@@ -408,7 +410,6 @@ with the rest of the site.
 | ▸ Field | Current text |
 | --- | --- |
 | Browser tab title | Page not found — Jonathan Fors |
-| Top-right label | Error 404 |
 | Eyebrow | Page not found |
 
 > ▸ **Headline** — "off the map." is in red.
@@ -428,13 +429,14 @@ The big outlined **404** is the section-index numeral treatment from the homepag
 scaled up — it's decorative and hidden from screen readers, so the "Page not found"
 eyebrow is what actually gets read out.
 
-Two deliberate omissions: no nav bar (its links are in-page anchors that would
-land on nothing from a 404) and no newsletter signup (a dead end is the wrong
-place to ask for an email).
+The page now carries the site nav, which is what its own wordmark bar and
+"Error 404" label used to stand in for — the nav's section links are absolute,
+so they lead home rather than landing on nothing. Still no newsletter signup: a
+dead end is the wrong place to ask for an email.
 
 ---
 
-## 12 · Video library (`/videos`)
+## 11 · Video library (`/videos`)
 
 A separate page holding the training videos, plus one page per movement at
 `/videos/<slug>` — that per-movement URL is what you send an athlete. Not linked
@@ -565,7 +567,7 @@ Two things worth knowing:
 
 ---
 
-## 13 · Group coaching waitlist page (`/waitlist`)
+## 12 · Group coaching waitlist page (`/waitlist`)
 
 A standalone landing page whose only job is getting an email address onto the
 waitlist — the link to put in your Instagram bio or a post. **Built 24 Aug 2026,
@@ -776,7 +778,7 @@ competes with the one thing this page is for.
 
 ---
 
-## 14 · Shuffle Club newsletter page (`/newsletter`)
+## 13 · Shuffle Club newsletter page (`/newsletter`)
 
 A standalone landing page with **one action on it: subscribe.** Same job as
 `/waitlist` — the link to put in a bio, an Instagram post, or the foot of an

@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import CtaTracker from "@/components/CtaTracker";
 import Reveal from "@/components/Reveal";
 import SlashMark from "@/components/SlashMark";
-import Wordmark from "@/components/club/Wordmark";
 import SubscribeForm from "@/components/club/SubscribeForm";
 import { InstagramIcon, MailIcon } from "@/components/icons";
 import { facts, shuffleClub, siteLinks, subscribeSource } from "@/lib/site";
@@ -15,9 +13,10 @@ import { facts, shuffleClub, siteLinks, subscribeSource } from "@/lib/site";
  * link for a bio, a post, or the foot of an edition, where the homepage would
  * bury the signup under three other sections.
  *
- * Deliberately no nav and no second offer. Coaching isn't sold here — every
- * other link is a way to leave without subscribing, so the only ones on the
- * page are the wordmark (back home) and the footer's contact links.
+ * Coaching still isn't sold here. The page carries the site nav (from the root
+ * layout) but no coaching CTA of its own, and the footer stays one line rather
+ * than the full ClubFooter — the newsletter is free, so a €200/mo offer at the
+ * foot of it would only interrupt.
  *
  * The form posts `utm_medium: newsletter`, the same value as the homepage
  * block, so both entry points land on one beehiiv segment; the two are told
@@ -100,23 +99,7 @@ const TERMS = [
 
 export default function NewsletterPage() {
   return (
-    <div className="club club-on-ink bg-ink text-snow">
-      <CtaTracker />
-
-      {/* Header — the wordmark and nothing else. No nav: there is one action on
-          this page and every link is a way not to take it. */}
-      <header className="flex h-16 items-stretch border-b-2 border-red sm:h-[4.5rem]">
-        <Link
-          href="/"
-          aria-label="Jonathan Fors — homepage"
-          className="flex shrink-0 items-center border-r-2 border-red/30 px-4 sm:px-6"
-        >
-          <Wordmark />
-        </Link>
-        <p className="club-label ml-auto flex items-center px-5 text-snow-dim sm:px-8">
-          The newsletter
-        </p>
-      </header>
+    <div className="club club-on-ink pt-16 sm:pt-[4.5rem] bg-ink text-snow">
 
       <main>
         {/* ---- Hero: what it is, then the field ------------------------ */}

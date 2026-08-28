@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import CtaTracker from "@/components/CtaTracker";
 import Reveal from "@/components/Reveal";
 import SlashMark from "@/components/SlashMark";
-import Wordmark from "@/components/club/Wordmark";
 import SubscribeForm from "@/components/club/SubscribeForm";
 import StickyWaitlistBar from "@/components/club/StickyWaitlistBar";
 import { InstagramIcon, MailIcon } from "@/components/icons";
@@ -15,10 +13,10 @@ import { facts, groupCoaching, siteLinks, subscribeSource } from "@/lib/site";
  * email address onto the waitlist. This is the link for a bio or a post, where
  * the homepage would bury the waitlist under four other sections.
  *
- * Deliberately not wrapped in ClubNav / ClubFooter, and deliberately carrying no
- * links to the rest of the site above the fold: every outbound link here is a
- * way to leave without signing up. The email field is the first interactive
- * thing on the page.
+ * It carries the site nav (from the root layout) but not ClubFooter: the footer
+ * here is one line, because the page has one action and a full sitemap under it
+ * is four more ways to leave without taking it. The email field is still the
+ * first thing below the nav.
  *
  * The signup posts the same `utm_medium` as the homepage form
  * (`group-coaching-waitlist`) on purpose — the draw is run off one beehiiv
@@ -146,27 +144,11 @@ const jsonLd = {
 
 export default function WaitlistPage() {
   return (
-    <div className="club club-on-ink bg-ink text-snow">
+    <div className="club club-on-ink pt-16 sm:pt-[4.5rem] bg-ink text-snow">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <CtaTracker />
-
-      {/* Header — the wordmark and nothing else. No nav: there is one action on
-          this page and every link is a way not to take it. */}
-      <header className="flex h-16 items-stretch border-b-2 border-red sm:h-[4.5rem]">
-        <Link
-          href="/"
-          aria-label="Jonathan Fors — homepage"
-          className="flex shrink-0 items-center border-r-2 border-red/30 px-4 sm:px-6"
-        >
-          <Wordmark />
-        </Link>
-        <p className="club-label ml-auto flex items-center px-5 text-snow-dim sm:px-8">
-          Group coaching
-        </p>
-      </header>
 
       <main>
         {/* ---- Hero: the offer, then the field ------------------------- */}

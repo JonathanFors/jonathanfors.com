@@ -1,7 +1,17 @@
+import Link from "next/link";
 import Wordmark from "@/components/club/Wordmark";
 import { InstagramIcon, LinkedInIcon, MailIcon } from "@/components/icons";
-import { clubNav, facts, siteLinks } from "@/lib/site";
+import { clubSections, facts, siteLinks } from "@/lib/site";
 
+/**
+ * Site footer.
+ *
+ * Three columns, split by what the link is rather than where it goes: "Page"
+ * is the homepage's own sections, "Start" is the three things a reader can
+ * actually do — book, join the waitlist, subscribe — and "Elsewhere" is
+ * everything that leaves the site. The two signup pages sit under Start rather
+ * than Page because they're actions, not sections to read.
+ */
 export default function ClubFooter() {
   return (
     <footer className="club club-on-ink bg-ink text-snow">
@@ -19,14 +29,14 @@ export default function ClubFooter() {
             <nav aria-label="Footer">
               <p className="club-label text-snow-dim">Page</p>
               <ul className="mt-4 flex flex-col gap-2.5">
-                {clubNav.map((item) => (
+                {clubSections.map((item) => (
                   <li key={item.href}>
-                    <a
+                    <Link
                       href={item.href}
                       className="text-snow transition-colors hover:text-red-bright"
                     >
                       {item.label}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -48,6 +58,28 @@ export default function ClubFooter() {
                   </a>
                 </li>
                 <li>
+                  <Link
+                    href={siteLinks.waitlist}
+                    className="text-snow transition-colors hover:text-red-bright"
+                  >
+                    Group coaching waitlist
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href={siteLinks.newsletter}
+                    className="text-snow transition-colors hover:text-red-bright"
+                  >
+                    Shuffle Club newsletter
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <p className="club-label text-snow-dim">Elsewhere</p>
+              <ul className="mt-4 flex flex-col gap-2.5">
+                <li>
                   <a
                     href={`mailto:${siteLinks.email}`}
                     className="inline-flex items-center gap-2 text-snow transition-colors hover:text-red-bright"
@@ -56,12 +88,6 @@ export default function ClubFooter() {
                     Email
                   </a>
                 </li>
-              </ul>
-            </div>
-
-            <div>
-              <p className="club-label text-snow-dim">Elsewhere</p>
-              <ul className="mt-4 flex flex-col gap-2.5">
                 <li>
                   <a
                     href={siteLinks.instagram}

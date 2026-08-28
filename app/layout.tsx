@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Roboto, Roboto_Condensed } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
+import BookingModal from "@/components/BookingModal";
+import CtaTracker from "@/components/CtaTracker";
+import ClubNav from "@/components/club/ClubNav";
 import "./globals.css";
 
 // Titles, eyebrows, labels, buttons, numerals — anything short and declarative.
@@ -85,6 +88,14 @@ export default function RootLayout({
         <noscript>
           <style>{`[data-reveal]{opacity:1!important;transform:none!important}`}</style>
         </noscript>
+        {/* All three are mounted once, here, rather than per page: the nav is
+            the same bar everywhere, and its "Book a call" needs the popup and
+            the click tracking to work wherever it is rendered. CtaTracker and
+            BookingModal are both delegated listeners on document, so one
+            instance covers every CTA on the page. */}
+        <CtaTracker />
+        <BookingModal />
+        <ClubNav />
         {children}
         {/* Vercel Web Analytics — page views only, no cookies. */}
         <Analytics />

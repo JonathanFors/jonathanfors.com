@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import SlashMark from "@/components/SlashMark";
-import Wordmark from "@/components/club/Wordmark";
 import { ArrowIcon, InstagramIcon, MailIcon } from "@/components/icons";
 import { siteLinks } from "@/lib/site";
 
@@ -9,10 +8,11 @@ import { siteLinks } from "@/lib/site";
  * 404, in the club design language: black sheet, slash field, the hollow
  * numeral treatment the section indexes use — blown up to fill the page.
  *
- * Deliberately standalone rather than wrapped in ClubNav / ClubFooter. It has
- * to work from any URL, including ones the club page doesn't exist on, so the
- * nav's in-page anchors (#approach, #newsletter) would land on nothing. A
- * wordmark home link and two real destinations are the whole job here.
+ * It carries the site nav (from the root layout) — which is exactly what this
+ * page used to fake with a wordmark bar of its own. The nav's section links are
+ * absolute ("/#approach"), so they lead home from a URL that doesn't exist
+ * rather than landing on nothing. ClubFooter is still deliberately not here:
+ * the one-line footer keeps the page a single black sheet.
  */
 export const metadata: Metadata = {
   title: "Page not found",
@@ -22,21 +22,10 @@ export const metadata: Metadata = {
 export default function NotFound() {
   return (
     <div className="club club-on-ink flex min-h-svh flex-col bg-ink text-snow">
-      {/* Header bar — same proportions and red rule as the site nav */}
-      <header className="flex h-16 shrink-0 items-stretch border-b-2 border-red sm:h-[4.5rem]">
-        <Link
-          href="/"
-          aria-label="Jonathan Fors — homepage"
-          className="flex shrink-0 items-center border-r-2 border-red/30 px-4 sm:px-6"
-        >
-          <Wordmark />
-        </Link>
-        <p className="club-label ml-auto flex items-center px-5 text-snow-dim sm:px-8">
-          Error 404
-        </p>
-      </header>
-
-      <main className="relative flex flex-1 items-center overflow-hidden">
+      {/* Padding, not a spacer element: the sheet is min-h-svh, so reserving
+          the fixed nav's height on <main> keeps the total exactly one viewport
+          instead of one viewport plus a nav. */}
+      <main className="relative flex flex-1 items-center overflow-hidden pt-16 sm:pt-[4.5rem]">
         {/* Slash field, top-right — the logo mark blown up as texture. Sized in
             vw with a rem cap, like the hero: a fixed rem square is wider than a
             phone viewport and floods the page instead of sitting in the corner. */}

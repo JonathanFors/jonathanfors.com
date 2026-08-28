@@ -1,6 +1,4 @@
-import Link from "next/link";
 import type { Metadata } from "next";
-import { ArrowIcon } from "@/components/icons";
 
 export const metadata: Metadata = {
   title: "Athlete Intake",
@@ -12,18 +10,17 @@ export const metadata: Metadata = {
 const formSrc =
   "https://jonathanfors.notion.site/ebd/39851b7e1c7b802f8594eb51f62161ff";
 
+/**
+ * Athlete intake. Still unlinked and noindex — Jonathan sends the URL by hand —
+ * but it now sits under the site nav like every other page, which replaces the
+ * "← Jonathan Fors" back-link this page used to carry. The padding reserves the
+ * fixed nav's height; the page itself is still on the old editorial styles.
+ */
 export default function AthleteIntake() {
   return (
-    <main className="mx-auto flex min-h-screen w-full max-w-3xl flex-col px-5 py-10 sm:px-8 sm:py-14">
+    <main className="mx-auto flex min-h-screen w-full max-w-3xl flex-col px-5 pb-10 pt-24 sm:px-8 sm:pb-14 sm:pt-28">
       <header className="mb-8">
-        <Link
-          href="/"
-          className="inline-flex items-center gap-2 text-sm font-medium text-ink-faint transition-colors hover:text-atlantic"
-        >
-          <ArrowIcon className="h-4 w-4 rotate-180" />
-          Jonathan Fors
-        </Link>
-        <h1 className="mt-6 font-display text-display-sm text-ink">
+        <h1 className="font-display text-display-sm text-ink">
           Athlete intake
         </h1>
         <p className="mt-4 max-w-xl text-lg text-ink-soft">

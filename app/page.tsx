@@ -1,10 +1,6 @@
-import BookingModal from "@/components/BookingModal";
-import CtaTracker from "@/components/CtaTracker";
-import ClubNav from "@/components/club/ClubNav";
 import ClubHero from "@/components/club/ClubHero";
 import ClubApproach from "@/components/club/ClubApproach";
 import ClubProofBand from "@/components/club/ClubProofBand";
-import ClubInstagram from "@/components/club/ClubInstagram";
 import ClubProcess from "@/components/club/ClubProcess";
 import ClubOffers from "@/components/club/ClubOffers";
 import ClubNewsletter from "@/components/club/ClubNewsletter";
@@ -65,15 +61,10 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <CtaTracker />
-      <BookingModal />
-      <ClubNav />
-
       <main>
         <ClubHero />
         <ClubApproach />
         <ClubProofBand />
-        <ClubInstagram />
         <ClubProcess />
         <ClubOffers />
         <ClubNewsletter />

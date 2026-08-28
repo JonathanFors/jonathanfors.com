@@ -33,8 +33,6 @@ export const facts = {
   ranDays: 10,
   ranDates: "1–10 August 2026",
 
-  instagramHandle: "@jonathans.pov",
-  instagramFollowers: "11.1k",
 } as const;
 
 /**
@@ -99,14 +97,34 @@ export const shuffleClub = {
   ],
 } as const;
 
-// Anchor targets for the redesigned (club) page. Separate from `nav` below,
-// which the current live page still needs — its sections haven't moved yet.
-export const clubNav = [
-  { label: "Approach", href: "#approach" },
-  { label: "How it works", href: "#coaching" },
-  { label: "Coaching", href: "#coaching-options" },
-  { label: "Newsletter", href: "#newsletter" },
+// ---- Navigation ------------------------------------------------------
+// The nav is rendered by the root layout, so it is the same bar on every page.
+// That is why every href here is absolute: a bare "#approach" scrolls to
+// nothing on /waitlist. Separate from `nav` below, which the retired page
+// components still import.
+
+/** Homepage sections — what the coaching is. These jump home from any page. */
+export const clubSections = [
+  { label: "Approach", href: "/#approach" },
+  { label: "How it works", href: "/#coaching" },
+  { label: "Coaching", href: "/#coaching-options" },
 ] as const;
+
+/**
+ * The two standalone signup pages. Real routes rather than anchors, so these
+ * are the only nav items that can be the current page — the nav marks them
+ * with aria-current, the section anchors above can never match.
+ */
+export const clubPages = [
+  { label: "Group waitlist", href: siteLinks.waitlist },
+  { label: "Newsletter", href: siteLinks.newsletter },
+] as const;
+
+/** The nav bar in order: what the coaching is, then where to sign up. */
+export const clubNav: readonly { label: string; href: string }[] = [
+  ...clubSections,
+  ...clubPages,
+];
 
 // Anchor targets used by the nav + in-page links.
 export const nav = [
