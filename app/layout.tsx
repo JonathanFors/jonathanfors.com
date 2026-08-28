@@ -4,6 +4,7 @@ import { Analytics } from "@vercel/analytics/next";
 import BookingModal from "@/components/BookingModal";
 import CtaTracker from "@/components/CtaTracker";
 import ClubNav from "@/components/club/ClubNav";
+import MetaPixel from "@/components/MetaPixel";
 import "./globals.css";
 
 // Titles, eyebrows, labels, buttons, numerals — anything short and declarative.
@@ -99,6 +100,8 @@ export default function RootLayout({
         {children}
         {/* Vercel Web Analytics — page views only, no cookies. */}
         <Analytics />
+        {/* Meta Pixel — this one does set cookies. */}
+        <MetaPixel />
       </body>
     </html>
   );
