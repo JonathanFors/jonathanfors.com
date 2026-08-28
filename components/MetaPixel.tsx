@@ -20,9 +20,19 @@ import { useEffect, useRef } from "react";
  * already counted — rather than a "first run" flag, so a re-run of the effect
  * on the same path (StrictMode in dev, a remount) can't double-count.
  *
+ * A completed signup is reported as Meta's standard `Lead`. Both signup forms
+ * already announce themselves with the `subscribe:success` CustomEvent that
+ * SubscribeForm fires, so this listens for that rather than putting vendor code
+ * in the form — the pattern CtaTracker set up and StickyWaitlistBar already
+ * uses. `content_name` carries the `utm_medium`, so newsletter and waitlist
+ * leads can be told apart in Meta the same way they are in beehiiv.
+ *
  * Unlike Vercel Analytics, this does set cookies and send data to Meta.
  */
 const PIXEL_ID = "1576465530841059";
+
+/** What SubscribeForm puts in the `subscribe:success` event. */
+type SubscribeSuccessDetail = { utmMedium: string; location: string };
 
 declare global {
   interface Window {
@@ -39,6 +49,32 @@ export default function MetaPixel() {
     lastTracked.current = pathname;
     window.fbq?.("track", "PageView");
   }, [pathname]);
+
+  /**
+   * Lead, on a completed signup.
+   *
+   * Reported once per list: /waitlist carries the same waitlist form three
+   * times over (hero, foot of page, sticky bar), and someone who fills in two
+   * of them is still one lead. Signing up to both lists is two, which is right
+   * — they are two different things to have asked for.
+   */
+  const reported = useRef(new Set<string>());
+
+  useEffect(() => {
+    const onSuccess = (event: Event) => {
+      const { utmMedium } = (event as CustomEvent<SubscribeSuccessDetail>)
+        .detail;
+      if (reported.current.has(utmMedium)) return;
+      reported.current.add(utmMedium);
+      window.fbq?.("track", "Lead", {
+        content_name: utmMedium,
+        content_category: "signup",
+      });
+    };
+
+    window.addEventListener("subscribe:success", onSuccess);
+    return () => window.removeEventListener("subscribe:success", onSuccess);
+  }, []);
 
   return (
     <>
