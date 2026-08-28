@@ -8,7 +8,8 @@ Sections 0–10 are the homepage at `jonathanfors.com`. Section 11 is the 404 pa
 shown for any URL that doesn't exist. Both are live. Section 12 is the training
 video library at `/videos` — built, but not published: nothing is filmed yet, so
 it's hidden from search. Section 13 is the group-coaching waitlist landing page at
-`/waitlist` — built, not pushed live yet.
+`/waitlist`. Section 14 is the Shuffle Club landing page at `/newsletter` — built,
+not pushed live yet.
 
 **Rewritten 23 Aug 2026** against one brief: human over sales, honesty over cool
 claims, lead with facts, then go deeper with the feeling underneath them. What that
@@ -772,6 +773,155 @@ competes with the one thing this page is for.
 | --- | --- |
 | Browser tab title | Group coaching waitlist — Jonathan Fors |
 | Meta + share description 🔒 | Five athletes get my group coaching free, forever — drawn at random from the waitlist when the group opens at the end of September. Everyone else pays €50/mo. One email to join. |
+
+---
+
+## 14 · Shuffle Club newsletter page (`/newsletter`)
+
+A standalone landing page with **one action on it: subscribe.** Same job as
+`/waitlist` — the link to put in a bio, an Instagram post, or the foot of an
+edition, where the homepage anchor buries the signup under three other sections.
+
+Deliberately **no nav and no second offer.** Coaching isn't sold here at all:
+every other link is a way to leave without subscribing, so the only ones on the
+page are the wordmark (back to the homepage) and the footer's email/Instagram.
+The email field is the first interactive thing on the page, and appears twice —
+once in the hero, once at the bottom.
+
+Both fields post the same `utm_medium` as the homepage block (`newsletter`), so
+all subscribers land on one beehiiv list. Traffic to this page is told apart in
+Vercel Analytics by route.
+
+### Header
+
+| ▸ Field | Current text |
+| --- | --- |
+| Left | The wordmark (links home) |
+| Right | The newsletter |
+
+### The offer
+
+| ▸ Field | Current text |
+| --- | --- |
+| Eyebrow | Shuffle Club · Tuesdays, Fridays, Sundays |
+
+The Shuffle Club logo sits above the headline — the dark-background version, red
+type with the slashes and "CLUB" in off-white.
+
+> ▸ **Headline** — "Free forever." is set in the red tape. Neither line can wrap:
+> both are sized to hold one line on the narrowest phone.
+> Three editions a week.
+> **Free forever.**
+
+> ▸ **Body**
+> One subject a week, from three sides: what the research actually says, what I think about it after running on it, and whatever you send back. No fee, and nothing to buy at the end of it.
+
+### The signup box (hero)
+
+| ▸ Field | Current text |
+| --- | --- |
+| Box heading | Subscribe |
+| Field placeholder | Enter your email |
+| Button (red) | Subscribe |
+| Note under the field | One field, and that's the whole signup. Unsubscribe whenever you like — there's a link at the foot of every edition. |
+| Success message | You're in — check your inbox |
+| Line under the success message | You're in. The next edition lands on Tuesday, Friday or Sunday, whichever comes first. |
+
+### The number, beside the form
+
+| ▸ Field | Current text |
+| --- | --- |
+| Numeral (hollow, red) 🔒 | 03 |
+| Label | Editions every week |
+| Line underneath | Free means free. No paid tier, and nothing sold at the end of an edition. |
+
+### Your week — three columns
+
+| ▸ Field | Current text |
+| --- | --- |
+| Section label | Your week |
+
+> ▸ **Headline** — "three times." is red.
+> The same subject, **three times.**
+
+> ▸ **Body**
+> Knees one week, heat the next. Tuesday explains it, Friday argues with it, Sunday answers what you asked about it.
+
+| ▸ Day 🔒 | ▸ Title | ▸ Body |
+| --- | --- | --- |
+| Tuesday | The science | One idea from the research, explained properly — the mechanism, not just the takeaway. Grounded in the coaching course material rather than whatever crossed my feed that week. |
+| Friday | My take | The same subject from the road: what I actually do about it, and why. Marked as opinion, so you always know which half you're reading. |
+| Sunday | Your questions | A real question from a subscriber, answered in full. Reply to any edition and yours goes in the pile. |
+
+⚠️ **One to confirm:** Sunday says *"Reply to any edition and yours goes in the
+pile."* That's an invitation to email you, and the style guide already says a
+Sunday edition needs a real question from the inbox. Cut the line if you'd rather
+not solicit them yet.
+
+### Written by a coach
+
+> ▸ **Headline** — "Not by a feed." is red.
+> Written by a coach. **Not by a feed.**
+
+> ▸ **Body**
+> Tuesday's science comes out of the coaching course material I certified on, with the studies behind it named. Friday is my own opinion and it says so — you shouldn't have to guess which of the two you're reading. Every term gets explained the first time it turns up, because a newsletter you have to look things up to follow isn't worth the three minutes.
+
+### "Who's writing it" callout
+
+Same shape as the one on `/waitlist`: the photo, the name, then the paragraph.
+A reader deciding whether to hand over an address wants to see who's asking.
+
+| ▸ Field | Current text |
+| --- | --- |
+| Label | Who's writing it |
+| Name | Jonathan Fors |
+| Line under the name 🔒 | UESCA-certified · Ultra-endurance running coach |
+
+> ▸ **Paragraph** — the numbers are 🔒.
+> I coach runners training for a first ultra, or a next hundred-miler — most of them with jobs, families and not enough hours in the week. In August 2026 I ran the coastline of Portugal, 744 km in 10 days, for men's mental health. Two years earlier the same route stopped me at 480 km, which is the more useful half of the experience — and a fair amount of what ends up in here.
+
+### What you're signing up for — three columns
+
+| ▸ Field | Current text |
+| --- | --- |
+| Section label | What you're signing up for |
+
+| ▸ Figure | ▸ Title | ▸ Body |
+| --- | --- | --- |
+| Free | Free forever | No paid tier, no course at the end of it, nothing held back for people who pay. The newsletter is the whole thing. |
+| 03 | Three a week, not three a year | Tuesday, Friday and Sunday. Each one is a few minutes on a phone — short enough to actually read, long enough to be worth reading. |
+| 01 | One subject a week | All three editions take the same theme from a different side, so a week adds up to something instead of arriving as three unrelated tips. |
+
+### The field again, at the bottom
+
+> ▸ **Headline** — "Tuesday." is set in the red tape.
+> Start on **Tuesday.**
+
+> ▸ **Body**
+> One email address is the whole signup. If it turns out not to be for you, the unsubscribe link is at the foot of every edition and I won't hold it against you.
+
+| ▸ Field | Current text |
+| --- | --- |
+| Button (red) | Subscribe |
+
+### Footer
+
+| ▸ Field | Current text |
+| --- | --- |
+| Left | Shuffle Club — the newsletter from **jonathanfors.com** (links home) |
+| Right | Email · Instagram |
+
+No coaching link down here, unlike `/waitlist`. That page has a real second
+answer for someone who won't wait until September; this one doesn't — there's
+one action on it and the newsletter is free, so a €200/mo offer in the footer
+would only be an interruption.
+
+### Search / share
+
+| ▸ Field | Current text |
+| --- | --- |
+| Browser tab title | Shuffle Club — the newsletter — Jonathan Fors |
+| Meta + share description 🔒 | Three editions a week from an ultra-endurance coach, free forever. Tuesday the science, Friday my take on it, Sunday your questions — one subject a week, from three sides. One email to subscribe. |
 
 ---
 

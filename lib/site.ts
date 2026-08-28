@@ -9,6 +9,10 @@ export const siteLinks = {
   // Standalone group-coaching waitlist landing page. Public and indexed —
   // this is the link to put in a bio or a post, not the homepage anchor.
   waitlist: "/waitlist",
+  // Standalone Shuffle Club landing page. Public and indexed — the link to put
+  // in a bio or at the end of an edition, where the homepage anchor buries the
+  // signup under three other sections.
+  newsletter: "/newsletter",
   instagram: "https://www.instagram.com/jonathans.pov/",
   linkedin: "https://www.linkedin.com/in/jonathanfors/",
   email: "coach@jonathanfors.com",
