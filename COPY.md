@@ -259,6 +259,9 @@ slimmer outlined bar.
 | Figure label 🔒 | Free spots, drawn at random |
 | Heading | Join the waitlist |
 | Note 🔒 | The five free places are drawn at random from the waitlist when the group opens at the end of September. Signing up early is no advantage — it just puts you in the draw. |
+| First name placeholder | First name |
+| Experience level placeholder | Experience level |
+| Experience level options | Beginner · Average · Experienced · Professional |
 | Field placeholder | Enter your email |
 | Button (red) | Notify me |
 | Success message | You're in — check your inbox |
@@ -606,9 +609,12 @@ instead.
 | ▸ Field | Current text |
 | --- | --- |
 | Heading | Join the waitlist |
+| First name placeholder | First name |
+| Experience level placeholder | Experience level |
+| Experience level options | Beginner · Average · Experienced · Professional |
 | Field placeholder | Enter your email |
 | Button (red) | Join |
-| Note under the field | One field, and that's the whole signup. No payment details, no commitment — unsubscribe whenever you like. |
+| Note under the field | Your name, roughly where you're at, and an email — that's the whole signup. No payment details, no commitment — unsubscribe whenever you like. |
 | Success message | You're in — check your inbox |
 | Success note 🔒 | You're on the list. The draw happens when the group opens at the end of September — I'll email you either way, and nothing before then. |
 
@@ -737,26 +743,32 @@ the homepage, but it's your first attempt you're volunteering.
 | --- | --- |
 | Headline | Get in the **draw.** |
 | Body 🔒 | Five free places, drawn when the group opens at the end of September. Signing up early is no advantage — it just puts you in the draw. |
+| First name placeholder | First name |
+| Experience level placeholder | Experience level |
+| Experience level options | Beginner · Average · Experienced · Professional |
+| Field placeholder | Enter your email |
 | Button (red) | Join the waitlist |
 | Success note 🔒 | You're on the list — I'll email you when the group opens at the end of September. |
 
 ### The sticky bar
 
-A slim bar pinned to the bottom of the screen, carrying the same field as the
-rest of the page. The label is shortened on a phone, where there's no room for
-the full sentence beside the field.
+A slim bar pinned to the bottom of the screen. It carries a button back to the
+form rather than a copy of the form itself — the signup asks three questions
+now, and a bar deep enough to hold them would cover a third of a phone screen.
+The button scrolls to the form in the hero and puts the cursor in the first
+field. The label is shortened on a phone, where there's no room for the full
+sentence beside the button.
 
 | ▸ Field | Current text |
 | --- | --- |
 | Label (phone) | 5 free places, drawn at random |
 | Label (wider screens) 🔒 | 5 places free forever, drawn at random when the group opens at the end of September. |
-| Field placeholder | Enter your email |
-| Button (red) | Join |
+| Button (red) | Join the waitlist |
 
 It stays out of the way rather than following you down the page: it's down
 whenever one of the page's own signup forms is on screen — so it never sits
 under the field in the hero, and never covers the one at the bottom — and it
-retires for good the moment an address goes in, from any of the three forms.
+retires for good the moment a signup lands, from either form.
 
 ### Footer
 
@@ -774,7 +786,7 @@ competes with the one thing this page is for.
 | ▸ Field | Current text |
 | --- | --- |
 | Browser tab title | Group coaching waitlist — Jonathan Fors |
-| Meta + share description 🔒 | Five athletes get my group coaching free, forever — drawn at random from the waitlist when the group opens at the end of September. Everyone else pays €50/mo. One email to join. |
+| Meta + share description 🔒 | Five athletes get my group coaching free, forever — drawn at random from the waitlist when the group opens at the end of September. Everyone else pays €50/mo. Three questions to join. |
 
 ---
 

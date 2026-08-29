@@ -51,6 +51,28 @@ export const subscribeSource = {
   groupWaitlist: "group-coaching-waitlist",
 } as const;
 
+/**
+ * The two beehiiv custom fields the group waitlist writes to, and the exact
+ * values allowed in each.
+ *
+ * These are matched by beehiiv on the display name, and a list field only
+ * accepts the options defined on it — so **these strings have to match beehiiv
+ * → Audience → Custom fields character for character**. Rename one there and
+ * it has to be renamed here, or the value is refused and dropped.
+ */
+export const beehiivFields = {
+  firstName: "First Name",
+  experience: "Experience level",
+} as const;
+
+/** The options on beehiiv's "Experience level" list field, in its order. */
+export const experienceLevels = [
+  "Beginner",
+  "Average",
+  "Experienced",
+  "Professional",
+] as const;
+
 // 1:1 coaching — the main offer.
 export const oneToOne = {
   price: "€200",

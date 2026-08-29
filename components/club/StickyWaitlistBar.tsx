@@ -1,53 +1,43 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import SubscribeForm from "@/components/club/SubscribeForm";
+import { useEffect, useState } from "react";
 import SlashMark from "@/components/SlashMark";
-import { groupCoaching, subscribeSource } from "@/lib/site";
+import { ArrowIcon } from "@/components/icons";
+import { groupCoaching } from "@/lib/site";
 
 /**
- * The waitlist field, pinned to the bottom of the viewport on /waitlist.
+ * The waitlist prompt, pinned to the bottom of the viewport on /waitlist.
  *
  * The point of the page is one action, and a reader who has scrolled past the
- * hero shouldn't have to scroll back to take it. Three rules keep it from
- * being the nagging bar every landing page has:
+ * hero shouldn't have to hunt for it. Three rules keep it from being the
+ * nagging bar every landing page has:
  *
- * 1. **It only appears when no other form is on screen.** It watches every
- *    element marked `data-waitlist-anchor` and stays hidden while one of them
- *    is visible — so it never sits under a field the reader is already looking
+ * 1. **It only appears when no form is on screen.** It watches every element
+ *    marked `data-waitlist-anchor` and stays hidden while one of them is
+ *    visible — so it never sits under a field the reader is already looking
  *    at, and never covers the page's own bottom form.
- * 2. **It retires as soon as the address is in.** It listens for the
+ * 2. **It retires as soon as the signup lands.** It listens for the
  *    `subscribe:success` event that SubscribeForm fires, from any form on the
- *    page. If the bar was on screen it holds its own confirmation for a beat
- *    first; if the signup happened in a form the reader was looking at, it just
- *    goes.
+ *    page, and doesn't come back for the rest of the visit.
  * 3. **It's inert while hidden.** It stays mounted so it can slide rather than
  *    pop, but nothing in it is focusable or read out until it's actually up.
+ *
+ * It carries a button back to the form rather than a copy of the form itself.
+ * The waitlist asks three questions now — name, level, address — and a bar
+ * deep enough to hold them is a bar that covers a third of a phone screen.
+ * Sending the reader to the field they were going to have to fill in anyway
+ * keeps the bar one line tall and the form in one place.
  *
  * No JavaScript means no bar — the two forms in the page body are the real
  * signup path, and both work without it.
  */
-
-/** How long the bar holds its confirmation before sliding away, in ms. */
-const CONFIRMATION_MS = 6000;
-
 export default function StickyWaitlistBar() {
   /** True when none of the page's own signup forms are on screen. */
   const [formsOffScreen, setFormsOffScreen] = useState(false);
-  /** Signup landed while the bar was up — hold the confirmation, then go. */
-  const [confirming, setConfirming] = useState(false);
   /** Retired for the rest of the visit. */
   const [retired, setRetired] = useState(false);
 
-  const show = !retired && (confirming || formsOffScreen);
-
-  // Read inside the success handler, which would otherwise close over the value
-  // from the render it was registered in. Synced in an effect rather than
-  // written during render.
-  const showRef = useRef(show);
-  useEffect(() => {
-    showRef.current = show;
-  }, [show]);
+  const show = !retired && formsOffScreen;
 
   useEffect(() => {
     const anchors = Array.from(
@@ -78,28 +68,32 @@ export default function StickyWaitlistBar() {
 
   useEffect(() => {
     if (retired) return;
-
-    const onSuccess = () => {
-      if (!showRef.current) {
-        // The reader signed up in a form they were looking at — it shows its
-        // own confirmation. Nothing for the bar to do but stay away.
-        setRetired(true);
-        return;
-      }
-      setConfirming(true);
-    };
-
+    const onSuccess = () => setRetired(true);
     window.addEventListener("subscribe:success", onSuccess);
     return () => window.removeEventListener("subscribe:success", onSuccess);
   }, [retired]);
 
-  useEffect(() => {
-    if (!confirming) return;
-    const timer = window.setTimeout(() => setRetired(true), CONFIRMATION_MS);
-    return () => window.clearTimeout(timer);
-  }, [confirming]);
-
   if (retired) return null;
+
+  /**
+   * Take the reader to the form and put the cursor in its first field, so the
+   * bar hands over a form ready to type in rather than just a view of one.
+   * Focus is moved with `preventScroll` — left to itself it jumps the page,
+   * which would undo the smooth scroll it was given.
+   */
+  const goToForm = () => {
+    const target = document.querySelector("[data-waitlist-anchor]");
+    if (!target) return;
+
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    target.scrollIntoView({
+      behavior: reduced ? "auto" : "smooth",
+      block: "center",
+    });
+    target
+      .querySelector<HTMLInputElement>("input:not([type='hidden'])")
+      ?.focus({ preventScroll: true });
+  };
 
   return (
     <div
@@ -114,9 +108,9 @@ export default function StickyWaitlistBar() {
       style={{ paddingBottom: "env(safe-area-inset-bottom)" }}
     >
       <div className="mx-auto flex w-full max-w-[1400px] flex-col gap-2.5 px-4 py-3 sm:flex-row sm:items-center sm:gap-6 sm:px-8 sm:py-3.5">
-        {/* The reason to type an address, restated at the width it has. The
-            full sentence only appears where there's room for it beside the
-            field; the phone gets the short version. */}
+        {/* The reason to go back to the form, restated at the width it has.
+            The full sentence only appears where there's room for it beside the
+            button; the phone gets the short version. */}
         <p className="flex min-w-0 items-center gap-2.5 text-sm text-snow-dim">
           <SlashMark className="h-3.5 w-[1rem] shrink-0 text-red" />
           <span className="sm:hidden">
@@ -128,14 +122,16 @@ export default function StickyWaitlistBar() {
           </span>
         </p>
 
-        <div className="w-full shrink-0 sm:ml-auto sm:w-[26rem]">
-          <SubscribeForm
-            action="Join"
-            utmMedium={subscribeSource.groupWaitlist}
-            location="waitlist-sticky"
-            size="compact"
-          />
-        </div>
+        <button
+          type="button"
+          onClick={goToForm}
+          data-cta="waitlist-sticky"
+          data-cta-location="waitlist-sticky"
+          className="club-label group inline-flex shrink-0 items-center justify-center gap-2.5 border-2 border-red bg-red px-5 py-2.5 text-ink transition-colors duration-200 hover:border-snow hover:bg-snow hover:text-ink sm:ml-auto"
+        >
+          Join the waitlist
+          <ArrowIcon className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+        </button>
       </div>
     </div>
   );

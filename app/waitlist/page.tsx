@@ -28,7 +28,7 @@ const title = "Group coaching waitlist";
 const shareImage = "/images/hero-coast-road.jpg";
 const shareImageAlt =
   "A runner on a winding coastal road above the Atlantic in Portugal.";
-const description = `Five athletes get my group coaching free, forever — drawn at random from the waitlist when the group opens at the ${groupCoaching.launch}. Everyone else pays ${groupCoaching.price}${groupCoaching.period}. One email to join.`;
+const description = `Five athletes get my group coaching free, forever — drawn at random from the waitlist when the group opens at the ${groupCoaching.launch}. Everyone else pays ${groupCoaching.price}${groupCoaching.period}. Three questions to join.`;
 
 export const metadata: Metadata = {
   title,
@@ -204,8 +204,9 @@ export default function WaitlistPage() {
                   <SubscribeForm
                     action="Join"
                     utmMedium={subscribeSource.groupWaitlist}
+                    waitlistDetails
                     location="waitlist-hero"
-                    note="One field, and that's the whole signup. No payment details, no commitment — unsubscribe whenever you like."
+                    note="Your name, roughly where you're at, and an email — that's the whole signup. No payment details, no commitment — unsubscribe whenever you like."
                     successNote={`You're on the list. The draw happens when the group opens at the ${groupCoaching.launch} — I'll email you either way, and nothing before then.`}
                     className="mt-4"
                   />
@@ -530,6 +531,7 @@ export default function WaitlistPage() {
                   <SubscribeForm
                     action="Join the waitlist"
                     utmMedium={subscribeSource.groupWaitlist}
+                    waitlistDetails
                     location="waitlist-footer"
                     tone="paper"
                     successNote={`You're on the list — I'll email you when the group opens at the ${groupCoaching.launch}.`}

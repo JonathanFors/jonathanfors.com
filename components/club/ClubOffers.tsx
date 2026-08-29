@@ -126,6 +126,7 @@ export default function ClubOffers() {
                     <SubscribeForm
                       action="Notify me"
                       utmMedium={subscribeSource.groupWaitlist}
+                      waitlistDetails
                       className="mt-5"
                     />
                   </div>
