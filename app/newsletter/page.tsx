@@ -5,7 +5,14 @@ import Reveal from "@/components/Reveal";
 import SlashMark from "@/components/SlashMark";
 import SubscribeForm from "@/components/club/SubscribeForm";
 import { InstagramIcon, MailIcon } from "@/components/icons";
-import { facts, shuffleClub, siteLinks, subscribeSource } from "@/lib/site";
+import {
+  facts,
+  legal,
+  legalPages,
+  shuffleClub,
+  siteLinks,
+  subscribeSource,
+} from "@/lib/site";
 
 /**
  * Shuffle Club — a standalone landing page for one action: getting an email
@@ -423,8 +430,22 @@ export default function NewsletterPage() {
             </a>
           </div>
         </div>
-        <div className="mx-auto w-full max-w-[1400px] px-5 pb-8 text-xs text-snow-dim/70 sm:px-8">
-          <p>© {new Date().getFullYear()} Jonathan Fors. All rights reserved.</p>
+        <div className="mx-auto flex w-full max-w-[1400px] flex-col gap-2 px-5 pb-8 text-xs text-snow-dim/70 sm:flex-row sm:items-center sm:justify-between sm:px-8">
+          <p>
+            © {new Date().getFullYear()} Jonathan Fors. All rights reserved. —{" "}
+            {legal.company}, {legal.address}
+          </p>
+          <nav aria-label="Legal" className="flex items-center gap-4">
+            {legalPages.map((page) => (
+              <Link
+                key={page.href}
+                href={page.href}
+                className="transition-colors hover:text-red-bright"
+              >
+                {page.label}
+              </Link>
+            ))}
+          </nav>
         </div>
       </footer>
     </div>

@@ -1,8 +1,9 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useId, useRef, useState } from "react";
 import { ArrowIcon, ChevronDownIcon } from "@/components/icons";
-import { beehiivMagicLink, experienceLevels } from "@/lib/site";
+import { beehiivMagicLink, experienceLevels, legal } from "@/lib/site";
 
 type Props = {
   /** Button label — the only word that changes between the two forms. */
@@ -296,6 +297,27 @@ export default function SubscribeForm({
           That email doesn&apos;t look right — check it and try again.
         </p>
       )}
+
+      {/* This form is where consent is actually given, so the policy has to be
+          one tap from it rather than only in the footer. Deliberately outside
+          the `note` block: a form without a note still needs this line, and a
+          form with one shouldn't have it buried in reassurance copy. */}
+      <p
+        className={`mt-3 text-xs leading-relaxed ${
+          onInk ? "text-snow-dim/80" : "text-ink-faint"
+        }`}
+      >
+        Your details go to beehiiv, who send the emails.{" "}
+        <Link
+          href={legal.privacy}
+          className={`underline decoration-red decoration-2 underline-offset-4 transition-colors ${
+            onInk ? "hover:text-snow" : "hover:text-ink"
+          }`}
+        >
+          Privacy policy
+        </Link>
+        .
+      </p>
     </div>
   );
 }

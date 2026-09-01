@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import Link from "next/link";
+import { legal } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Athlete Intake",
@@ -26,6 +28,20 @@ export default function AthleteIntake() {
         <p className="mt-4 max-w-xl text-lg text-ink-soft">
           Tell me about your running, your history, and where you want to go. It
           takes a few minutes and helps me tailor everything to you.
+        </p>
+        {/* The most sensitive form on the site — injuries, conditions, health —
+            so the policy is linked here as well as in the footers. The form
+            itself is hosted by Notion, which §6 of the policy names. */}
+        <p className="mt-4 text-sm text-ink-faint">
+          Your answers are used to coach you and nothing else. What happens to
+          them is set out in the{" "}
+          <Link
+            href={legal.privacy}
+            className="underline decoration-red decoration-2 underline-offset-4 transition-colors hover:text-ink"
+          >
+            privacy policy
+          </Link>
+          .
         </p>
       </header>
 

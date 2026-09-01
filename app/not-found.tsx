@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import SlashMark from "@/components/SlashMark";
 import { ArrowIcon, InstagramIcon, MailIcon } from "@/components/icons";
-import { siteLinks } from "@/lib/site";
+import { legalPages, siteLinks } from "@/lib/site";
 
 /**
  * 404, in the club design language: black sheet, slash field, the hollow
@@ -93,7 +93,22 @@ export default function NotFound() {
 
       <footer className="shrink-0 border-t-2 border-snow/15">
         <div className="mx-auto flex w-full max-w-[1400px] flex-col gap-3 px-5 py-6 text-xs text-snow-dim sm:flex-row sm:items-center sm:justify-between sm:px-8">
-          <p>© {new Date().getFullYear()} Jonathan Fors. All rights reserved.</p>
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
+            <p>
+              © {new Date().getFullYear()} Jonathan Fors. All rights reserved.
+            </p>
+            <nav aria-label="Legal" className="flex items-center gap-4">
+              {legalPages.map((page) => (
+                <Link
+                  key={page.href}
+                  href={page.href}
+                  className="transition-colors hover:text-red-bright"
+                >
+                  {page.label}
+                </Link>
+              ))}
+            </nav>
+          </div>
           <div className="flex items-center gap-6">
             <a
               href={`mailto:${siteLinks.email}`}

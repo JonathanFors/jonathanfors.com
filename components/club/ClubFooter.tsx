@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Wordmark from "@/components/club/Wordmark";
 import { InstagramIcon, LinkedInIcon, MailIcon } from "@/components/icons";
-import { clubSections, facts, siteLinks } from "@/lib/site";
+import { clubSections, facts, legal, legalPages, siteLinks } from "@/lib/site";
 
 /**
  * Site footer.
@@ -115,10 +115,35 @@ export default function ClubFooter() {
           </div>
         </div>
 
-        <div className="mt-16 flex flex-col gap-2 border-t-2 border-snow/15 pt-6 text-xs text-snow-dim sm:flex-row sm:items-center sm:justify-between">
-          <p>© {new Date().getFullYear()} Jonathan Fors. All rights reserved.</p>
-          <p>
-            {facts.ranKm} km down the coast of Portugal for {facts.cause}.
+        {/* Bottom bar. Two rows rather than one: the legal pages belong down
+            here by convention, and squeezing them, the copyright, the company
+            and the Portugal line onto a single line loses all four. */}
+        <div className="mt-16 flex flex-col gap-4 border-t-2 border-snow/15 pt-6 text-xs text-snow-dim">
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+            <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
+              <p>
+                © {new Date().getFullYear()} Jonathan Fors. All rights reserved.
+              </p>
+              <nav aria-label="Legal" className="flex items-center gap-4">
+                {legalPages.map((page) => (
+                  <Link
+                    key={page.href}
+                    href={page.href}
+                    className="transition-colors hover:text-red-bright"
+                  >
+                    {page.label}
+                  </Link>
+                ))}
+              </nav>
+            </div>
+            <p>
+              {facts.ranKm} km down the coast of Portugal for {facts.cause}.
+            </p>
+          </div>
+          {/* The trading name on the site is "Jonathan Fors"; the company is
+              who an athlete actually contracts with, so it's named here. */}
+          <p className="text-snow-dim/70">
+            {legal.company} · {legal.address}
           </p>
         </div>
       </div>

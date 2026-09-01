@@ -155,3 +155,38 @@ export const nav = [
   { label: "Portugal 2026", href: "#portugal" },
   { label: "Sponsors", href: "#sponsors" },
 ] as const;
+
+// ---- Legal -----------------------------------------------------------
+/**
+ * The company behind the coaching, and the two legal pages.
+ *
+ * The trading name on the site is "Jonathan Fors"; the contracting party and
+ * the GDPR data controller is the company. Both legal pages name the company,
+ * so the name and address live here rather than being typed twice.
+ *
+ * ⚠️ No Estonian registry code (`registrikood`) yet — it belongs on both pages
+ * and in the footer once Jonathan supplies it.
+ */
+export const legal = {
+  company: "Jon Corp OÜ",
+  address: "Sepapaja tn 6, 15551 Tallinn, Estonia",
+  country: "Estonia",
+  /** Estonian Data Protection Inspectorate — where a GDPR complaint goes. */
+  supervisor: "Andmekaitse Inspektsioon",
+  supervisorEn: "the Estonian Data Protection Inspectorate",
+  supervisorUrl: "https://www.aki.ee/en",
+  /**
+   * Shown on both pages as "Last updated". Hard-coded rather than derived from
+   * the build date: a legal page that silently re-dates itself on every deploy
+   * tells the reader nothing. Change it when the wording changes.
+   */
+  updated: "1 September 2026",
+  privacy: "/privacy",
+  terms: "/terms",
+} as const;
+
+/** The two legal pages, for the footers that list them. */
+export const legalPages = [
+  { label: "Privacy", href: legal.privacy },
+  { label: "Terms", href: legal.terms },
+] as const;

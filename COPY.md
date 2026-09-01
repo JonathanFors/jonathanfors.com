@@ -1,15 +1,20 @@
-# Site copy — homepage, 404, video library
+# Site copy — homepage, 404, video library, legal pages
 
 Every word on the page, in the order it appears. **Edit this file freely** — change
 the text in the right-hand column / quoted blocks, then tell me and I'll apply it to
 the code.
 
-Sections 0–10 are the homepage at `jonathanfors.com`. Section 11 is the 404 page,
-shown for any URL that doesn't exist. Both are live. Section 12 is the training
+Sections 0–9 are the homepage at `jonathanfors.com`. Section 10 is the 404 page,
+shown for any URL that doesn't exist. Both are live. Section 11 is the training
 video library at `/videos` — built, but not published: nothing is filmed yet, so
-it's hidden from search. Section 13 is the group-coaching waitlist landing page at
-`/waitlist`. Section 14 is the Shuffle Club landing page at `/newsletter` — built,
-not pushed live yet.
+it's hidden from search. Section 12 is the group-coaching waitlist landing page at
+`/waitlist` and section 13 is the Shuffle Club landing page at `/newsletter`; both
+are live. Sections 14 and 15 are the two legal pages, `/privacy` and `/terms`,
+linked from the footer of every page.
+
+⚠️ **Sections 14 and 15 are generated from the live pages**, not typed. Edit the
+wording in them as freely as anywhere else — but the headings and the `#anchor`
+names are structural, so leave those alone.
 
 **Rewritten 23 Aug 2026** against one brief: human over sales, honesty over cool
 claims, lead with facts, then go deeper with the feeling underneath them. What that
@@ -936,6 +941,322 @@ would only be an interruption.
 | --- | --- |
 | Browser tab title | Shuffle Club — the newsletter — Jonathan Fors |
 | Meta + share description 🔒 | Three editions a week from an ultra-endurance coach, free forever. Tuesday the science, Friday my take on it, Sunday your questions — one subject a week, from three sides. One email to subscribe. |
+
+---
+
+## 14 · Privacy policy (`/privacy`)
+
+Live at `jonathanfors.com/privacy`. Linked from the footer of every
+page. **This section is generated from the live page**, so edit the text
+here, tell me, and I'll apply it — but don't reformat the headings.
+
+### Header
+
+| ▸ Field | Current text |
+| --- | --- |
+| Eyebrow | Legal · Privacy |
+| Headline | Privacy policy. |
+| Intro 1 | What we collect, why we have it, who else sees it, and how to get it back or have it deleted. Written to be read rather than to cover us — if a sentence here needed a lawyer to decode, it's the wrong sentence. |
+| Intro 2 | The short version: an email address for the newsletter, a name and an experience level for the waitlist, whatever you tell me about your running if I coach you. It isn't sold, it isn't traded, and you can have it deleted by asking. |
+| Date line | Last updated 1 September 2026 |
+
+### 01 · Who we are — `#who-we-are`
+
+The site you're reading is **jonathanfors.com**, the coaching practice of Jonathan Fors. The company behind it — and the data controller responsible for the personal data described here — is **Jon Corp OÜ**, registered at Sepapaja tn 6, 15551 Tallinn, Estonia.
+
+"We" and "us" below mean that company. "I" means Jonathan, because most of what follows is one person reading your email and writing your training plan. For anything about your data, write to coach@jonathanfors.com — it reaches him directly, and there's no separate privacy desk to route it through.
+
+### 02 · What this policy covers — `#what-this-covers`
+
+This policy covers everything we run:
+
+- The website at **jonathanfors.com**, including the group coaching waitlist and the Shuffle Club newsletter pages.
+- The Shuffle Club newsletter itself.
+- The intro call booking page and the athlete intake form.
+- Coaching — one-to-one and group — including the messages, calls and training data that come with it.
+
+It does not cover other people's sites we link to. Instagram, LinkedIn and anywhere else you might follow along are governed by their own policies.
+
+### 03 · What we collect, and why — `#what-we-collect`
+
+Grouped by what you did, because that's how it actually arrives. Nothing here is collected speculatively — if a field isn't on a form, we don't have it.
+
+- **Reading the site** — Page views, the page you came from, and rough location by country — collected by Vercel Web Analytics, which sets no cookies and doesn't identify you. Separately, the Meta Pixel records the pages you visit along with your IP address and browser, and sets a cookie. See §4.
+- **Subscribing to the newsletter** — Your email address, and nothing else — that's the whole form. We also record which page you signed up from, so we can tell the newsletter apart from the waitlist.
+- **Joining the group waitlist** — Your email address, your first name and your running experience level. The name is so a message doesn't open "Hi there"; the level is so groups can be matched by ability, which is the point of the waitlist. If you refer someone, we also record that a referral came from you, so the extra entry in the draw can be credited.
+- **Booking an intro call** — Your name, email address, the slot you chose and anything you type into the booking form. This is handled by TidyCal, which also creates the calendar entry.
+- **The athlete intake form** — Your running history, current training, goals, past injuries and any health information you choose to share. This is the most sensitive thing we hold, and it exists for one reason: a coach who doesn't know about your knee will write you a plan that hurts it. The form is hosted by Notion.
+- **Being coached** — WhatsApp messages, notes from our calls, the training you log, how sessions went, and whatever you tell me about sleep, stress, work and injury along the way. Payment records too — though card details are handled by the payment provider and never reach us.
+- **Emailing us** — Whatever's in the email, kept in the mailbox like any other correspondence.
+
+> Some of this is **health information** — injuries, conditions, medication, how your body is holding up. Under the GDPR that's a special category of data, and we only hold it because you chose to tell us and gave explicit consent by sending it. You can withdraw that consent at any time, though it's worth saying plainly: without it, coaching you safely is guesswork.
+
+### 04 · Cookies and tracking — `#cookies`
+
+**What sets a cookie**
+
+- **The Meta Pixel.** It loads on every page and reports your visit to Meta, along with your IP address, browser and the page you're on. It also reports when someone completes a signup, so we can tell whether an advert led to one. It sets cookies — _fbp and friends — which Meta can use to link your visit here to your Facebook or Instagram account.
+- **TidyCal**, but only once you open the booking popup. Nothing loads from it until you click.
+- **YouTube**, on the training video pages, and only when you press play. The embeds use the no-cookie domain, so simply loading the page sends nothing.
+
+**What doesn't**
+
+Vercel Web Analytics — the thing that tells us a page was read — sets no cookies and stores no identifiers. Our own fonts are served from this domain, so nothing goes to Google to render the page.
+
+> **There is currently no cookie banner on this site.** The Meta Pixel therefore loads as soon as a page does, before you've been asked. We'd rather say so here than let a policy imply a consent step that doesn't exist. Until that changes, the controls below are how to stop it.
+
+**How to refuse it**
+
+- Block third-party cookies in your browser, or use its tracking protection — Safari, Firefox and Brave block the pixel by default.
+- Turn off off-Facebook activity and ad personalisation in your Meta account settings.
+- Use any content blocker. Nothing on this site needs the pixel to work — every page, form and booking link works fine without it.
+
+### 05 · Why we're allowed to hold it — `#legal-bases`
+
+The GDPR needs a legal basis for each use. Ours, in plain terms:
+
+- **Consent** — The newsletter, the waitlist, and the Meta Pixel's advertising use. You gave it by typing your address in or by browsing with tracking allowed, and you can take it back at any time — there's an unsubscribe link at the foot of every email.
+- **Explicit consent** — Health and injury information, under Article 9(2)(a). You choose what to tell us.
+- **Performing a contract** — Everything needed to actually coach you: your plan, your training data, our messages, your invoices.
+- **Legitimate interests** — Site analytics, keeping the site secure, and keeping records of who we've worked with. We've weighed these against your privacy; they involve no profiling and no decisions about you.
+- **Legal obligation** — Accounting records, which Estonian law requires us to keep for a set period whatever anyone would prefer.
+
+### 06 · Who else sees it — `#who-sees-it`
+
+We don't sell your data and we don't trade lists. We do use other companies to run the practice, and they process data on our instructions:
+
+- **beehiiv** — United States. Runs the newsletter and both signup lists — holds your email address, first name and experience level, and the referral tracking.
+- **Vercel** — United States, serving from Europe. Hosts the site and provides the cookieless analytics; server logs pass through it.
+- **Meta** — Ireland and the United States. The pixel described in §4, and WhatsApp, which is how coaching conversations happen.
+- **TidyCal** — United States. Intro call bookings and the calendar entry.
+- **Notion** — United States. Hosts the athlete intake form and its answers.
+- **Google** — United States. YouTube hosts the training videos, and Google Workspace the mailbox and calendar.
+- **Accountants and advisers** — Estonia. Invoices and payment records, where the law or a genuine dispute requires it.
+
+If a court or a regulator legitimately requires us to hand something over, we will. Otherwise your data stays where it is.
+
+### 07 · Sending data outside Europe — `#transfers`
+
+Several of the companies above are based in the United States, so some of your data leaves the European Economic Area. Where it does, the transfer relies on the European Commission's standard contractual clauses, or on the EU–US Data Privacy Framework where the company is certified under it.
+
+We're not going to pretend that's the same as your data never leaving Europe. It's the honest state of using ordinary tools to run a small coaching practice, and it's why the list above is short and why nothing sensitive goes into an advertising platform.
+
+### 08 · How long we keep it — `#retention`
+
+- **Newsletter** — Until you unsubscribe, and then a record that you did so — which is how we avoid adding you back.
+- **Group waitlist** — Until the group programme has launched and the draw has been run, and for up to twelve months after that in case a place opens up. Ask to come off it sooner and you'll come off it sooner.
+- **Intake forms** — Twelve months, if you don't go on to be coached. If you do, it becomes part of your coaching record.
+- **Coaching records** — For as long as we're working together, and two years after that — coming back to running after a break is common, and your history is the most useful thing in the room when you do.
+- **Invoices and accounts** — Seven years, as Estonian accounting law requires. This one isn't ours to shorten.
+- **Analytics and pixel data** — Held by Vercel and Meta on their own schedules — around two years in Meta's case.
+
+### 09 · Your rights — `#your-rights`
+
+Under the GDPR you can ask us to do all of the following, and we won't make it difficult:
+
+- **See it.** A copy of everything we hold about you.
+- **Correct it.** If something's wrong, we'll fix it.
+- **Delete it.** Bearing in mind we can't delete an invoice the tax authority requires us to keep.
+- **Take it with you.** Your data in a portable format, including your training history.
+- **Restrict or object.** Including objecting to anything we do on the basis of legitimate interests.
+- **Withdraw consent.** At any time, without giving a reason. It doesn't undo what was done while consent was in place.
+
+Email coach@jonathanfors.com and say what you want. We'll answer within a month, and there's no charge. We may ask you to confirm you're you — which is a protection for you, not an obstacle.
+
+If we get it wrong, you can complain to Andmekaitse Inspektsioon (the Estonian Data Protection Inspectorate), or to the data protection authority in the country where you live. We'd rather you told us first, but it's your call.
+
+### 10 · Keeping it safe — `#security`
+
+The site is served over HTTPS. Accounts that hold your data are protected with two-factor authentication and a password manager. The beehiiv API key that handles signups lives on the server and never reaches your browser. Access is limited to the people who need it, which in practice means Jonathan.
+
+No system is perfect. If something happened that put your data at real risk, we'd tell you and the regulator rather than hope nobody noticed.
+
+### 11 · Automated decisions — `#decisions`
+
+We don't profile you and nothing about you is decided by a machine. Your training plan is written by a person — that's the offer, not a footnote.
+
+The five free group coaching places are drawn **at random** from the waitlist. Nothing about you affects the outcome: not your experience level, not how early you signed up. Referring someone earns one extra entry, and that's the only thing that changes the odds.
+
+### 12 · Children — `#children`
+
+Coaching is for adults. The services here aren't intended for anyone under 18 and we don't knowingly collect their data. If you think a child has signed up, tell us at coach@jonathanfors.com and we'll remove it.
+
+### 13 · Changes to this policy — `#changes`
+
+When this changes, the date at the top changes with it. If a change actually matters — a new company handling your data, a new use for it — we'll say so in the newsletter rather than quietly editing the page.
+
+Questions about any of it: coach@jonathanfors.com. A real person reads that address.
+
+---
+
+## 15 · Terms of service (`/terms`)
+
+Live at `jonathanfors.com/terms`. Linked from the footer of every
+page. **This section is generated from the live page**, so edit the text
+here, tell me, and I'll apply it — but don't reformat the headings.
+
+### Header
+
+| ▸ Field | Current text |
+| --- | --- |
+| Eyebrow | Legal · Terms |
+| Headline | Terms of service. |
+| Intro 1 | The terms for coaching, the group programme, the waitlist draw and the newsletter. Written in plain English, because terms nobody reads protect nobody. |
+| Intro 2 | If you read one clause, read §5 — coaching is not medical care, and the difference matters more than anything else on this page. |
+| Date line | Last updated 1 September 2026 |
+
+### 01 · Who you're dealing with — `#who-you-deal-with`
+
+Coaching, the newsletter and this website are provided by **Jon Corp OÜ**, registered at Sepapaja tn 6, 15551 Tallinn, Estonia, trading as Jonathan Fors. That company is who you contract with; Jonathan is who you'll actually talk to.
+
+Contact for anything in these terms: coach@jonathanfors.com.
+
+### 02 · Agreeing to these terms — `#agreeing`
+
+By using this site, subscribing to the newsletter, joining the waitlist or starting coaching, you accept these terms. If you don't, the answer is simply not to use them — nothing here is buried in a checkbox.
+
+They work alongside the privacy policy, which covers what happens to your data.
+
+### 03 · Who can use it — `#who-can-use`
+
+You need to be 18 or over. Coaching involves training decisions and a contract, and neither is something to do on a parent's behalf.
+
+Coaching is delivered remotely and in English. It doesn't matter where you live, as long as we can find an hour that works for a call.
+
+### 04 · What's on offer — `#what-is-on-offer`
+
+- **Intro call** — A free 30-minute call, booked through the booking page. No obligation on either side, and no sales script. It exists so we can both decide whether this is worth doing.
+- **1:1 coaching** — €200/mo, no minimum period. Sessions written for you rather than pulled from a template, a weekly call, extra calls when you need them, and access to me on WhatsApp.
+- **Group coaching** — €50/mo, launching end of September 2026. Around five athletes per group, each with a plan written personally for them, a weekly live group call, a private group channel, direct WhatsApp access, and a video for every movement in the plan. 5 places are free — see §10.
+- **Shuffle Club** — The newsletter. Three editions a week, free, no paid tier. See §13.
+- **The video library** — Training videos for the movements a plan names, shared with the athletes being coached. One clip per movement, and the link to a given movement is meant to stay valid.
+
+Prices and what's included are as stated on this site at the time you start. If they change later, your arrangement carries on at the price you agreed — a price rise applies to new athletes, not to you mid-flow.
+
+### 05 · Coaching is not medical care — `#not-medical-advice`
+
+This is the most important clause on the page, so it's said straight. Jonathan is a **UESCA-certified running coach**. He is not a doctor, a physiotherapist, a dietitian or a psychologist, and nothing he provides is medical diagnosis, treatment or a substitute for professional healthcare.
+
+- A training plan is coaching guidance, not a prescription. It's based on what you've told us and what we can see from your training — not on an examination.
+- Anything said about nutrition, sleep, pain, fuelling or recovery is general endurance-coaching guidance, and applies to a healthy adult.
+- Opinions in the newsletter are opinions, marked as such. The science editions cite their sources, and none of it is advice about your particular body.
+
+> **Before you start, talk to a doctor** — especially if you have a heart condition, a chronic illness, an existing injury, are pregnant, are on medication, or have been away from training for a long time. If something hurts in a way that isn't ordinary training discomfort, stop and get it looked at by someone qualified to look at it. Nothing in a plan is worth doing through a real injury, and no session matters more than that.
+
+In an emergency, call your local emergency number. We are not a medical service and cannot respond as one.
+
+### 06 · Your part in it — `#your-part`
+
+Coaching only works on accurate information, and the athlete is the only source of it. So:
+
+- Tell us your real training history, injuries, conditions and medication — including the awkward parts. A plan built on a flattering version of your history is a plan built wrong.
+- Tell us when something changes: an injury, an illness, a work crisis, a bad run of sleep. The plan is meant to move around your life, which it can only do if we know.
+- Use your own judgement on the day. You decide whether to start a session, and you're the only one who can feel what your body is doing. Skipping a session because something feels wrong is a correct decision, not a failure.
+- Keep your account details and any private group links to yourself.
+
+### 07 · Risk, and what we're liable for — `#risk-and-liability`
+
+Running long distances carries real risk — injury, illness, and worse in extreme conditions. You take part voluntarily and you accept that risk. Following a plan reduces some of it and eliminates none of it.
+
+Within that, and to the extent the law allows:
+
+- We're not liable for injury, illness or loss arising from training you chose to do, from a race result, or from following guidance in a way we didn't intend.
+- We're not liable for indirect losses — lost race entries, travel costs, lost earnings, a missed goal.
+- Where we are liable, our total liability is limited to the fees you paid us in the three months before the problem arose.
+
+> Nothing above limits liability for death or personal injury caused by our negligence, for fraud, or for anything else the law does not allow us to exclude. If you're a consumer, your statutory rights come first and this clause does not touch them.
+
+### 08 · Paying, and stopping — `#paying`
+
+**Price and billing**
+
+1:1 coaching is €200/mo; group coaching is €50/mo. Both are billed monthly in advance, by the method we agree when you start. Prices are in euro. Where VAT applies, it's included in the figure shown.
+
+**No minimum period**
+
+There isn't one, and there is no notice period. Tell us you're stopping and the arrangement ends at the end of the month you've paid for — you keep the coaching you've paid for until then. We don't refund part-months, and we don't hold anyone in a contract they've stopped wanting.
+
+**Late payment**
+
+If a payment fails we'll tell you and try again. If it stays unpaid, coaching pauses until it's sorted out. Nobody gets chased by a debt collector over a training plan.
+
+### 09 · Changing your mind — `#withdrawal`
+
+If you're a consumer in the EU, you have **14 days** from starting to withdraw from the contract without giving a reason. Email coach@jonathanfors.com and it's done — no form to fill in.
+
+Two things worth knowing, because they're the parts people are usually surprised by. If you ask us to start coaching inside those 14 days and then withdraw, you pay a fair amount for what was actually delivered — a written plan and a call are real work. And if the service has been fully delivered within the 14 days at your express request, the right to withdraw is used up.
+
+The newsletter and the waitlist cost nothing, so there's nothing to withdraw from: leave whenever you like.
+
+### 10 · The group waitlist, and the draw — `#the-draw`
+
+The group coaching waitlist is free to join and joining it isn't a place in a group — it's a place on the list, and an entry in the draw for the free places.
+
+- **5 places are free.** Free for as long as the athlete stays in the group — not a free month, not a trial that converts. Everyone else pays €50/mo.
+- **They're drawn at random.** Signing up early is deliberately no advantage, and neither is your experience level or anything else about you. There is no queue to be at the front of.
+- **Refer one person and you get one extra entry** — two instead of one. That is the only way to change your odds, and it runs on beehiiv's referral tracking.
+- We'll remove obvious duplicates, test addresses and anything that looks like an attempt to game the draw. Otherwise every entry is equal.
+- The draw runs around the launch of the programme, end of September 2026. If that date moves, the draw moves with it — we'll say so rather than go quiet.
+
+Groups are around five athletes, matched to have enough in common to relate to each other and enough difference in level to push each other. Who ends up in which group is our call, and it isn't a judgement of anyone.
+
+Being on the waitlist is not a promise of a place, free or paid. If the programme doesn't launch, nobody is charged and everyone gets told.
+
+### 11 · Inside a group — `#the-group`
+
+A group only works if it's a place people can be honest in. So the rules are short and they're not negotiable:
+
+- What's said in the group stays in the group. Don't repeat it, screenshot it, or take it elsewhere.
+- Don't record calls, and don't share the call link or the private channel with anyone outside the group.
+- Don't give each other medical advice. Share what happened to you; leave diagnosis to the professionals.
+- Be decent. Nobody in a group is competing with anybody else in it.
+
+We can remove someone from a group, with a refund of any unused paid time, if this stops being true. It has never happened and hopefully won't.
+
+### 12 · Availability and response times — `#availability`
+
+"Access to me on WhatsApp" means you can write whenever something comes up, not that someone is awake to answer. In practice you'll normally hear back the same day, and rarely more than a day later.
+
+Occasionally I'm on a long run or somewhere without signal — in August 2026 that meant 744 km down the coast of Portugal over 10 days. When a stretch like that is coming, you'll know in advance and cover is arranged. Calls that get missed get rescheduled, not written off.
+
+### 13 · The newsletter — `#newsletter`
+
+Shuffle Club is free and it stays free — there is no paid tier and nothing sold at the end of an edition. Three editions a week: Tuesday the science, Friday my own take on it, Sunday reader questions.
+
+Friday is opinion and says so. Tuesday cites its sources. Neither is advice about you specifically — see §5.
+
+Unsubscribe from the link at the foot of any edition. If you send in a question, we may answer it in a Sunday edition without your name attached; say so and we won't use it at all. We may change the schedule or stop publishing, in which case we'll tell subscribers.
+
+### 14 · Who owns what — `#ownership`
+
+Your training plan is yours to use. Everything we made in order to give it to you — the videos, the newsletter, the words and design on this site, the methods behind a plan — stays ours.
+
+- You get a personal licence to use your plan and the video library for your own training, for as long as you're being coached and after.
+- Don't resell it, republish it, coach someone else off it, or feed it into a product or a training service.
+- Video links are shared with you, not with the internet. Passing one to a training partner is fine; posting it isn't.
+- Your own data — your history, your logs, what you write to us — stays yours. See the privacy policy.
+
+If you're happy with the coaching and want to say so publicly, that's welcome. We'll only use your name, photo or words in anything of ours if you've said we can.
+
+### 15 · Ending it — `#ending`
+
+Either of us can stop, at any time, by saying so in writing. Yours ends at the end of the month you've paid for (see §8). We'd only end it early for non-payment, for abusive behaviour, or if continuing wouldn't be safe or honest — and in the last case we'd refund unused time.
+
+When it ends, your current plan is yours to keep and use. Access to WhatsApp, the group channel, the calls and the video library stops. Ask within 30 days and we'll send you your training history in a form you can take elsewhere.
+
+### 16 · Things outside our control — `#beyond-our-control`
+
+We're not liable for failing to deliver something because of events genuinely beyond our control — illness, injury, a failure at one of the services we rely on, or a natural disaster. Where a disruption is more than brief, we'll make the time up or refund it.
+
+### 17 · Changes to these terms — `#changes`
+
+We may update these terms. The date at the top changes when we do. If a change materially affects coaching you're already receiving, we'll tell you directly before it applies to you — and you can stop, at no notice, if you don't accept it.
+
+### 18 · Law, and disagreements — `#law`
+
+These terms are governed by the law of Estonia, and the Estonian courts have jurisdiction. If you're a consumer, that doesn't take away the protections you have under the law of the country you live in, or your right to bring a claim there.
+
+Before any of that: email coach@jonathanfors.com and tell us what's wrong. This is a one-person coaching practice, not a company with a complaints department, and almost anything is fixable by saying it out loud.
 
 ---
 
