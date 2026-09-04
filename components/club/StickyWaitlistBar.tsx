@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import SlashMark from "@/components/SlashMark";
 import { ArrowIcon } from "@/components/icons";
 import { groupCoaching } from "@/lib/site";
@@ -36,6 +36,7 @@ export default function StickyWaitlistBar() {
   const [formsOffScreen, setFormsOffScreen] = useState(false);
   /** Retired for the rest of the visit. */
   const [retired, setRetired] = useState(false);
+  const barRef = useRef<HTMLDivElement>(null);
 
   const show = !retired && formsOffScreen;
 
@@ -65,6 +66,37 @@ export default function StickyWaitlistBar() {
     anchors.forEach((el) => observer.observe(el));
     return () => observer.disconnect();
   }, []);
+
+  /**
+   * Broadcast the bar's height while it's up, as `bottombar:height`.
+   *
+   * The sticky WhatsApp module is pinned to the same corner of the same
+   * viewport from the root layout, and listens for this so it can lift clear
+   * rather than sit on top of the page's own call to action. An event rather
+   * than a shared import: the module is global and this bar is one page's, so
+   * the module must not have to know which pages have one. Measured rather
+   * than hard-coded — the bar is one line on a desktop and two on a phone.
+   */
+  useEffect(() => {
+    const send = (height: number) =>
+      window.dispatchEvent(
+        new CustomEvent("bottombar:height", { detail: { height } }),
+      );
+    if (!show) {
+      send(0);
+      return;
+    }
+    const el = barRef.current;
+    if (!el) return;
+    const publish = () => send(el.offsetHeight);
+    publish();
+    const observer = new ResizeObserver(publish);
+    observer.observe(el);
+    return () => {
+      observer.disconnect();
+      send(0);
+    };
+  }, [show]);
 
   useEffect(() => {
     if (retired) return;
@@ -97,6 +129,7 @@ export default function StickyWaitlistBar() {
 
   return (
     <div
+      ref={barRef}
       // `inert` rather than `hidden`: the bar stays in the layout so it can
       // slide, but while it's off screen it's out of the tab order and out of
       // the accessibility tree.

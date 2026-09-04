@@ -13,6 +13,11 @@ export const siteLinks = {
   // in a bio or at the end of an edition, where the homepage anchor buries the
   // signup under three other sections.
   newsletter: "/newsletter",
+  // The number the sticky WhatsApp module opens — the same one 1:1 athletes
+  // text. `wa.me` prefills the message, so the first thing Jonathan sees is
+  // where the question came from.
+  whatsapp:
+    "https://wa.me/351932286853?text=Hi%20Jonathan%2C%20I%20have%20a%20question",
   instagram: "https://www.instagram.com/jonathans.pov/",
   linkedin: "https://www.linkedin.com/in/jonathanfors/",
   email: "coach@jonathanfors.com",

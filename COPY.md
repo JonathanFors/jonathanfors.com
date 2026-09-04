@@ -64,6 +64,27 @@ Link 4 is "Group waitlist" rather than "Group coaching" so it can't be misread
 as a second coaching offer sitting next to link 3 — it names the action. The
 footer has room for the full "Group coaching waitlist".
 
+### Sticky WhatsApp module
+
+A small dark card pinned to the bottom-right corner of every page, opening a
+WhatsApp thread to the same number 1:1 athletes text. The ✕ dismisses it for an
+hour. On /waitlist it lifts above that page's sticky bar rather than covering
+it.
+
+| ▸ Field | Current text |
+| --- | --- |
+| Label | WhatsApp me |
+| Line | I usually reply in a few minutes. |
+| Link aria-label | Message Jonathan on WhatsApp |
+| Prefilled message | Hi Jonathan, I have a question |
+
+⚠️ "A few minutes" is a faster promise than §15 of the terms makes for
+coaching WhatsApp access, which says "normally the same day, and rarely more
+than a day later". Different audiences — a stranger's pre-sales question versus
+a paying athlete's — but if the two should agree, the terms are the ones a
+reader can hold Jonathan to. "Usually" is doing the work of keeping this
+honest.
+
 ---
 
 ## 1 · Hero

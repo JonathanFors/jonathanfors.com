@@ -1,71 +1,123 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useSyncExternalStore } from "react";
+import { CloseIcon, WhatsAppIcon } from "@/components/icons";
+import { siteLinks } from "@/lib/site";
 
+/**
+ * Sticky WhatsApp module — bottom-right, on every page.
+ *
+ * An ink card rather than a paper one: it sits on top of the page rather than
+ * in it, and the dark surface is what separates the two. Same rules as the
+ * footer, the site's other ink surface — snow text, `red-bright` for the
+ * accent, since CP.03 red loses contrast on black.
+ *
+ * The card is the link; the ✕ is a sibling, not nested inside it. Dismissing
+ * sets a one-hour cookie, so it comes back on a later visit but doesn't
+ * re-appear the moment you change page. The cookie is read through
+ * `useSyncExternalStore` rather than an effect: it's only legible on the
+ * client, so the server snapshot is "dismissed" and the card renders nothing
+ * until we actually know — which is also what stops it flashing in on load.
+ *
+ * It lifts out of the way of a page-level bottom bar — /waitlist has one, and
+ * both are pinned to the same corner — by listening for the height that bar
+ * broadcasts. Translated rather than re-positioned so the two slide together.
+ */
 export default function WhatsAppButton() {
-  const [isVisible, setIsVisible] = useState(false);
+  const dismissed = useSyncExternalStore(subscribe, isDismissed, () => true);
+  /** Height of a page-level bottom bar, when one is up. 0 when none is. */
+  const [barHeight, setBarHeight] = useState(0);
 
   useEffect(() => {
-    // Check if dismissed (within the 1-hour window)
-    const isDismissed = getCookie("whatsapp_dismissed") === "true";
-    setIsVisible(!isDismissed);
+    const onBar = (event: Event) => {
+      const { height } = (event as CustomEvent<{ height: number }>).detail ?? {
+        height: 0,
+      };
+      setBarHeight(typeof height === "number" ? height : 0);
+    };
+    window.addEventListener("bottombar:height", onBar);
+    return () => window.removeEventListener("bottombar:height", onBar);
   }, []);
 
-  const handleDismiss = () => {
-    setIsVisible(false);
-    // Set cookie to expire in 1 hour (3600 seconds)
-    setCookie("whatsapp_dismissed", "true", 3600);
-  };
-
-  const whatsappUrl = "https://wa.me/351932286853?text=Hi%20Jonathan%2C%20I%20have%20a%20question";
-
-  if (!isVisible) return null;
+  if (dismissed) return null;
 
   return (
-    <div className="fixed bottom-6 right-6 z-40">
-      <div className="flex items-center gap-4 bg-white shadow-lg px-5 py-4 border-l-4 border-red">
-        <div className="flex-1 min-w-0">
-          <p className="text-sm font-bold text-ink">Got a question?</p>
-          <p className="text-xs text-ink-soft">Message me on WhatsApp</p>
-        </div>
-        <div className="flex items-center gap-3 flex-shrink-0">
-          <a
-            href={whatsappUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center w-12 h-12 bg-red hover:bg-red-deep text-white transition-colors font-bold text-lg"
-            aria-label="Message on WhatsApp"
-          >
-            W
-          </a>
-          <button
-            onClick={handleDismiss}
-            className="inline-flex items-center justify-center text-ink-faint hover:text-ink transition-colors font-bold text-lg"
-            aria-label="Close"
-          >
-            ✕
-          </button>
-        </div>
+    <div
+      className="club club-on-ink fixed bottom-4 right-4 z-40 transition-transform duration-300 ease-out motion-reduce:transition-none sm:bottom-6 sm:right-6"
+      style={barHeight ? { transform: `translateY(-${barHeight}px)` } : undefined}
+    >
+      {/* night-2 rather than pure ink, plus a hairline: the page has
+          full-bleed ink sections of its own, and on those a black card with a
+          black shadow has no edge at all. */}
+      <div className="relative border border-night-rule bg-night-2 text-snow shadow-[0_12px_36px_rgba(0,0,0,0.45)]">
+        <a
+          href={siteLinks.whatsapp}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group flex items-center gap-3.5 border-l-2 border-red-bright py-3.5 pl-4 pr-11 transition-colors hover:bg-ink"
+          aria-label="Message Jonathan on WhatsApp"
+        >
+          <span className="flex h-10 w-10 shrink-0 items-center justify-center bg-red-bright text-ink transition-colors group-hover:bg-red">
+            <WhatsAppIcon className="h-5 w-5" />
+          </span>
+          <span className="min-w-0">
+            <span className="club-label block text-[0.6875rem] text-snow">
+              WhatsApp me
+            </span>
+            <span className="mt-1 block text-xs leading-snug text-snow-dim">
+              I usually reply in a few minutes.
+            </span>
+          </span>
+        </a>
+        <button
+          type="button"
+          onClick={dismiss}
+          className="absolute right-1 top-1 inline-flex h-7 w-7 items-center justify-center text-snow-dim transition-colors hover:text-snow"
+          aria-label="Dismiss"
+        >
+          <CloseIcon className="h-3.5 w-3.5" />
+        </button>
       </div>
     </div>
   );
 }
 
+/* ---- Dismissal, as an external store ---------------------------------
+   The state lives in a cookie, not in React, so it's read and written where
+   it lives and subscribers are told by hand. One hour: long enough not to
+   nag, short enough that a later visit sees the card again. */
+
+const DISMISS_COOKIE = "whatsapp_dismissed";
+const DISMISS_SECONDS = 3600;
+const listeners = new Set<() => void>();
+
+function subscribe(listener: () => void) {
+  listeners.add(listener);
+  return () => {
+    listeners.delete(listener);
+  };
+}
+
+function isDismissed() {
+  return getCookie(DISMISS_COOKIE) === "true";
+}
+
+function dismiss() {
+  setCookie(DISMISS_COOKIE, "true", DISMISS_SECONDS);
+  for (const listener of listeners) listener();
+}
+
 function setCookie(name: string, value: string, seconds: number) {
   const date = new Date();
   date.setTime(date.getTime() + seconds * 1000);
-  const expires = `expires=${date.toUTCString()}`;
-  document.cookie = `${name}=${value};${expires};path=/`;
+  document.cookie = `${name}=${value};expires=${date.toUTCString()};path=/`;
 }
 
 function getCookie(name: string): string | null {
   const nameEQ = `${name}=`;
-  const cookies = document.cookie.split(";");
-  for (let i = 0; i < cookies.length; i++) {
-    let cookie = cookies[i].trim();
-    if (cookie.indexOf(nameEQ) === 0) {
-      return cookie.substring(nameEQ.length);
-    }
+  for (const raw of document.cookie.split(";")) {
+    const cookie = raw.trim();
+    if (cookie.indexOf(nameEQ) === 0) return cookie.substring(nameEQ.length);
   }
   return null;
 }
