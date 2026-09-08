@@ -4,13 +4,14 @@ Every word on the page, in the order it appears. **Edit this file freely** — c
 the text in the right-hand column / quoted blocks, then tell me and I'll apply it to
 the code.
 
-Sections 0–9 are the homepage at `ultraendurant.com`. Section 10 is the 404 page,
-shown for any URL that doesn't exist. Both are live. Section 11 is the training
-video library at `/videos` — built, but not published: nothing is filmed yet, so
-it's hidden from search. Section 12 is the group-coaching waitlist landing page at
-`/waitlist` and section 13 is the Shuffle Club landing page at `/newsletter`; both
-are live. Sections 14 and 15 are the two legal pages, `/privacy` and `/terms`,
-linked from the footer of every page.
+Sections 0–11 are the homepage at `ultraendurant.com`, plus the footer and the
+booking popup that appear on every page. Section 12 is the 404 page, shown for any
+URL that doesn't exist. Both are live. Section 13 is the training video library at
+`/videos` — built, but not published: nothing is filmed yet, so it's hidden from
+search. Section 14 is the group-coaching waitlist landing page at `/waitlist` and
+section 15 is the Shuffle Club landing page at `/newsletter`; both are live.
+Sections 16 and 17 are the two legal pages, `/privacy` and `/terms`, linked from
+the footer of every page.
 
 ⚠️ **The business was renamed to Ultra Endurant in September 2026.** Two names
 appear in this file on purpose and are not interchangeable: **Ultra Endurant** is
@@ -19,7 +20,7 @@ legal pages. **Jonathan Fors** is the person — photo descriptions, the bylines
 `/waitlist` and `/newsletter`, and anywhere the copy is about who an athlete
 actually works with. Swapping one for the other changes the meaning.
 
-⚠️ **Sections 14 and 15 are generated from the live pages**, not typed. Edit the
+⚠️ **Sections 16 and 17 are generated from the live pages**, not typed. Edit the
 wording in them as freely as anywhere else — but the headings and the `#anchor`
 names are structural, so leave those alone.
 
@@ -98,12 +99,15 @@ honest.
 
 ## 1 · Hero
 
+Centred now, and with no photo — the portrait that used to sit beside the headline
+is gone. What replaced it is the three key blocks below, which answer "what is this
+coaching like" instead of "what does he look like".
+
 > ▸ **Eyebrow**
 > Ultra-endurance running coach · UESCA-certified
 
-> ▸ **Headline** — three lines, set at three different sizes. Line 3 sits on the red tape and **cannot wrap**, so keep it under ~16 characters.
-> Train for
-> the ultra.
+> ▸ **Headline** — two lines at two sizes. Line 2 sits on the red tape and **cannot wrap**, so keep it under ~16 characters.
+> Train for the ultra.
 > **Keep your life.**
 
 > ▸ **Body**
@@ -111,17 +115,20 @@ honest.
 
 | ▸ Field | Current text |
 | --- | --- |
-| Button 1 (red) | Book a free call |
-| Button 2 (outline) | How it works |
-| Photo caption plate | Coach · Est. 2026 |
+| Button 1 (red) | Start 1:1 coaching → opens the booking popup |
+| Button 2 (outline) | Join group coaching → goes to /waitlist |
 
-### Stat rail (three plates at the foot of the hero)
+### The three keys (at the foot of the hero)
 
-| ▸ Figure | ▸ Label under it |
+These replaced the old stat rail (UESCA / 744 km / 1:1). The figures didn't
+disappear — they're in the record band, section 5, where there's room to say what
+they mean.
+
+| ▸ Title | ▸ Body |
 | --- | --- |
-| UESCA | Certified ultrarunning coach |
-| 744 km 🔒 | Portugal's coast in 10 days 🔒 |
-| 1:1 | Remote coaching, worldwide |
+| Science-backed coaching | Your coach is UESCA-certified with years behind him, and he doesn't only go on what worked for him — the practice is grounded in the research. |
+| Holistic approach | You're a whole person with a life to live. Family, work, illness and time off are counted from day one, not treated as things that got in the way. |
+| Direct WhatsApp access | You get Jonathan's number. Message your coach when something comes up, rather than saving it for a weekly slot. |
 
 ### Red scrolling ticker
 
@@ -136,86 +143,140 @@ Six items, repeated. Keep them short — they scroll past.
 
 ---
 
-## 2 · Section 01 — The approach
+## 2 · Section 01 — Who you'd work with
+
+The introduction, in Jonathan's own voice, once and at length. This replaced the
+old two-panel "The approach" section: the holistic-health argument is now a hero
+key and a paragraph here, and the "who this is for" list grew into its own section.
+What's left is the part that only works as one person talking.
 
 | ▸ Field | Current text |
 | --- | --- |
 | Section number | 01 |
-| Section label | The approach |
+| Section label | Who you'd work with |
 
-> ▸ **Headline** — the tape sits on "last." and cannot wrap.
-> Everything else first. The training comes **last.**
+> ▸ **Headline** — the tape sits on "plan." and cannot wrap.
+> You're a person, not a **plan.**
 
-This is your own line from the UESCA philosophy — *family, work, the worries you
-carry, and then, last of all, the training itself* — said as bluntly as it will go.
-It's the one claim on the page that a normal coaching site would never make, which
-is exactly why it's the headline.
+> ▸ **Paragraph 1** (the opening clause is bold on the page)
+> **Ultra Endurant is run by me, Jonathan Fors** — a UESCA-certified coach with years of lived experience behind the certificate. There are plenty of coaches out there. Few of them see a person as a whole person with a life to live.
 
-> ▸ **Black panel label**
-> Holistic health
+> ▸ **Paragraph 2**
+> Most plans start with the schedule and expect your life to bend around it. I start at the other end. Your work, your family, the worries you're already carrying — all of it changes how your body handles training, so all of it gets counted before a single session is written. Rest, and everything else off the road, is part of the work rather than a gap in it.
 
-> ▸ **Black panel, paragraph 1**
-> Most plans start with the schedule and expect your life to bend around it. I start at the other end. Your work, your family, the worries you're already carrying — all of it changes how your body handles training, so all of it gets counted before a single session is written.
+> ▸ **Paragraph 3** 🔒
+> I know what the other way costs. I've run 744 km down the coast of Portugal, and I've stopped at 480 km on the same route two years earlier because my body had had enough of being overruled. The second one is the line on the page. The first one is the reason any of this is worth listening to.
 
-> ▸ **Black panel, paragraph 2** (second sentence is bold on the page)
-> Rest, and everything else off the road, is part of the work rather than a gap in it. **A week you can repeat is worth more than a perfect week you manage once.**
+> ▸ **Paragraph 4** (first sentence bold)
+> **A week you can repeat is worth more than a perfect week you manage once.** That's the whole method. Everything else is detail.
 
-### "Who this is for" — numbered list
-
-| ▸ No. | Current text |
-| --- | --- |
-| 01 | Runners going from a first ultra up to a hundred-miler. |
-| 02 | People with real jobs, families, and not enough hours in the week. |
-| 03 | Anyone who has watched a training plan fall apart in month two. |
-
-> ▸ **Note under the list** (small, grey)
-> And who it isn't for: if what you want is a plan file and no conversation, I'm not your coach — there are cheaper ways to get one.
-
-Naming who you're *not* for is the cheapest trust you can buy, and it's true — the
-whole approach is built on the conversation, so someone who only wants a spreadsheet
-would be badly served and should know that before booking.
-
----
-
-## 3 · Portugal band (photo, full width)
+### Byline
 
 | ▸ Field | Current text |
 | --- | --- |
-| Eyebrow | Portugal · August 2026 |
-
-> ▸ **Headline**
-> I failed this run once.
-
-> ▸ **Paragraph 1** 🔒 (every number here is a real fact)
-> Two years ago Niki and I set out to run the whole coastline of Portugal. My immune system gave out at 480 km and we stopped. In 1–10 August 2026 I went back and finished it — 744 km in 10 days, for men's mental health, with Niki driving support.
-
-> ▸ **Paragraph 2**
-> The second one is the line on the page. The first one is the reason it's worth anything: I know what it is to do the work, do it properly, and still have to stop — and then to decide whether you go back.
-
-The old version led with the finish and called it "the standard I coach from." This
-one leads with the failure, because that's the half a runner reading it can actually
-use, and because volunteering it is the strongest honesty signal on the page. The
-744 km is still right there — it just isn't the boast.
-
-### Result plates
-
-| ▸ Figure | ▸ Label |
-| --- | --- |
-| 744 🔒 | Kilometres |
-| 10 🔒 | Days on the road |
-| 480 🔒 | Km, then stopped |
-| 1–10 Aug 🔒 | 2026 |
+| Portrait | Jonathan Fors on a road in a running vest, hills behind him. |
+| Name | Jonathan Fors |
+| Role | Coach · Ultra Endurant |
 
 ---
 
-## 4 · Section 02 — The program
+## 3 · Section 02 — The app
+
+New section. Every athlete works through the Ultra Endurant App, 1:1 and group
+alike, so it sits before the prices rather than inside one of them.
+
+⚠️ There is deliberately **no screenshot and no launch date** here — nothing about
+the app's build has been decided, so this describes only what it does for an
+athlete.
 
 | ▸ Field | Current text |
 | --- | --- |
 | Section number | 02 |
+| Section label | The app |
+
+> ▸ **Headline**
+> Everything in **one place.**
+
+> ▸ **Body**
+> Every athlete I coach works through the Ultra Endurant App. It's where the plan lives, where we talk, and where everything we've already said stays findable.
+
+### Feature cards
+
+| ▸ Title | ▸ Body |
+| --- | --- |
+| Your schedule | Every session, in order, with the week laid out — so what's next is never a question. |
+| Workout analysis | Finished sessions get read back to you: what the numbers did, and what changed since last time. |
+| Calls, live | Weekly video calls happen in the app. Nothing to install, no link to lose. |
+| Everything said, kept | Notes and transcripts from every call and WhatsApp thread, searchable. You never have to remember what we agreed. |
+| Your links, together | Plans, races, forms, whatever the week needs — in one place instead of five. |
+
+### The AI callout (solid red block)
+
+The one claim on the page that's an argument rather than a feature, which is why
+it gets its own block instead of becoming a sixth card.
+
+| ▸ Field | Current text |
+| --- | --- |
+| Label | Where the AI stops |
+
+> ▸ **Heading**
+> The AI doesn't give advice. That's deliberate.
+
+> ▸ **Body**
+> It reads your completed sessions and tells you what happened in them. It will not tell you to push, to back off, to run through something, or to change your plan — that's my job, and I think handing health advice to a model is genuinely dangerous. The analysis is a mirror, not a coach.
+
+---
+
+## 4 · Section 03 — Who this is for
+
+New section, grown out of the three-line list that used to sit under the approach.
+Four boxes for who it's for (black, red marks) and three for who it isn't (muted,
+outlined). The negative column is deliberately the quieter one — turning people
+away only works if it doesn't read as a boast.
+
+| ▸ Field | Current text |
+| --- | --- |
+| Section number | 03 |
+| Section label | Who this is for |
+
+> ▸ **Headline** — the tape sits on "early." and cannot wrap.
+> I'd rather say no **early.**
+
+> ▸ **Body**
+> Coaching only works when the fit is right, and a bad fit wastes your money and my time. So here it is both ways round, before you book anything.
+
+### This is for you if
+
+| ▸ Title | ▸ Body |
+| --- | --- |
+| You're going long | A first ultra, or a next hundred-miler. Either end of that range is fine — the distance you're chasing matters less than that you're actually chasing one. |
+| You have a life already | A job, people who depend on you, and nowhere near enough hours. That's the normal case here, not the awkward one. |
+| You've watched a plan fall apart | Month two, usually. You don't need more discipline — you need a plan built for the week you actually get. |
+| You want a coach who asks | About your sleep, your stress, the thing at work that's eating you. If that sounds like too much, we're not going to get on. |
+
+### This isn't for you if
+
+| ▸ Title | ▸ Body |
+| --- | --- |
+| You want a plan file and silence | If what you want is a PDF and no conversation, I'm the wrong coach and an expensive way to get one. There are cheaper places. |
+| You want the fastest route, whatever it costs | If the answer to every setback is push harder, we'll spend the whole time arguing. I'll ask you to back off, and I'll mean it. |
+| You want someone to just tell you what to do | This works when you say what's actually going on. If you'd rather not be asked, the plan can't respond to anything. |
+
+> ▸ **Closing line under the "isn't" column** ("book the call" is a link that opens the booking popup)
+> If you read that list and recognised yourself, no hard feelings — genuinely. And if you're not sure which column you're in, **book the call** and I'll tell you straight.
+
+---
+
+## 5 · Section 04 — The program
+
+Unchanged from the previous version of the page apart from its number (was 02).
+
+| ▸ Field | Current text |
+| --- | --- |
+| Section number | 04 |
 | Section label | The program |
 
-> ▸ **Headline** — "your week does." is red.
+> ▸ **Headline**
 > The plan will change, because **your week does.**
 
 ### The four steps
@@ -227,161 +288,172 @@ use, and because volunteering it is the strongest honesty signal on the page. Th
 | 03 | A plan that fits | Training mapped onto the week you actually have, with the load and the rest balanced for you rather than for an average runner. |
 | 04 | Every week after | We talk weekly. When work, travel or a bad run of sleep changes what's possible, the plan changes with it. That's normal, not failure. |
 
-"That's normal, not failure" is doing real work — it's the sentence that tells a
-reader who has already blown up one training block that this time the blow-up is
-planned for.
+### Red callout at the foot of the section
 
-### Red callout at the end of the section
+> ▸ **Heading**
+> There's no pitch at the end of the call.
+
+> ▸ **Body**
+> Thirty minutes, free, and you leave with my honest read on where you are and what your race actually needs. If I'm not the right coach for it, I'll tell you on the call.
 
 | ▸ Field | Current text |
 | --- | --- |
-| Heading | There's no pitch at the end of the call. |
-| Body | Thirty minutes, free, and you leave with my honest read on where you are and what your race actually needs. If I'm not the right coach for it, I'll tell you on the call. |
 | Button | Book a free intro call |
-
-⚠️ **Check this one.** It replaces "Programs are tailored, not off-the-shelf / what
-it costs depends on you", which had gone stale — the price is €200/mo and it's
-printed further down the same page, so that block was hedging about a number the
-reader could already see. The new version commits you to telling someone on the call
-when you're not the right coach. That's already implied by "no-pressure
-conversation", but it's now in writing, so say if you'd rather it went softer.
 
 ---
 
-## 5 · Section 03 — Ways to work with me
+## 6 · The record band (photo, full width)
+
+Reframed from the old Portugal band. Portugal is still here and still ends on the
+failed attempt — but it's now the last of three credentials rather than the whole
+case, so the section answers "is he any good" before the prices arrive.
+
+⚠️ **The ITRA and MDS claims have no source on file.** They're the strongest and
+most checkable statements on the site, and neither links to a profile or a result
+page. Worth fixing. The MDS line also uses your own phrasing, "placed among the
+elites", which could mean *finished among them* or *raced alongside them* —
+confirm the actual placing before making it more specific.
 
 | ▸ Field | Current text |
 | --- | --- |
-| Section number | 03 |
+| Eyebrow | The record |
+
+> ▸ **Headline**
+> I ask you to do it because **I've done it.**
+
+### Record plates
+
+| ▸ Figure | ▸ Label |
+| --- | --- |
+| Top 5% | Ranked worldwide on ITRA |
+| MDS | Placed among the elites, Legendary |
+| 744 km 🔒 | Longest run — Portugal's coast |
+
+### Project Portugal, underneath
+
+| ▸ Field | Current text |
+| --- | --- |
+| Eyebrow 🔒 | Project Portugal · 1–10 August 2026 |
+
+> ▸ **Paragraph 1** 🔒 (every number here is a real fact)
+> The entire coastline of Portugal, in 10 days, for men's mental health, with Niki driving support. It was the second attempt. Two years earlier we set out on the same route and my immune system gave out at 480 km.
+
+> ▸ **Paragraph 2**
+> The second one is the line on the page. The first one is the reason it's worth anything: I know what it is to do the work, do it properly, and still have to stop — and then to decide whether you go back.
+
+---
+
+## 7 · Section 05 — Ways to work with me
+
+**Redesigned, and the two offers have swapped places.** Group used to be the big
+black block with 1:1 as a slim bar underneath. That showed a waitlist first to
+someone ready to start today, so 1:1 now takes the black block and the size, and
+group sits beside it as the smaller outlined card.
+
+| ▸ Field | Current text |
+| --- | --- |
+| Section number | 05 |
 | Section label | Ways to work with me |
 
 > ▸ **Headline** — the tape sits on "together." and cannot wrap.
 > Two ways to work **together.**
 
-The old headline said "Start with a small group." That steered people towards the
-thing that doesn't exist yet — group coaching hasn't launched. This just names the
-two options and lets the reader pick.
-
-**Layout:** group coaching leads as the big black block; 1:1 sits underneath as a
-slimmer outlined bar.
-
-### 6a · Group coaching — the main block
+### 1:1 coaching — the primary block (black, red header bar)
 
 | ▸ Field | Current text |
 | --- | --- |
-| Top bar label | Group coaching |
-| Status tag (red) 🔒 | Launching end of September |
-| Price figure | Free |
-| Price note 🔒 | Forever, for 5 athletes drawn at random |
-| Second price line 🔒 | Everyone else · €50/mo |
+| Header label | 1:1 Coaching |
+| Header badge | Open now |
+| Price 🔒 | €200 /mo |
+| Beside the price | No minimum period |
 
 > ▸ **Body**
-> The same approach as the 1:1 work, with a few people doing it alongside you. Training for something long is a lot of solitary hours, and having other people inside the same week changes that. It hasn't opened yet — the waitlist is how you hear first.
+> We set the goals together — ones that fit your life and the direction you want it to go — then work at them week by week. A call every week, and me on WhatsApp in between for the days that don't go to plan. First ultra or hundredth.
 
-**How the groups are built** — each row is a title plus a line of detail:
-
-| ▸ Title | ▸ Detail |
-| --- | --- |
-| Kept small | Small enough that I know what your week looks like, and that everyone in the group knows your name. |
-| Matched on purpose | Grouped with runners whose goals and constraints look like yours, so the conversation is actually about you. |
-| Mixed on level | Deliberately not all at the same standard. Close enough to relate to, far enough apart to pull each other along. |
-
-**Waitlist box** (right-hand side of the black block):
+| ▸ What's included 🔒 |
+| --- |
+| 24/7 access to me on WhatsApp |
+| A weekly 1:1 call |
+| No template workouts — every session written for you |
+| Extra calls whenever you need them |
+| No minimum period. Cancel anytime |
 
 | ▸ Field | Current text |
 | --- | --- |
-| Big figure | 05 🔒 |
-| Figure label 🔒 | Free spots, drawn at random |
-| Heading | Join the waitlist |
-| Note 🔒 | The five free places are drawn at random from the waitlist when the group opens at the end of September. Signing up early is no advantage — it just puts you in the draw. |
-| First name placeholder | First name |
-| Experience level placeholder | Experience level |
-| Experience level options | Beginner · Average · Experienced · Professional |
-| Field placeholder | Enter your email |
-| Button (red) | Notify me |
-| Success message | You're in — check your inbox |
+| Button | Start 1:1 coaching |
+| Under the button | Starts with a free 30-minute call |
 
-The five free places are **drawn at random**, not given to the first five to sign
-up. So nothing in this section should imply a race — no "first come", no
-countdown, no "spots going fast". The reason to sign up early is simply to be in
-the draw at all, which is what the note says. (The waitlist note is deliberately
-unchanged by the rewrite — it was already doing the honest thing.)
-
-**Changed 24 Aug 2026.** The two price lines used to read *"For 5 athletes, drawn
-at random"* and *"Then €50/mo"*. Read together, "Free … then €50/mo" is how a free
-trial is worded — free now, paying later — which is the opposite of the offer. The
-five drawn places are free for good. The lines now say who pays what rather than
-when, and "Forever" is the first word a reader hits.
-
-### 6b · 1:1 coaching — the bar underneath
+### Group coaching — the secondary card (outlined)
 
 | ▸ Field | Current text |
 | --- | --- |
-| Label | 1:1 Coaching |
-| Price 🔒 | €200 |
-| Price period | /mo |
-| Button (outlined) | Book a free call |
-| Note under button | Free · 30 minutes |
+| Header label | Group coaching |
+| Header badge 🔒 | end of September |
+| Price 🔒 | €50 /mo |
 
-> ▸ **Body**
-> Open now. We set the goals together — ones that fit your life and the direction you want it to go — then work at them week by week. A call every week, and me on WhatsApp in between for the days that don't go to plan. First ultra or hundredth.
+> ▸ **Body** 🔒 (the bold part is the whole point — never write "free, then €50/mo", which reads as a trial)
+> **Free forever for 5 athletes**, drawn at random from the waitlist when the group opens. Signing up early is no advantage — it just puts you in the draw.
 
-"The premium option" is gone — it was pricing language, not a description. "Open
-now" says the genuinely useful thing, given the other offer is a waitlist.
+| ▸ Points 🔒 |
+| --- |
+| Kept small — around 5 athletes |
+| Matched on goals and constraints |
+| Mixed on level, on purpose |
 
-**What's included** (two columns, each with a red slash bullet):
+| ▸ Field | Current text |
+| --- | --- |
+| Form heading | Join the waitlist |
+| Form fields 🔒 | First name · Experience level · Email |
+| Button | Notify me |
 
-1. 24/7 access to me on WhatsApp
-2. A weekly 1:1 call
-3. No template workouts — every session written for you
-4. Extra calls whenever you need them
-5. No minimum period. Cancel anytime
-
-> ▸ **Note under both offers** (small, grey)
+> ▸ **Note under the section** (small, grey)
 > Worth saying plainly: I certified in 2026 and I'm building this practice now, so there are no testimonials on this page. I'd rather show you the running I've actually done and let you judge the coaching on a conversation.
-
-⚠️ **Check this one too.** A reader is going to notice the missing testimonials
-either way. Saying it first turns the weak spot into the most credible line on the
-page — but it is you telling people you're new, so it's your call. Delete the
-paragraph and nothing else breaks.
 
 ---
 
-## 6 · Section 04 — Shuffle Club
+## 8 · Section 06 — The free newsletter
+
+**Redesigned to read as an email newsletter.** The old version opened on a 320px
+Shuffle Club lockup and the line "Three editions a week", which reads as a
+magazine or a club before it reads as email. The word *newsletter* is now in the
+label, the logo is byline-sized, and the subscriber count is on the page.
 
 | ▸ Field | Current text |
 | --- | --- |
-| Section number | 04 |
-| Section label | The newsletter |
+| Section number | 06 |
+| Section label | The free newsletter |
+| Beside the logo | An email newsletter |
+| Subscriber count 🔒 | 250+ · Runners already reading |
 
-> ▸ **Headline** — "Free forever." is red.
-> Three editions a week. **Free forever.**
+> ▸ **Headline**
+> Three emails a week. **Free forever.**
 
 > ▸ **Body**
-> One subject a week, from three sides: what the research actually says, what I think about it after running on it, and whatever you send back. No fee, and nothing to buy at the end of it.
+> One subject a week, from three sides: what the research actually says, what I think about it after running on it, and whatever you send back. It lands in your inbox — no fee, nothing to buy at the end of it, and one click to leave.
 
-### The week 🔒
+🔒 **The subscriber number is real and rounded down.** beehiiv reported 266 active
+subscribers on 8 September 2026; the page says 250 so ordinary churn can't make it
+false. Re-check beehiiv before raising it, and don't round up.
 
-| ▸ Day | ▸ Title | ▸ Description |
+### The week
+
+| ▸ Day | ▸ Title | ▸ Body |
 | --- | --- | --- |
 | Tuesday | The science | What the research actually says. |
 | Friday | My take | The same subject from the road, in my own words. |
 | Sunday | Your questions | Reader questions, answered. |
 
+### Signup panel
+
 | ▸ Field | Current text |
 | --- | --- |
-| Signup box heading | Subscribe |
-| Signup box note | Tuesdays, Fridays and Sundays. Unsubscribe whenever you like. |
-| Field placeholder | Enter your email |
-| Button (red) | Subscribe |
-| Success message | You're in — check your inbox |
-
-The Shuffle Club logo above the headline is the dark-background version — red type,
-with the slashes and "CLUB" in off-white.
+| Heading | Get it by email |
+| Body | Tuesdays, Fridays and Sundays. Unsubscribe whenever you like. |
+| Button | Subscribe |
 
 ---
 
-## 7 · Closing call to action (red section)
+## 9 · Closing call to action (red section)
 
 | ▸ Field | Current text |
 | --- | --- |
@@ -397,13 +469,9 @@ with the slashes and "CLUB" in off-white.
 | --- | --- |
 | Button | Book a free intro call |
 
-("Let's find your distance." was the one motivational-poster line left on the page.
-"Tell me about your race." asks for the thing the reader actually came to talk
-about.)
-
 ---
 
-## 8 · Footer
+## 10 · Footer
 
 | ▸ Field | Current text |
 | --- | --- |
@@ -425,9 +493,9 @@ room for the two signup pages.
 
 ---
 
-## 9 · Booking popup
+## 11 · Booking popup
 
-Opens full-screen when any "Book a call" button is pressed.
+Opens full-screen when any "Book a call" or "Start 1:1 coaching" button is pressed.
 
 | ▸ Field | Current text |
 | --- | --- |
@@ -436,11 +504,13 @@ Opens full-screen when any "Book a call" button is pressed.
 | Close button | Close |
 | Loading text | Loading the calendar… |
 
-The calendar itself is TidyCal — its wording is set in your TidyCal account.
-
+The calendar itself is now the **Ultra Endurant App's own booking page**
+(`app.ultraendurant.com`), replacing TidyCal on 8 September 2026 — so its wording,
+durations and availability are set in the app, not here. It's dark rather than
+light, which is why the popup's sheet is black now instead of cream.
 ---
 
-## 10 · 404 page
+## 12 · 404 page
 
 Shown for any URL that doesn't exist — mistyped links, old addresses, anything
 removed. Untouched by the 23 Aug rewrite apart from the button label, aligned
@@ -475,7 +545,7 @@ dead end is the wrong place to ask for an email.
 
 ---
 
-## 11 · Video library (`/videos`)
+## 13 · Video library (`/videos`)
 
 A separate page holding the training videos, plus one page per movement at
 `/videos/<slug>` — that per-movement URL is what you send an athlete. Not linked
@@ -606,7 +676,7 @@ Two things worth knowing:
 
 ---
 
-## 12 · Group coaching waitlist page (`/waitlist`)
+## 14 · Group coaching waitlist page (`/waitlist`)
 
 A standalone landing page whose only job is getting an email address onto the
 waitlist — the link to put in your Instagram bio or a post. **Built 24 Aug 2026,
@@ -826,7 +896,7 @@ competes with the one thing this page is for.
 
 ---
 
-## 13 · Shuffle Club newsletter page (`/newsletter`)
+## 15 · Shuffle Club newsletter page (`/newsletter`)
 
 A standalone landing page with **one action on it: subscribe.** Same job as
 `/waitlist` — the link to put in a bio, an Instagram post, or the foot of an
@@ -975,7 +1045,7 @@ would only be an interruption.
 
 ---
 
-## 14 · Privacy policy (`/privacy`)
+## 16 · Privacy policy (`/privacy`)
 
 Live at `ultraendurant.com/privacy`. Linked from the footer of every
 page. **This section is generated from the live page**, so edit the text
@@ -1015,7 +1085,7 @@ Grouped by what you did, because that's how it actually arrives. Nothing here is
 - **Reading the site** — Page views, the page you came from, and rough location by country — collected by Vercel Web Analytics, which sets no cookies and doesn't identify you. Separately, the Meta Pixel records the pages you visit along with your IP address and browser, and sets a cookie. See §4.
 - **Subscribing to the newsletter** — Your email address, and nothing else — that's the whole form. We also record which page you signed up from, so we can tell the newsletter apart from the waitlist.
 - **Joining the group waitlist** — Your email address, your first name and your running experience level. The name is so a message doesn't open "Hi there"; the level is so groups can be matched by ability, which is the point of the waitlist. If you refer someone, we also record that a referral came from you, so the extra entry in the draw can be credited.
-- **Booking an intro call** — Your name, email address, the slot you chose and anything you type into the booking form. This is handled by TidyCal, which also creates the calendar entry.
+- **Booking an intro call** — Your name, email address, the slot you chose and anything you type into the booking form. Since September 2026 this is handled by the Ultra Endurant App rather than a third-party scheduler, so the booking goes to Jon Corp OÜ directly and it is Jon Corp OÜ that creates the calendar entry.
 - **The athlete intake form** — Your running history, current training, goals, past injuries and any health information you choose to share. This is the most sensitive thing we hold, and it exists for one reason: a coach who doesn't know about your knee will write you a plan that hurts it. The form is hosted by Notion.
 - **Being coached** — WhatsApp messages, notes from our calls, the training you log, how sessions went, and whatever you tell me about sleep, stress, work and injury along the way. Payment records too — though card details are handled by the payment provider and never reach us.
 - **Emailing us** — Whatever's in the email, kept in the mailbox like any other correspondence.
@@ -1027,7 +1097,7 @@ Grouped by what you did, because that's how it actually arrives. Nothing here is
 **What sets a cookie**
 
 - **The Meta Pixel.** It loads on every page and reports your visit to Meta, along with your IP address, browser and the page you're on. It also reports when someone completes a signup, so we can tell whether an advert led to one. It sets cookies — _fbp and friends — which Meta can use to link your visit here to your Facebook or Instagram account.
-- **TidyCal**, but only once you open the booking popup. Nothing loads from it until you click.
+- **The Ultra Endurant App**, but only once you open the booking popup. Nothing loads from it until you click. It is run by Jon Corp OÜ — the same company behind this site — rather than by an outside scheduling service.
 - **YouTube**, on the training video pages, and only when you press play. The embeds use the no-cookie domain, so simply loading the page sends nothing.
 
 **What doesn't**
@@ -1059,7 +1129,6 @@ We don't sell your data and we don't trade lists. We do use other companies to r
 - **beehiiv** — United States. Runs the newsletter and both signup lists — holds your email address, first name and experience level, and the referral tracking.
 - **Vercel** — United States, serving from Europe. Hosts the site and provides the cookieless analytics; server logs pass through it.
 - **Meta** — Ireland and the United States. The pixel described in §4, and WhatsApp, which is how coaching conversations happen.
-- **TidyCal** — United States. Intro call bookings and the calendar entry.
 - **Notion** — United States. Hosts the athlete intake form and its answers.
 - **Google** — United States. YouTube hosts the training videos, and Google Workspace the mailbox and calendar.
 - **Accountants and advisers** — Estonia. Invoices and payment records, where the law or a genuine dispute requires it.
@@ -1120,7 +1189,7 @@ Questions about any of it: jonathan@ultraendurant.com. A real person reads that 
 
 ---
 
-## 15 · Terms of service (`/terms`)
+## 17 · Terms of service (`/terms`)
 
 Live at `ultraendurant.com/terms`. Linked from the footer of every
 page. **This section is generated from the live page**, so edit the text

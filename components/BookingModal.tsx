@@ -1,42 +1,69 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { CloseIcon } from "@/components/icons";
 import SlashMark from "@/components/SlashMark";
 import { lockBodyScroll } from "@/lib/scrollLock";
+import { siteLinks } from "@/lib/site";
 
-const TIDYCAL_SRC = "https://asset-tidycal.b-cdn.net/js/embed.js";
-const TIDYCAL_PATH = "jonathanfors/discovery";
+/**
+ * The origin the booking iframe is served from, and the only origin whose
+ * height messages are honoured. `postMessage` is broadcast to every listener on
+ * the page, so without this check any embedded frame — or any script that can
+ * reach `window` — could resize the panel at will.
+ */
+const BOOKING_ORIGIN = "https://app.ultraendurant.com";
+
+/** Height before the frame reports its own, matching the embed's default. */
+const DEFAULT_HEIGHT = 760;
+
+/** Bounds on a reported height, so a bad value can't collapse or explode it. */
+const MIN_HEIGHT = 320;
+const MAX_HEIGHT = 20000;
 
 /**
  * Global booking popup, in the club language: full-screen black sheet, hard
  * corners, red rules. Instead of wiring every CTA, this listens for clicks on
- * any `[data-cta="book-intro-call"]` element, cancels the navigation, and opens
- * the dialog, lazy-loading the TidyCal embed on first open. The triggers keep
- * their href, so modified/middle clicks and no-JS still reach the booking page
- * in a new tab.
+ * any `[data-cta="book-intro-call"]` element, cancels the navigation and opens
+ * the dialog. The triggers keep their href, so modified/middle clicks and no-JS
+ * still reach the booking page in a new tab.
+ *
+ * The calendar is the Ultra Endurant App's own booking page in an iframe
+ * (2026-09-08, replacing TidyCal — which needed a third-party script from a CDN
+ * and rendered a vendor-styled widget). It sizes itself: the app posts
+ * `ultra-endurant:booking-height` as its content grows, and the frame is set to
+ * that height. The surrounding panel still scrolls, so the booking works even
+ * if no message ever arrives.
  */
 export default function BookingModal() {
   const [open, setOpen] = useState(false);
-  const embedRef = useRef<HTMLDivElement>(null);
+  /**
+   * The iframe is mounted on first open and never unmounted, so reopening the
+   * dialog doesn't reload the calendar and lose a half-filled form.
+   */
+  const [mounted, setMounted] = useState(false);
+  const [height, setHeight] = useState(DEFAULT_HEIGHT);
   const closeBtnRef = useRef<HTMLButtonElement>(null);
   const lastFocused = useRef<HTMLElement | null>(null);
-  const loaded = useRef(false);
 
-  // Inject the TidyCal embed + script once, on first open.
-  const ensureEmbed = useCallback(() => {
-    if (loaded.current || !embedRef.current) return;
-    loaded.current = true;
-
-    const embed = document.createElement("div");
-    embed.className = "tidycal-embed";
-    embed.setAttribute("data-path", TIDYCAL_PATH);
-    embedRef.current.appendChild(embed);
-
-    const script = document.createElement("script");
-    script.src = TIDYCAL_SRC;
-    script.async = true;
-    document.body.appendChild(script);
+  // Height reports from the booking frame.
+  useEffect(() => {
+    const onMessage = (e: MessageEvent) => {
+      if (e.origin !== BOOKING_ORIGIN) return;
+      const data: unknown = e.data;
+      if (
+        typeof data !== "object" ||
+        data === null ||
+        (data as { type?: unknown }).type !== "ultra-endurant:booking-height"
+      ) {
+        return;
+      }
+      const next = Number((data as { height?: unknown }).height);
+      if (!Number.isFinite(next)) return;
+      setHeight(Math.min(Math.max(next, MIN_HEIGHT), MAX_HEIGHT));
+    };
+    window.addEventListener("message", onMessage);
+    return () => window.removeEventListener("message", onMessage);
   }, []);
 
   // Intercept booking CTAs anywhere on the page.
@@ -53,12 +80,12 @@ export default function BookingModal() {
 
       e.preventDefault();
       lastFocused.current = trigger;
-      ensureEmbed();
+      setMounted(true);
       setOpen(true);
     };
     document.addEventListener("click", onClick);
     return () => document.removeEventListener("click", onClick);
-  }, [ensureEmbed]);
+  }, []);
 
   // Scroll lock, Escape to close, and focus management while open.
   useEffect(() => {
@@ -85,7 +112,7 @@ export default function BookingModal() {
       aria-label="Book a free intro call"
       aria-hidden={!open}
       /* `invisible` when closed, not just transparent + pointer-events-none.
-         This sheet stays mounted to keep the TidyCal iframe loaded, and both
+         This sheet stays mounted to keep the booking iframe loaded, and both
          transitions here promote it to its own compositing layer — a
          full-viewport composited layer holding a cross-origin iframe is exactly
          what iOS Safari fails to let touches through, pointer-events or not.
@@ -126,21 +153,32 @@ export default function BookingModal() {
           </button>
         </div>
 
-        {/* Calendar — the embed brings its own light styling, so it sits on a
-            paper sheet rather than straight on the black.
-            TidyCal sizes its own iframe to its content and expects the page to
-            scroll. Forcing the iframe to the sheet height just cropped it, so
-            the iframe keeps its natural height and this panel scrolls instead.
+        {/* Calendar. This panel used to be `bg-paper`, because TidyCal rendered
+            a light widget and needed a light sheet under it. The Ultra Endurant
+            booking page is dark, so paper left a cream border framing a black
+            calendar — it's ink now, and the embed runs edge to edge.
+            The frame reports its own height and can grow past the sheet, so it
+            keeps that height and this panel scrolls instead of cropping it.
             `overscroll-contain` stops the scroll chaining to the page behind. */}
-        <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain bg-paper">
+        <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain bg-ink">
           <div className="mx-auto w-full max-w-5xl px-3 py-5 sm:px-6 sm:py-8">
-            <div className="relative min-h-[32rem] [&_iframe]:!w-full">
-              {/* Fallback sits behind; the TidyCal iframe covers it once loaded */}
-              <p className="club-label absolute inset-0 -z-10 flex items-center justify-center text-ink-faint">
+            <div className="relative min-h-[32rem]">
+              {/* Fallback sits behind; the iframe covers it once loaded */}
+              <p className="club-label absolute inset-0 -z-10 flex items-center justify-center text-snow-dim">
                 Loading the calendar…
               </p>
-              {/* React keeps this empty; TidyCal injects the calendar here */}
-              <div ref={embedRef} />
+              {mounted ? (
+                /* Square, not the embed snippet's 12px radius: every panel,
+                   button and plate in the club system has hard corners. */
+                <iframe
+                  title="Book an intro call"
+                  src={siteLinks.booking}
+                  loading="lazy"
+                  allow="clipboard-write"
+                  style={{ height }}
+                  className="w-full border-0"
+                />
+              ) : null}
             </div>
           </div>
         </div>

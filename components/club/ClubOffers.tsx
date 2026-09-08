@@ -5,24 +5,24 @@ import { ArrowIcon } from "@/components/icons";
 import { groupCoaching, oneToOne, siteLinks, subscribeSource } from "@/lib/site";
 
 const GROUP_POINTS = [
-  [
-    "Kept small",
-    "Small enough that I know what your week looks like, and that everyone in the group knows your name.",
-  ],
-  [
-    "Matched on purpose",
-    "Grouped with runners whose goals and constraints look like yours, so the conversation is actually about you.",
-  ],
-  [
-    "Mixed on level",
-    "Deliberately not all at the same standard. Close enough to relate to, far enough apart to pull each other along.",
-  ],
+  "Kept small — around 5 athletes",
+  "Matched on goals and constraints",
+  "Mixed on level, on purpose",
 ] as const;
 
 /**
- * The two ways to work with Jonathan. Group leads — it's the lower-friction way
- * in — as the full-width black block; 1:1 sits under it as a slimmer premium
- * bar that books a call.
+ * The two ways to work with Jonathan.
+ *
+ * **1:1 leads.** It used to be the other way round — group was the full-width
+ * black block and 1:1 a slim bar under it — on the reasoning that group is the
+ * lower-friction way in. That undersold the thing that's actually open and
+ * actually pays: group hasn't launched, and a visitor ready to start today was
+ * being shown a waitlist first. So 1:1 takes the ink block and the size, and
+ * group sits beside it as the alternative for people who aren't ready.
+ *
+ * The waitlist form stays inline here rather than becoming a link. This block
+ * and `/waitlist` are the two entry points to the same beehiiv segment, told
+ * apart in analytics by route, and the draw is run off that segment.
  */
 export default function ClubOffers() {
   return (
@@ -33,7 +33,7 @@ export default function ClubOffers() {
       <div className="mx-auto w-full max-w-[1400px] px-5 py-20 sm:px-8 sm:py-28">
         <Reveal className="flex items-center gap-5">
           <span className="club-numeral club-hollow shrink-0 text-6xl text-ink sm:text-7xl">
-            03
+            05
           </span>
           <span className="club-label shrink-0 text-ink">
             Ways to work with me
@@ -46,153 +46,139 @@ export default function ClubOffers() {
 
         <Reveal className="mt-10 sm:mt-12">
           <h2 className="font-club text-club-lg max-w-[18ch] text-ink">
-            Two ways to work{" "}
-            <span className="club-tape">together.</span>
+            Two ways to work <span className="club-tape">together.</span>
           </h2>
         </Reveal>
 
-        {/* ---- GROUP — the headline offer ------------------------------ */}
-        <Reveal className="club-on-ink mt-12 sm:mt-14" id="group">
-          <div className="club-cut-br bg-ink text-snow">
-            {/* Top bar */}
-            <div className="flex flex-wrap items-center gap-x-5 gap-y-3 border-b border-snow/20 px-6 py-5 sm:px-10 sm:py-6">
-              <SlashMark className="h-4 w-[1.1rem] shrink-0 text-red" />
-              <p className="club-label text-snow">Group coaching</p>
-              <p className="club-label bg-red px-3 py-1.5 text-[0.6rem] text-ink">
-                Launching {groupCoaching.launch}
-              </p>
-            </div>
+        <div className="mt-12 grid grid-cols-1 items-start gap-6 sm:mt-14 lg:grid-cols-12">
+          {/* ---- 1:1 — the primary offer ------------------------------ */}
+          <Reveal className="club-on-ink lg:col-span-7 lg:col-start-1">
+            <div className="club-cut-br bg-ink text-snow">
+              {/* Top bar — red, so this block reads as the recommended one */}
+              <div className="flex flex-wrap items-center gap-x-5 gap-y-3 bg-red px-6 py-4 text-ink sm:px-10">
+                <SlashMark className="h-4 w-[1.1rem] shrink-0" />
+                <p className="club-label">1:1 Coaching</p>
+                <p className="club-label ml-auto text-[0.6rem]">Open now</p>
+              </div>
 
-            <div className="grid grid-cols-1 gap-x-10 gap-y-10 p-6 sm:p-10 lg:grid-cols-12">
-              {/* Left: price + pitch */}
-              <div className="lg:col-span-7 lg:col-start-1">
-                <div className="flex flex-wrap items-baseline gap-x-5 gap-y-2">
-                  <span className="club-numeral text-[clamp(3.5rem,8vw,6rem)] leading-none text-red-bright">
-                    Free
+              <div className="p-6 sm:p-10">
+                <div className="flex flex-wrap items-baseline gap-x-3 gap-y-2">
+                  <span className="club-numeral text-[clamp(3.5rem,8vw,6rem)] leading-none text-snow">
+                    {oneToOne.price}
                   </span>
-                  <span className="club-label text-[0.7rem] text-snow-dim">
-                    Forever, for {groupCoaching.freeSpots} athletes drawn at
-                    random
+                  <span className="club-numeral text-2xl text-snow-dim">
+                    {oneToOne.period}
+                  </span>
+                  <span className="club-label ml-2 text-[0.66rem] text-snow-dim">
+                    No minimum period
                   </span>
                 </div>
-                {/* "Then €50/mo" read as a trial — free now, paying later. It's
-                    who pays, not when. */}
-                <p className="club-label mt-4 text-[0.7rem] text-snow-dim">
-                  Everyone else · {groupCoaching.price}
-                  {groupCoaching.period}
-                </p>
 
                 <p className="mt-8 max-w-xl text-lg leading-relaxed text-snow-dim">
-                  The same approach as the 1:1 work, with a few people doing it
-                  alongside you. Training for something long is a lot of
-                  solitary hours, and having other people inside the same week
-                  changes that. It hasn&apos;t opened yet — the waitlist is how
-                  you hear first.
+                  We set the goals together — ones that fit your life and the
+                  direction you want it to go — then work at them week by week.
+                  A call every week, and me on WhatsApp in between for the days
+                  that don&apos;t go to plan. First ultra or hundredth.
                 </p>
 
                 <ul className="mt-9 border-t border-snow/20">
-                  {GROUP_POINTS.map(([title, body]) => (
+                  {oneToOne.includes.map((item) => (
                     <li
-                      key={title}
-                      className="flex flex-col gap-1.5 border-b border-snow/15 py-4 sm:flex-row sm:items-baseline sm:gap-6"
+                      key={item}
+                      className="flex items-baseline gap-3.5 border-b border-snow/15 py-3.5"
                     >
-                      <span className="font-club-upright shrink-0 text-base text-snow sm:w-52">
-                        {title}
-                      </span>
-                      <span className="text-snow-dim">{body}</span>
+                      <SlashMark className="h-3 w-[0.85rem] shrink-0 translate-y-0.5 text-red-bright" />
+                      <span className="text-snow-dim">{item}</span>
                     </li>
                   ))}
                 </ul>
-              </div>
 
-              {/* Right: waitlist */}
-              <div className="lg:col-span-5 lg:col-start-8 lg:self-center">
-                <div className="border-2 border-snow/25 p-6 sm:p-7">
-                  <p className="club-numeral text-[clamp(3rem,7vw,5rem)] leading-none text-snow">
-                    0{groupCoaching.freeSpots}
+                <div className="mt-9">
+                  <a
+                    href={siteLinks.booking}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    data-cta="book-intro-call"
+                    data-cta-location="one-to-one"
+                    className="btn-club btn-club-red club-label group inline-flex w-full items-center justify-center gap-3 px-8 py-4 sm:w-auto"
+                  >
+                    <span className="inline-flex items-center gap-3">
+                      Start 1:1 coaching
+                      <ArrowIcon className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                    </span>
+                  </a>
+                  <p className="club-label mt-3 text-[0.6rem] text-snow-dim">
+                    Starts with a free 30-minute call
                   </p>
-                  <p className="club-label mt-3 text-[0.66rem] text-snow-dim">
-                    Free spots, drawn at random
-                  </p>
-
-                  <div className="mt-6 border-t border-snow/20 pt-6">
-                    <p className="club-label text-snow">Join the waitlist</p>
-                    <p className="mt-3 text-sm leading-relaxed text-snow-dim">
-                      The five free places are drawn at random from the
-                      waitlist when the group opens at the {groupCoaching.launch}.
-                      Signing up early is no advantage — it just puts you in the
-                      draw.
-                    </p>
-                    <SubscribeForm
-                      action="Notify me"
-                      utmMedium={subscribeSource.groupWaitlist}
-                      waitlistDetails
-                      className="mt-5"
-                    />
-                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </Reveal>
+          </Reveal>
 
-        {/* ---- 1:1 — the premium bar underneath ------------------------ */}
-        <Reveal className="mt-6" delay={80}>
-          <div className="flex flex-col gap-8 border-2 border-ink bg-paper p-6 sm:p-9 lg:flex-row lg:items-center lg:gap-12">
-            <div className="lg:max-w-md">
-              <div className="flex items-center gap-3">
+          {/* ---- Group — the alternative ------------------------------ */}
+          <Reveal
+            className="lg:col-span-5 lg:col-start-8"
+            delay={80}
+            id="group"
+          >
+            <div className="border-2 border-ink bg-paper">
+              <div className="flex flex-wrap items-center gap-x-4 gap-y-2 border-b-2 border-ink px-6 py-4">
                 <SlashMark className="h-4 w-[1.1rem] shrink-0 text-red" />
-                <p className="club-label text-ink">1:1 Coaching</p>
+                <p className="club-label text-ink">Group coaching</p>
+                <p className="club-label ml-auto text-[0.6rem] text-ink-faint">
+                  {groupCoaching.launch}
+                </p>
               </div>
-              <div className="mt-4 flex items-baseline gap-2.5">
-                <span className="club-numeral text-[clamp(2.5rem,5vw,3.5rem)] leading-none text-ink">
-                  {oneToOne.price}
-                </span>
-                <span className="club-numeral text-xl text-ink-faint">
-                  {oneToOne.period}
-                </span>
+
+              <div className="p-6 sm:p-7">
+                <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+                  <span className="club-numeral text-[clamp(2.25rem,4.5vw,3rem)] leading-none text-ink">
+                    {groupCoaching.price}
+                  </span>
+                  <span className="club-numeral text-xl text-ink-faint">
+                    {groupCoaching.period}
+                  </span>
+                </div>
+                {/* "Free … then €50/mo" reads as a trial. The €50 names who
+                    pays — everyone else — never when. */}
+                <p className="mt-3 leading-relaxed text-ink-soft">
+                  <strong className="text-ink">
+                    Free forever for {groupCoaching.freeSpots} athletes
+                  </strong>
+                  , drawn at random from the waitlist when the group opens.
+                  Signing up early is no advantage — it just puts you in the
+                  draw.
+                </p>
+
+                <ul className="mt-6 border-t border-ink/15">
+                  {GROUP_POINTS.map((item) => (
+                    <li
+                      key={item}
+                      className="flex items-baseline gap-3 border-b border-ink/15 py-3"
+                    >
+                      <SlashMark className="h-3 w-[0.85rem] shrink-0 translate-y-0.5 text-red" />
+                      <span className="text-sm text-ink-soft">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <div className="mt-7">
+                  <p className="club-label text-ink">Join the waitlist</p>
+                  <SubscribeForm
+                    action="Notify me"
+                    utmMedium={subscribeSource.groupWaitlist}
+                    waitlistDetails
+                    className="mt-5"
+                  />
+                </div>
               </div>
-              <p className="mt-5 leading-relaxed text-ink-soft">
-                Open now. We set the goals together — ones that fit your life
-                and the direction you want it to go — then work at them week by
-                week. A call every week, and me on WhatsApp in between for the
-                days that don&apos;t go to plan. First ultra or hundredth.
-              </p>
             </div>
-
-            <ul className="grid flex-1 grid-cols-1 gap-x-8 gap-y-2.5 sm:grid-cols-2">
-              {oneToOne.includes.map((item) => (
-                <li key={item} className="flex items-baseline gap-3">
-                  <SlashMark className="h-3 w-[0.85rem] shrink-0 translate-y-0.5 text-red" />
-                  <span className="text-sm text-ink-soft">{item}</span>
-                </li>
-              ))}
-            </ul>
-
-            <div className="shrink-0 lg:self-center">
-              <a
-                href={siteLinks.booking}
-                target="_blank"
-                rel="noopener noreferrer"
-                data-cta="book-intro-call"
-                data-cta-location="one-to-one"
-                className="btn-club btn-club-outline-dark club-label group inline-flex items-center justify-center px-8 py-4"
-              >
-                <span className="inline-flex items-center gap-3">
-                  Book a free call
-                  <ArrowIcon className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </span>
-              </a>
-              <p className="club-label mt-3 text-center text-[0.6rem] text-ink-faint">
-                Free · 30 minutes
-              </p>
-            </div>
-          </div>
-        </Reveal>
+          </Reveal>
+        </div>
 
         {/* Said plainly rather than left for the reader to notice: the practice
             is new and there are no testimonials to show yet. */}
-        <Reveal className="mt-8" delay={120}>
+        <Reveal className="mt-10" delay={120}>
           <p className="max-w-2xl text-sm leading-relaxed text-ink-faint">
             Worth saying plainly: I certified in 2026 and I&apos;m building this
             practice now, so there are no testimonials on this page. I&apos;d

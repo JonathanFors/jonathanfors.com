@@ -36,8 +36,65 @@ export const brand = {
   attribution: "Ultra Endurant is one coach: Jonathan Fors.",
 } as const;
 
+/**
+ * What the Ultra Endurant App gives an athlete — the homepage's app section.
+ *
+ * Every athlete works through it, 1:1 and group alike, so it is part of the
+ * offer rather than a bonus. `aiStance` is deliberately separated from the
+ * feature list: the interesting thing about the AI is what it is *forbidden*
+ * to do, and folding that into a bullet would sell it as a feature instead of
+ * the safety position it actually is.
+ *
+ * ⚠️ Nothing about the app's build — stack, hosting, ship date — has been
+ * stated. This describes what it does for an athlete and nothing more; don't
+ * add screenshots, platform badges or a launch date without asking.
+ */
+export const appFeatures = [
+  [
+    "Your schedule",
+    "Every session, in order, with the week laid out — so what's next is never a question.",
+  ],
+  [
+    "Workout analysis",
+    "Finished sessions get read back to you: what the numbers did, and what changed since last time.",
+  ],
+  [
+    "Calls, live",
+    "Weekly video calls happen in the app. Nothing to install, no link to lose.",
+  ],
+  [
+    "Everything said, kept",
+    "Notes and transcripts from every call and WhatsApp thread, searchable. You never have to remember what we agreed.",
+  ],
+  [
+    "Your links, together",
+    "Plans, races, forms, whatever the week needs — in one place instead of five.",
+  ],
+] as const;
+
+/**
+ * The app's AI stance, printed as its own callout in the app section.
+ * This is a position, not a disclaimer — say it in Jonathan's voice.
+ */
+export const aiStance = {
+  heading: "The AI doesn't give advice. That's deliberate.",
+  body: "It reads your completed sessions and tells you what happened in them. It will not tell you to push, to back off, to run through something, or to change your plan — that's my job, and I think handing health advice to a model is genuinely dangerous. The analysis is a mirror, not a coach.",
+} as const;
+
 export const siteLinks = {
-  booking: "https://meet.jonathanfors.com/discovery",
+  /**
+   * The intro call, now booked in the Ultra Endurant App rather than TidyCal
+   * (changed 2026-09-08). `BookingModal` embeds this same booking as an iframe;
+   * this URL is what the CTAs carry as their href, so it is the no-JS and
+   * middle-click fallback and has to work as a standalone page.
+   *
+   * ⚠️ The old TidyCal links are superseded but not dead:
+   * `meet.jonathanfors.com/discovery` is in published copy and
+   * `meet.jonathanfors.com/20` went out in a newsletter edition. Both need to
+   * redirect here or keep working.
+   */
+  booking:
+    "https://app.ultraendurant.com/book/e345304d-b105-4f02-8bcc-fef52b727904",
   // The athlete-intake page is intentionally NOT linked anywhere on the site
   // (noindex). Jonathan sends this URL manually to athletes he has spoken to.
   intake: "/athlete-intake",
@@ -78,6 +135,35 @@ export const facts = {
   ranDates: "1–10 August 2026",
 
 } as const;
+
+/**
+ * Jonathan's racing record — what the achievements band prints.
+ *
+ * ⚠️ **Supplied by Jonathan on 2026-09-08 and not yet sourced.** There is no
+ * ITRA profile URL and no MDS result page on file, so none of this is linked to
+ * anything a reader could check. These are the strongest credibility claims on
+ * the site and the easiest to challenge, so get a link for each before leaning
+ * on them harder than this.
+ *
+ * ⚠️ `mds` is deliberately worded as Jonathan phrased it ("placed among
+ * elites"), which can mean *finished among the elite field* or *raced in it*.
+ * Confirm the actual placing before making it more specific — a wrong number
+ * here is worse than a vague one.
+ */
+export const record = [
+  {
+    figure: "Top 5%",
+    label: "Ranked worldwide on ITRA",
+  },
+  {
+    figure: "MDS",
+    label: "Placed among the elites, Legendary",
+  },
+  {
+    figure: "744 km",
+    label: "Longest run — Portugal's coast",
+  },
+] as const;
 
 /**
  * beehiiv "magic link" — a GET endpoint that subscribes the address in `email`.
@@ -156,6 +242,16 @@ export const groupCoaching = {
 export const shuffleClub = {
   name: "Shuffle Club",
   beehiivFormId: "5d6e4078-8f3a-49cc-9ce5-fc272223ffbd",
+  /**
+   * Printed on the homepage as social proof, so it has to stay true.
+   *
+   * **Rounded down on purpose.** beehiiv reported **266** active subscribers on
+   * 2026-09-08; this says 250 so that ordinary churn can't turn the claim
+   * false between deploys. Re-check beehiiv before raising it, and never round
+   * up to the next hundred — most of these arrived through the group-coaching
+   * waitlist rather than the newsletter form, and one list is what they share.
+   */
+  subscribers: 250,
   editions: [
     ["Tuesday", "The science", "What the research actually says."],
     ["Friday", "My take", "The same subject from the road, in my own words."],

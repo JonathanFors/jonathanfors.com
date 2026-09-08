@@ -16,7 +16,8 @@ import { brand, legal, siteLinks } from "@/lib/site";
  * Written to describe what the site and the coaching actually do, not from a
  * generator — every processor named below is one this codebase really talks to
  * (beehiiv in `app/api/subscribe/route.ts`, Meta in `components/MetaPixel.tsx`,
- * TidyCal in `components/BookingModal.tsx`, Notion in `app/athlete-intake`,
+ * the Ultra Endurant App's booking page in `components/BookingModal.tsx`,
+ * Notion in `app/athlete-intake`,
  * YouTube in `components/videos/VideoEmbed.tsx`, Vercel as the host). If a
  * vendor is added or dropped, §5 and §6 change with it.
  *
@@ -25,7 +26,7 @@ import { brand, legal, siteLinks } from "@/lib/site";
  * otherwise would be worse than one that doesn't mention it. Adding a banner
  * that gates the pixel is the open item — see PROJECT_UPDATES.md.
  *
- * The wording is mirrored in `COPY.md` §14.
+ * The wording is mirrored in `COPY.md` §16.
  */
 
 const title = "Privacy policy";
@@ -157,8 +158,10 @@ const sections: LegalSection[] = [
           body: (
             <>
               Your name, email address, the slot you chose and anything you type
-              into the booking form. This is handled by TidyCal, which also
-              creates the calendar entry.
+              into the booking form. Since September 2026 this is handled by the
+              Ultra Endurant App rather than a third-party scheduler, so the
+              booking goes to {legal.company} directly and it is {legal.company}{" "}
+              that creates the calendar entry.
             </>
           ),
         },
@@ -222,8 +225,10 @@ const sections: LegalSection[] = [
           to link your visit here to your Facebook or Instagram account.
         </>,
         <>
-          <strong>TidyCal</strong>, but only once you open the booking popup.
-          Nothing loads from it until you click.
+          <strong>The Ultra Endurant App</strong>, but only once you open the
+          booking popup. Nothing loads from it until you click. It is run by{" "}
+          {legal.company} — the same company behind this site — rather than by
+          an outside scheduling service.
         </>,
         <>
           <strong>YouTube</strong>, on the training video pages, and only when
@@ -369,10 +374,6 @@ const sections: LegalSection[] = [
               WhatsApp, which is how coaching conversations happen.
             </>
           ),
-        },
-        {
-          term: "TidyCal",
-          body: <>United States. Intro call bookings and the calendar entry.</>,
         },
         {
           term: "Notion",

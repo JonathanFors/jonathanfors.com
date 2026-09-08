@@ -40,7 +40,7 @@ export default function ClubProcess() {
       <div className="relative mx-auto w-full max-w-[1400px] px-5 py-20 sm:px-8 sm:py-28">
         <Reveal className="flex items-center gap-5">
           <span className="club-numeral club-hollow shrink-0 text-6xl text-snow sm:text-7xl">
-            02
+            04
           </span>
           <span className="club-label shrink-0 text-snow">The program</span>
           <span

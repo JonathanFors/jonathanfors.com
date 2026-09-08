@@ -1,5 +1,7 @@
 import ClubHero from "@/components/club/ClubHero";
-import ClubApproach from "@/components/club/ClubApproach";
+import ClubIntro from "@/components/club/ClubIntro";
+import ClubApp from "@/components/club/ClubApp";
+import ClubFit from "@/components/club/ClubFit";
 import ClubProofBand from "@/components/club/ClubProofBand";
 import ClubProcess from "@/components/club/ClubProcess";
 import ClubOffers from "@/components/club/ClubOffers";
@@ -66,11 +68,19 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+      {/* Section order, and why. Who he is (01) before what you get (02),
+          because the app only means something once you know who's on the other
+          end of it. Fit (03) before the program (04) so anyone who shouldn't
+          book can leave before reading the mechanics. The record band sits
+          between the program and the prices — it is the answer to "why should
+          I pay this", so it lands immediately before the number does. */}
       <main>
         <ClubHero />
-        <ClubApproach />
-        <ClubProofBand />
+        <ClubIntro />
+        <ClubApp />
+        <ClubFit />
         <ClubProcess />
+        <ClubProofBand />
         <ClubOffers />
         <ClubNewsletter />
         <ClubFinalCta />

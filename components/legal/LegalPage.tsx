@@ -15,13 +15,13 @@ import { brand, legal, siteLinks } from "@/lib/site";
  * belongs to the site, not enough to fight the text.
  *
  * The content lives in the two page files as `Block[]`, built with the helpers
- * below, and is mirrored in `COPY.md` §14–15. Paragraph content is `ReactNode`
+ * below, and is mirrored in `COPY.md` §16–17. Paragraph content is `ReactNode`
  * rather than `string` so a clause can carry a link without a markdown parser.
  */
 
 /**
  * A block of a legal page. Each one renders with a `data-block` attribute
- * naming its kind — the pages are mirrored in `COPY.md` §14–15, and tagging the
+ * naming its kind — the pages are mirrored in `COPY.md` §16–17, and tagging the
  * output means that mirror can be regenerated from the rendered page instead of
  * being retyped and drifting a clause at a time.
  */

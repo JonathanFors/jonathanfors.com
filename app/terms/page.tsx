@@ -36,7 +36,7 @@ import {
  * Note `groupCoaching.launch` is already "end of September" — the month is in
  * the value, so it takes a bare year after it, not "of September 2026".
  *
- * The wording is mirrored in `COPY.md` §15.
+ * The wording is mirrored in `COPY.md` §17.
  */
 
 const title = "Terms of service";
