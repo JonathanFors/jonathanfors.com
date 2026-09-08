@@ -28,17 +28,22 @@ const HEIGHTS = { sm: 36, md: 48, lg: 68 } as const;
  *
  * **Do not typeset this by hand.** The lockup's rules live with the artwork
  * (`Ultra Endurant/Logos/README.md`): ULTRA is tracked out to lock flush
- * against the wider ENDURANT, and the mark is a UE ligature whose colours map
- * to the wordmark word for word. Setting the type here instead would drift from
- * every other place the logo appears. A new arrangement belongs in that
- * folder's `build.py` so it stays reproducible; then copy the export here.
+ * against the wider ENDURANT, and the mark is "Overrun" — three ink lanes and
+ * a fourth, red, running 64% past them, which is the whole idea of the name.
+ * Setting the type here instead would drift from every other place the logo
+ * appears. A new arrangement belongs in that folder's `build.py` so it stays
+ * reproducible; then copy the export here.
  *
  * The type is outlined in the SVGs, so nothing depends on Roboto Condensed
  * being available.
+ *
+ * ⚠️ `w`/`h` below are the artwork's own viewBox, and they set the aspect
+ * ratio the image is drawn at. Re-export the lockups and these numbers have to
+ * be re-read from the new SVGs — a stale pair silently stretches the logo.
  */
 const ART = {
-  stacked: { w: 667.37, h: 152.14, file: "ultra-endurant-lockup" },
-  line: { w: 822.48, h: 87.64, file: "ultra-endurant-lockup-line" },
+  stacked: { w: 625.67, h: 152.14, file: "ultra-endurant-lockup" },
+  line: { w: 797.0, h: 87.64, file: "ultra-endurant-lockup-line" },
 } as const;
 
 export default function Wordmark({
