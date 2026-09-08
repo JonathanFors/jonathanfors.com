@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { facts, siteLinks } from "@/lib/site";
+import { brand, facts, siteLinks } from "@/lib/site";
 import { ArrowIcon } from "@/components/icons";
 import SlashMark from "@/components/SlashMark";
 
@@ -29,7 +29,7 @@ export default function ClubHero() {
       <section
         id="top"
         className="club club-on-ink relative overflow-hidden bg-ink text-snow"
-        aria-label="Jonathan Fors — ultra-endurance running coach"
+        aria-label={`${brand.name} — ultra-endurance running coaching`}
       >
         {/* Slash field, top-right — the logo mark blown up as texture. */}
         <div

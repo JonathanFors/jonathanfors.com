@@ -7,6 +7,7 @@ import ClubNav from "@/components/club/ClubNav";
 import MetaPixel from "@/components/MetaPixel";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import "./globals.css";
+import { brand } from "@/lib/site";
 
 // Titles, eyebrows, labels, buttons, numerals — anything short and declarative.
 // Loaded as the variable font with italics: the club design language needs the
@@ -30,10 +31,14 @@ const description =
   "UESCA-certified ultra-endurance running coach. Remote 1:1 and small-group coaching that builds training around your life — from a first ultra to a hundred-miler. Free 30-minute intro call.";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://jonathanfors.com"),
+  metadataBase: new URL(brand.url),
   title: {
-    default: "Jonathan Fors — Ultra-Endurance Running Coach",
-    template: "%s — Jonathan Fors",
+    // Not "Ultra Endurant — Ultra-Endurance Running Coach": the brand name and
+    // the category are a syllable apart, and printing both stutters. Naming
+    // Jonathan instead keeps the coach in the tab and catches the people who
+    // search him rather than the business.
+    default: `${brand.name} — Ultramarathon Coaching with ${brand.coach}`,
+    template: `%s — ${brand.name}`,
   },
   description,
   keywords: [
@@ -44,14 +49,14 @@ export const metadata: Metadata = {
     "100 mile training",
     "trail running coach",
   ],
-  authors: [{ name: "Jonathan Fors" }],
-  creator: "Jonathan Fors",
+  authors: [{ name: brand.coach }],
+  creator: brand.coach,
   alternates: { canonical: "/" },
   openGraph: {
-    title: "Jonathan Fors — Ultra-Endurance Running Coach",
+    title: `${brand.name} — Ultramarathon Coaching with ${brand.coach}`,
     description,
-    url: "https://jonathanfors.com",
-    siteName: "Jonathan Fors",
+    url: brand.url,
+    siteName: brand.name,
     type: "website",
     locale: "en_US",
     images: [
@@ -65,7 +70,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Jonathan Fors — Ultra-Endurance Running Coach",
+    title: `${brand.name} — Ultramarathon Coaching with ${brand.coach}`,
     description,
     images: ["/images/hero-coast-road.jpg"],
   },

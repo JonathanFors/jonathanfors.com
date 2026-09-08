@@ -1,6 +1,7 @@
-# jonathanfors.com
+# ultraendurant.com
 
-Marketing site for **Jonathan Fors** — UESCA-certified ultra-endurance running
+Marketing site for **Ultra Endurant** — the coaching practice of Jonathan
+Fors, UESCA-certified ultra-endurance running
 coach — and **Project Portugal 2026**, a ~900 km coastline run raising awareness
 and funds for men's mental health.
 
@@ -91,7 +92,9 @@ JSON-LD (`Person` + coaching `Service`) is injected in
 
 1. Push to GitHub.
 2. Import at [vercel.com/new](https://vercel.com/new) — Next.js is auto-detected.
-3. Add the domain `jonathanfors.com` in the Vercel project's **Domains** settings.
+3. Add the domain `ultraendurant.com` in the Vercel project's **Domains**
+   settings, and keep `jonathanfors.com` on the project as a permanent 301 to
+   it — the old domain is printed in published newsletter editions.
 
 See [`PLACEHOLDERS.md`](PLACEHOLDERS.md) for everything still marked
 `TODO:CONTENT` before launch.

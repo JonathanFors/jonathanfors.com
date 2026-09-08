@@ -1,6 +1,41 @@
 // Single source of truth for links + hard facts.
 // Keep numbers/dates in sync with ../CONTEXT.md — if one changes, change both.
 
+// ---- Brand -----------------------------------------------------------
+/**
+ * The business name and the person behind it — deliberately two fields.
+ *
+ * Renamed from "Jonathan Fors" to **Ultra Endurant** in September 2026. The
+ * offer did not change with it: one coach, writing every plan himself. So the
+ * two are not interchangeable in copy, and swapping one for the other is a
+ * meaning change, not a find-and-replace:
+ *
+ * - `name` is the business — tab titles, the wordmark, the copyright line, the
+ *   trading name on the legal pages, anything a company would sign.
+ * - `coach` is the human — photo captions, the JSON-LD `Person`, a byline, and
+ *   anywhere the copy speaks about who an athlete actually works with.
+ *
+ * `attribution` is the line that keeps the first from swallowing the second.
+ */
+export const brand = {
+  name: "Ultra Endurant",
+  coach: "Jonathan Fors",
+  domain: "ultraendurant.com",
+  url: "https://ultraendurant.com",
+  /**
+   * The athlete-facing app, at app.ultraendurant.com. Formerly "Shuffle Hub".
+   * Not built or linked yet — here so the name has one home when it is.
+   */
+  app: "Ultra Endurant App",
+  appUrl: "https://app.ultraendurant.com",
+  /**
+   * Printed wherever the brand name could read as a company of coaches. A
+   * business name is the one thing that can make a one-person practice look
+   * like a marketplace, which is the opposite of what's being sold.
+   */
+  attribution: "Ultra Endurant is one coach: Jonathan Fors.",
+} as const;
+
 export const siteLinks = {
   booking: "https://meet.jonathanfors.com/discovery",
   // The athlete-intake page is intentionally NOT linked anywhere on the site
@@ -20,7 +55,11 @@ export const siteLinks = {
     "https://wa.me/351932286853?text=Hi%20Jonathan%2C%20I%20have%20a%20question",
   instagram: "https://www.instagram.com/jonathans.pov/",
   linkedin: "https://www.linkedin.com/in/jonathanfors/",
-  email: "coach@jonathanfors.com",
+  // ⚠️ Moved to the new domain with the Sept 2026 rename. The old address —
+  // coach@ on the old domain — is printed in the published terms, in the privacy
+  // policy and in every email Jonathan has already sent, so it has to keep
+  // forwarding here indefinitely. It is not a redirect that can be retired.
+  email: "jonathan@ultraendurant.com",
   sponsorPdf: "/project-portugal-2026.pdf",
 } as const;
 
@@ -165,9 +204,10 @@ export const nav = [
 /**
  * The company behind the coaching, and the two legal pages.
  *
- * The trading name on the site is "Jonathan Fors"; the contracting party and
- * the GDPR data controller is the company. Both legal pages name the company,
- * so the name and address live here rather than being typed twice.
+ * The trading name on the site is `brand.name` ("Ultra Endurant"); the
+ * contracting party and the GDPR data controller is the company. Both legal
+ * pages name the company, so the name and address live here rather than being
+ * typed twice.
  *
  * ⚠️ No Estonian registry code (`registrikood`) yet — it belongs on both pages
  * and in the footer once Jonathan supplies it.
@@ -185,7 +225,7 @@ export const legal = {
    * the build date: a legal page that silently re-dates itself on every deploy
    * tells the reader nothing. Change it when the wording changes.
    */
-  updated: "1 September 2026",
+  updated: "8 September 2026",
   privacy: "/privacy",
   terms: "/terms",
 } as const;

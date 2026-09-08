@@ -8,7 +8,7 @@ import LegalPage, {
   ul,
   type LegalSection,
 } from "@/components/legal/LegalPage";
-import { legal, siteLinks } from "@/lib/site";
+import { brand, legal, siteLinks } from "@/lib/site";
 
 /**
  * Privacy policy.
@@ -30,17 +30,17 @@ import { legal, siteLinks } from "@/lib/site";
 
 const title = "Privacy policy";
 const description =
-  "What Jonathan Fors coaching collects, why, who it goes to, and how to get it back or have it deleted. Written in plain English rather than boilerplate.";
+  `What ${brand.name} collects, why, who it goes to, and how to get it back or have it deleted. Written in plain English rather than boilerplate.`;
 
 export const metadata: Metadata = {
   title,
   description,
   alternates: { canonical: legal.privacy },
   openGraph: {
-    title: `${title} — Jonathan Fors`,
+    title: `${title} — ${brand.name}`,
     description,
-    url: `https://jonathanfors.com${legal.privacy}`,
-    siteName: "Jonathan Fors",
+    url: `https://ultraendurant.com${legal.privacy}`,
+    siteName: brand.name,
     type: "website",
     locale: "en_US",
   },
@@ -58,9 +58,10 @@ const sections: LegalSection[] = [
     blocks: [
       p(
         <>
-          The site you&apos;re reading is <strong>jonathanfors.com</strong>, the
-          coaching practice of Jonathan Fors. The company behind it — and the
-          data controller responsible for the personal data described here — is{" "}
+          The site you&apos;re reading is <strong>{brand.domain}</strong>, the
+          coaching practice of {brand.coach}, trading as{" "}
+          <strong>{brand.name}</strong>. The company behind it — and the data
+          controller responsible for the personal data described here — is{" "}
           <strong>{legal.company}</strong>, registered at {legal.address}.
         </>,
       ),
@@ -84,7 +85,7 @@ const sections: LegalSection[] = [
       ),
       ul([
         <>
-          The website at <strong>jonathanfors.com</strong>, including the{" "}
+          The website at <strong>{brand.domain}</strong>, including the{" "}
           <A href={siteLinks.waitlist}>group coaching waitlist</A> and the{" "}
           <A href={siteLinks.newsletter}>Shuffle Club newsletter</A> pages.
         </>,

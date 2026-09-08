@@ -2,7 +2,7 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import SlashMark from "@/components/SlashMark";
 import { InstagramIcon, MailIcon } from "@/components/icons";
-import { legal, siteLinks } from "@/lib/site";
+import { brand, legal, siteLinks } from "@/lib/site";
 
 /**
  * Shared shell for the two legal pages (`/privacy`, `/terms`).
@@ -275,7 +275,7 @@ export default function LegalPage({
               href="/"
               className="text-snow underline decoration-red decoration-2 underline-offset-4 transition-colors hover:text-red-bright"
             >
-              jonathanfors.com
+              {brand.domain}
             </Link>
             .
           </p>
@@ -301,7 +301,7 @@ export default function LegalPage({
         <div className="mx-auto w-full max-w-[1400px] px-5 pb-8 text-xs text-snow-dim/70 sm:px-8">
           <p>
             {legal.company} · {legal.address} · ©{" "}
-            {new Date().getFullYear()} Jonathan Fors. All rights reserved.
+            {new Date().getFullYear()} {brand.name}. All rights reserved.
           </p>
         </div>
       </footer>

@@ -9,6 +9,7 @@ import LegalPage, {
   type LegalSection,
 } from "@/components/legal/LegalPage";
 import {
+  brand,
   facts,
   groupCoaching,
   legal,
@@ -47,10 +48,10 @@ export const metadata: Metadata = {
   description,
   alternates: { canonical: legal.terms },
   openGraph: {
-    title: `${title} — Jonathan Fors`,
+    title: `${title} — ${brand.name}`,
     description,
-    url: `https://jonathanfors.com${legal.terms}`,
-    siteName: "Jonathan Fors",
+    url: `https://ultraendurant.com${legal.terms}`,
+    siteName: brand.name,
     type: "website",
     locale: "en_US",
   },
@@ -68,7 +69,7 @@ const sections: LegalSection[] = [
         <>
           Coaching, the newsletter and this website are provided by{" "}
           <strong>{legal.company}</strong>, registered at {legal.address},
-          trading as Jonathan Fors. That company is who you contract with;
+          trading as {brand.name}. That company is who you contract with;
           Jonathan is who you&apos;ll actually talk to.
         </>,
       ),

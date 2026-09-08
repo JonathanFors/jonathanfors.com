@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { clubNav, siteLinks } from "@/lib/site";
+import { brand, clubNav, siteLinks } from "@/lib/site";
 import { lockBodyScroll } from "@/lib/scrollLock";
 import { CloseIcon, MenuIcon } from "@/components/icons";
 import SlashMark from "@/components/SlashMark";
@@ -70,7 +70,7 @@ export default function ClubNav() {
         {/* Logo lockup */}
         <Link
           href="/"
-          aria-label="Jonathan Fors — homepage"
+          aria-label={`${brand.name} — homepage`}
           // The header stays visible above the open mobile menu, so this link
           // has to close it too or it covers the page it navigates to.
           onClick={() => setOpen(false)}

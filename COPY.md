@@ -4,13 +4,20 @@ Every word on the page, in the order it appears. **Edit this file freely** — c
 the text in the right-hand column / quoted blocks, then tell me and I'll apply it to
 the code.
 
-Sections 0–9 are the homepage at `jonathanfors.com`. Section 10 is the 404 page,
+Sections 0–9 are the homepage at `ultraendurant.com`. Section 10 is the 404 page,
 shown for any URL that doesn't exist. Both are live. Section 11 is the training
 video library at `/videos` — built, but not published: nothing is filmed yet, so
 it's hidden from search. Section 12 is the group-coaching waitlist landing page at
 `/waitlist` and section 13 is the Shuffle Club landing page at `/newsletter`; both
 are live. Sections 14 and 15 are the two legal pages, `/privacy` and `/terms`,
 linked from the footer of every page.
+
+⚠️ **The business was renamed to Ultra Endurant in September 2026.** Two names
+appear in this file on purpose and are not interchangeable: **Ultra Endurant** is
+the business — tab titles, the logo, the copyright line, the trading name on the
+legal pages. **Jonathan Fors** is the person — photo descriptions, the bylines on
+`/waitlist` and `/newsletter`, and anywhere the copy is about who an athlete
+actually works with. Swapping one for the other changes the meaning.
 
 ⚠️ **Sections 14 and 15 are generated from the live pages**, not typed. Edit the
 wording in them as freely as anywhere else — but the headings and the `#anchor`
@@ -32,9 +39,9 @@ changed in practice is listed at the bottom under *What the rewrite changed*.
 
 | ▸ Field | Current text |
 | --- | --- |
-| Browser tab title | Jonathan Fors — Ultra-Endurance Running Coach |
+| Browser tab title | Ultra Endurant — Ultramarathon Coaching with Jonathan Fors |
 | Meta description | UESCA-certified ultra-endurance running coach. Remote 1:1 and small-group coaching that builds training around your life — from a first ultra to a hundred-miler. Free 30-minute intro call. |
-| Email | coach@jonathanfors.com |
+| Email | jonathan@ultraendurant.com |
 | Instagram | @jonathans.pov |
 | Booking link | meet.jonathanfors.com/discovery |
 
@@ -47,7 +54,9 @@ on is shown in red.
 
 | ▸ Field | Current text |
 | --- | --- |
-| Logo alt text | Jonathan — Ultra Running Coach |
+| Logo, line 1 | ULTRA ENDURANT |
+| Logo, line 2 | COACHING BY JONATHAN FORS |
+| Logo alt text | Ultra Endurant — ultramarathon coaching with Jonathan Fors |
 | Link 1 | Approach |
 | Link 2 | How it works |
 | Link 3 | Coaching |
@@ -405,7 +414,8 @@ about.)
 | Column 2 links | Book a free call · Group coaching waitlist · Shuffle Club newsletter |
 | Column 3 heading | Elsewhere |
 | Column 3 links | Email · Instagram · LinkedIn |
-| Copyright | © 2026 Jonathan Fors. All rights reserved. |
+| Copyright | © 2026 Ultra Endurant. All rights reserved. |
+| Attribution | Ultra Endurant is one coach: Jonathan Fors. |
 | Right-hand line 🔒 | 744 km down the coast of Portugal for men's mental health. |
 
 Split by what a link *is*, not where it goes: column 1 is the homepage's own
@@ -438,7 +448,7 @@ with the rest of the site.
 
 | ▸ Field | Current text |
 | --- | --- |
-| Browser tab title | Page not found — Jonathan Fors |
+| Browser tab title | Page not found — Ultra Endurant |
 | Eyebrow | Page not found |
 
 > ▸ **Headline** — "off the map." is in red.
@@ -451,7 +461,7 @@ with the rest of the site.
 | --- | --- |
 | Button 1 (red) | Back to the homepage |
 | Button 2 (outline) | Book a free call |
-| Footer copyright | © 2026 Jonathan Fors. All rights reserved. |
+| Footer copyright | © 2026 Ultra Endurant. All rights reserved. |
 | Footer links | Email · Instagram |
 
 The big outlined **404** is the section-index numeral treatment from the homepage,
@@ -487,7 +497,7 @@ this file is for.
 
 | ▸ Field | Current text |
 | --- | --- |
-| Browser tab title | Training videos — Jonathan Fors |
+| Browser tab title | Training videos — Ultra Endurant |
 | Header label | Video library |
 | Header button (red) | Book a call |
 | Eyebrow | For my athletes |
@@ -811,7 +821,7 @@ competes with the one thing this page is for.
 
 | ▸ Field | Current text |
 | --- | --- |
-| Browser tab title | Group coaching waitlist — Jonathan Fors |
+| Browser tab title | Group coaching waitlist — Ultra Endurant |
 | Meta + share description 🔒 | Five athletes get my group coaching free, forever — drawn at random from the waitlist when the group opens at the end of September. Everyone else pays €50/mo. Three questions to join. |
 
 ---
@@ -948,7 +958,7 @@ A reader deciding whether to hand over an address wants to see who's asking.
 
 | ▸ Field | Current text |
 | --- | --- |
-| Left | Shuffle Club — the newsletter from **jonathanfors.com** (links home) |
+| Left | Shuffle Club — the newsletter from **ultraendurant.com** (links home) |
 | Right | Email · Instagram |
 
 No coaching link down here, unlike `/waitlist`. That page has a real second
@@ -960,14 +970,14 @@ would only be an interruption.
 
 | ▸ Field | Current text |
 | --- | --- |
-| Browser tab title | Shuffle Club — the newsletter — Jonathan Fors |
+| Browser tab title | Shuffle Club — the newsletter — Ultra Endurant |
 | Meta + share description 🔒 | Three editions a week from an ultra-endurance coach, free forever. Tuesday the science, Friday my take on it, Sunday your questions — one subject a week, from three sides. One email to subscribe. |
 
 ---
 
 ## 14 · Privacy policy (`/privacy`)
 
-Live at `jonathanfors.com/privacy`. Linked from the footer of every
+Live at `ultraendurant.com/privacy`. Linked from the footer of every
 page. **This section is generated from the live page**, so edit the text
 here, tell me, and I'll apply it — but don't reformat the headings.
 
@@ -983,15 +993,15 @@ here, tell me, and I'll apply it — but don't reformat the headings.
 
 ### 01 · Who we are — `#who-we-are`
 
-The site you're reading is **jonathanfors.com**, the coaching practice of Jonathan Fors. The company behind it — and the data controller responsible for the personal data described here — is **Jon Corp OÜ**, registered at Sepapaja tn 6, 15551 Tallinn, Estonia.
+The site you're reading is **ultraendurant.com**, the coaching practice of Jonathan Fors, trading as **Ultra Endurant**. The company behind it — and the data controller responsible for the personal data described here — is **Jon Corp OÜ**, registered at Sepapaja tn 6, 15551 Tallinn, Estonia.
 
-"We" and "us" below mean that company. "I" means Jonathan, because most of what follows is one person reading your email and writing your training plan. For anything about your data, write to coach@jonathanfors.com — it reaches him directly, and there's no separate privacy desk to route it through.
+"We" and "us" below mean that company. "I" means Jonathan, because most of what follows is one person reading your email and writing your training plan. For anything about your data, write to jonathan@ultraendurant.com — it reaches him directly, and there's no separate privacy desk to route it through.
 
 ### 02 · What this policy covers — `#what-this-covers`
 
 This policy covers everything we run:
 
-- The website at **jonathanfors.com**, including the group coaching waitlist and the Shuffle Club newsletter pages.
+- The website at **ultraendurant.com**, including the group coaching waitlist and the Shuffle Club newsletter pages.
 - The Shuffle Club newsletter itself.
 - The intro call booking page and the athlete intake form.
 - Coaching — one-to-one and group — including the messages, calls and training data that come with it.
@@ -1082,7 +1092,7 @@ Under the GDPR you can ask us to do all of the following, and we won't make it d
 - **Restrict or object.** Including objecting to anything we do on the basis of legitimate interests.
 - **Withdraw consent.** At any time, without giving a reason. It doesn't undo what was done while consent was in place.
 
-Email coach@jonathanfors.com and say what you want. We'll answer within a month, and there's no charge. We may ask you to confirm you're you — which is a protection for you, not an obstacle.
+Email jonathan@ultraendurant.com and say what you want. We'll answer within a month, and there's no charge. We may ask you to confirm you're you — which is a protection for you, not an obstacle.
 
 If we get it wrong, you can complain to Andmekaitse Inspektsioon (the Estonian Data Protection Inspectorate), or to the data protection authority in the country where you live. We'd rather you told us first, but it's your call.
 
@@ -1100,19 +1110,19 @@ The five free group coaching places are drawn **at random** from the waitlist. N
 
 ### 12 · Children — `#children`
 
-Coaching is for adults. The services here aren't intended for anyone under 18 and we don't knowingly collect their data. If you think a child has signed up, tell us at coach@jonathanfors.com and we'll remove it.
+Coaching is for adults. The services here aren't intended for anyone under 18 and we don't knowingly collect their data. If you think a child has signed up, tell us at jonathan@ultraendurant.com and we'll remove it.
 
 ### 13 · Changes to this policy — `#changes`
 
 When this changes, the date at the top changes with it. If a change actually matters — a new company handling your data, a new use for it — we'll say so in the newsletter rather than quietly editing the page.
 
-Questions about any of it: coach@jonathanfors.com. A real person reads that address.
+Questions about any of it: jonathan@ultraendurant.com. A real person reads that address.
 
 ---
 
 ## 15 · Terms of service (`/terms`)
 
-Live at `jonathanfors.com/terms`. Linked from the footer of every
+Live at `ultraendurant.com/terms`. Linked from the footer of every
 page. **This section is generated from the live page**, so edit the text
 here, tell me, and I'll apply it — but don't reformat the headings.
 
@@ -1128,9 +1138,9 @@ here, tell me, and I'll apply it — but don't reformat the headings.
 
 ### 01 · Who you're dealing with — `#who-you-deal-with`
 
-Coaching, the newsletter and this website are provided by **Jon Corp OÜ**, registered at Sepapaja tn 6, 15551 Tallinn, Estonia, trading as Jonathan Fors. That company is who you contract with; Jonathan is who you'll actually talk to.
+Coaching, the newsletter and this website are provided by **Jon Corp OÜ**, registered at Sepapaja tn 6, 15551 Tallinn, Estonia, trading as Ultra Endurant. That company is who you contract with; Jonathan is who you'll actually talk to.
 
-Contact for anything in these terms: coach@jonathanfors.com.
+Contact for anything in these terms: jonathan@ultraendurant.com.
 
 ### 02 · Agreeing to these terms — `#agreeing`
 
@@ -1203,7 +1213,7 @@ If a payment fails we'll tell you and try again. If it stays unpaid, coaching pa
 
 ### 09 · Changing your mind — `#withdrawal`
 
-If you're a consumer in the EU, you have **14 days** from starting to withdraw from the contract without giving a reason. Email coach@jonathanfors.com and it's done — no form to fill in.
+If you're a consumer in the EU, you have **14 days** from starting to withdraw from the contract without giving a reason. Email jonathan@ultraendurant.com and it's done — no form to fill in.
 
 Two things worth knowing, because they're the parts people are usually surprised by. If you ask us to start coaching inside those 14 days and then withdraw, you pay a fair amount for what was actually delivered — a written plan and a call are real work. And if the service has been fully delivered within the 14 days at your express request, the right to withdraw is used up.
 
@@ -1277,7 +1287,7 @@ We may update these terms. The date at the top changes when we do. If a change m
 
 These terms are governed by the law of Estonia, and the Estonian courts have jurisdiction. If you're a consumer, that doesn't take away the protections you have under the law of the country you live in, or your right to bring a claim there.
 
-Before any of that: email coach@jonathanfors.com and tell us what's wrong. This is a one-person coaching practice, not a company with a complaints department, and almost anything is fixable by saying it out loud.
+Before any of that: email jonathan@ultraendurant.com and tell us what's wrong. This is a one-person coaching practice, not a company with a complaints department, and almost anything is fixable by saying it out loud.
 
 ---
 

@@ -5,14 +5,7 @@ import Reveal from "@/components/Reveal";
 import SlashMark from "@/components/SlashMark";
 import SubscribeForm from "@/components/club/SubscribeForm";
 import { InstagramIcon, MailIcon } from "@/components/icons";
-import {
-  facts,
-  legal,
-  legalPages,
-  shuffleClub,
-  siteLinks,
-  subscribeSource,
-} from "@/lib/site";
+import { brand, facts, legal, legalPages, shuffleClub, siteLinks, subscribeSource } from "@/lib/site";
 
 /**
  * Shuffle Club — a standalone landing page for one action: getting an email
@@ -47,10 +40,10 @@ export const metadata: Metadata = {
   // the root layout's, so the share image has to be repeated here — without it
   // a link pasted into Instagram or WhatsApp previews with no picture at all.
   openGraph: {
-    title: `${title} — Jonathan Fors`,
+    title: `${title} — ${brand.name}`,
     description,
-    url: `https://jonathanfors.com${siteLinks.newsletter}`,
-    siteName: "Jonathan Fors",
+    url: `https://ultraendurant.com${siteLinks.newsletter}`,
+    siteName: brand.name,
     type: "website",
     locale: "en_US",
     images: [{ url: shareImage, width: 1200, height: 630, alt: shareImageAlt }],
@@ -299,7 +292,7 @@ export default function NewsletterPage() {
                     </div>
 
                     <p className="font-club-upright mt-3 text-2xl text-snow sm:text-3xl">
-                      Jonathan Fors
+                      {brand.coach}
                     </p>
                     <p className="club-label mt-2 text-[0.66rem] text-red-bright">
                       {facts.certification} · Ultra-endurance running coach
@@ -407,7 +400,7 @@ export default function NewsletterPage() {
               href="/"
               className="text-snow underline decoration-red decoration-2 underline-offset-4 transition-colors hover:text-red-bright"
             >
-              jonathanfors.com
+              {brand.domain}
             </Link>
             .
           </p>
@@ -432,7 +425,7 @@ export default function NewsletterPage() {
         </div>
         <div className="mx-auto flex w-full max-w-[1400px] flex-col gap-2 px-5 pb-8 text-xs text-snow-dim/70 sm:flex-row sm:items-center sm:justify-between sm:px-8">
           <p>
-            © {new Date().getFullYear()} Jonathan Fors. All rights reserved. —{" "}
+            © {new Date().getFullYear()} {brand.name}. All rights reserved. —{" "}
             {legal.company}, {legal.address}
           </p>
           <nav aria-label="Legal" className="flex items-center gap-4">

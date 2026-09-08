@@ -6,14 +6,7 @@ import SlashMark from "@/components/SlashMark";
 import SubscribeForm from "@/components/club/SubscribeForm";
 import StickyWaitlistBar from "@/components/club/StickyWaitlistBar";
 import { InstagramIcon, MailIcon } from "@/components/icons";
-import {
-  facts,
-  groupCoaching,
-  legal,
-  legalPages,
-  siteLinks,
-  subscribeSource,
-} from "@/lib/site";
+import { brand, facts, groupCoaching, legal, legalPages, siteLinks, subscribeSource } from "@/lib/site";
 
 /**
  * Group coaching waitlist — a standalone landing page for one action: getting an
@@ -47,10 +40,10 @@ export const metadata: Metadata = {
   // root layout's, so the share image has to be repeated here — without it a
   // link pasted into Instagram or WhatsApp previews with no picture at all.
   openGraph: {
-    title: `${title} — Jonathan Fors`,
+    title: `${title} — ${brand.name}`,
     description,
-    url: `https://jonathanfors.com${siteLinks.waitlist}`,
-    siteName: "Jonathan Fors",
+    url: `https://ultraendurant.com${siteLinks.waitlist}`,
+    siteName: brand.name,
     type: "website",
     locale: "en_US",
     images: [{ url: shareImage, width: 1200, height: 630, alt: shareImageAlt }],
@@ -128,16 +121,16 @@ const GROUP_POINTS = [
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Service",
-  "@id": `https://jonathanfors.com${siteLinks.waitlist}#group-coaching`,
+  "@id": `https://ultraendurant.com${siteLinks.waitlist}#group-coaching`,
   name: "Group ultra-running coaching",
   serviceType: "Ultra-endurance running coaching",
   description:
     "Small-group ultra-running coaching, built around the athlete's whole life. Five places are free, drawn at random from the waitlist.",
   provider: {
     "@type": "Person",
-    name: "Jonathan Fors",
+    name: brand.coach,
     jobTitle: "Ultra-Endurance Running Coach",
-    url: "https://jonathanfors.com",
+    url: "https://ultraendurant.com",
   },
   areaServed: "Worldwide (remote)",
   offers: {
@@ -145,7 +138,7 @@ const jsonLd = {
     price: "50",
     priceCurrency: "EUR",
     availability: "https://schema.org/PreOrder",
-    url: `https://jonathanfors.com${siteLinks.waitlist}`,
+    url: `https://ultraendurant.com${siteLinks.waitlist}`,
   },
 };
 
@@ -335,7 +328,7 @@ export default function WaitlistPage() {
                     </div>
 
                     <p className="font-club-upright mt-3 text-2xl text-snow sm:text-3xl">
-                      Jonathan Fors
+                      {brand.coach}
                     </p>
                     <p className="club-label mt-2 text-[0.66rem] text-red-bright">
                       {facts.certification} · Ultra-endurance running coach
@@ -587,7 +580,7 @@ export default function WaitlistPage() {
         </div>
         <div className="mx-auto flex w-full max-w-[1400px] flex-col gap-2 px-5 pb-8 text-xs text-snow-dim/70 sm:flex-row sm:items-center sm:justify-between sm:px-8">
           <p>
-            © {new Date().getFullYear()} Jonathan Fors. All rights reserved. —{" "}
+            © {new Date().getFullYear()} {brand.name}. All rights reserved. —{" "}
             {legal.company}, {legal.address}
           </p>
           <nav aria-label="Legal" className="flex items-center gap-4">

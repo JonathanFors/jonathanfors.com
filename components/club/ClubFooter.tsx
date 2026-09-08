@@ -1,7 +1,14 @@
 import Link from "next/link";
 import Wordmark from "@/components/club/Wordmark";
 import { InstagramIcon, LinkedInIcon, MailIcon } from "@/components/icons";
-import { clubSections, facts, legal, legalPages, siteLinks } from "@/lib/site";
+import {
+  brand,
+  clubSections,
+  facts,
+  legal,
+  legalPages,
+  siteLinks,
+} from "@/lib/site";
 
 /**
  * Site footer.
@@ -122,7 +129,7 @@ export default function ClubFooter() {
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
             <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
               <p>
-                © {new Date().getFullYear()} Jonathan Fors. All rights reserved.
+                © {new Date().getFullYear()} {brand.name}. All rights reserved.
               </p>
               <nav aria-label="Legal" className="flex items-center gap-4">
                 {legalPages.map((page) => (
@@ -140,8 +147,11 @@ export default function ClubFooter() {
               {facts.ranKm} km down the coast of Portugal for {facts.cause}.
             </p>
           </div>
-          {/* The trading name on the site is "Jonathan Fors"; the company is
-              who an athlete actually contracts with, so it's named here. */}
+          {/* Two separate facts, and the order matters. `brand.attribution`
+              answers "who am I actually working with" — the question a business
+              name invites and a personal name never did. `legal.company` is who
+              an athlete contracts with, which is a different entity again. */}
+          <p className="text-snow-dim/70">{brand.attribution}</p>
           <p className="text-snow-dim/70">
             {legal.company} · {legal.address}
           </p>

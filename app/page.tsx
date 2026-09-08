@@ -6,7 +6,7 @@ import ClubOffers from "@/components/club/ClubOffers";
 import ClubNewsletter from "@/components/club/ClubNewsletter";
 import ClubFinalCta from "@/components/club/ClubFinalCta";
 import ClubFooter from "@/components/club/ClubFooter";
-import { facts, siteLinks } from "@/lib/site";
+import { brand, facts, siteLinks } from "@/lib/site";
 
 /**
  * The homepage, in the "club" design language taken off the logo.
@@ -21,12 +21,12 @@ const jsonLd = {
   "@graph": [
     {
       "@type": "Person",
-      "@id": "https://jonathanfors.com/#jonathan",
-      name: "Jonathan Fors",
+      "@id": "https://ultraendurant.com/#jonathan",
+      name: brand.coach,
       jobTitle: "Ultra-Endurance Running Coach",
       description:
         "UESCA-certified ultra-endurance running coach. Holistic coaching that builds training around an athlete's whole life.",
-      url: "https://jonathanfors.com",
+      url: "https://ultraendurant.com",
       email: `mailto:${siteLinks.email}`,
       sameAs: [siteLinks.instagram, siteLinks.linkedin],
       hasCredential: {
@@ -39,9 +39,14 @@ const jsonLd = {
     },
     {
       "@type": "Service",
-      "@id": "https://jonathanfors.com/#coaching",
+      "@id": "https://ultraendurant.com/#coaching",
+      name: brand.name,
       serviceType: "Ultra-endurance running coaching",
-      provider: { "@id": "https://jonathanfors.com/#jonathan" },
+      // The brand names the service; the provider is still a person. Keeping
+      // them distinct in the graph is what stops "Ultra Endurant" reading as
+      // an organisation with staff.
+      brand: { "@type": "Brand", name: brand.name },
+      provider: { "@id": "https://ultraendurant.com/#jonathan" },
       areaServed: "Worldwide (remote)",
       description:
         "One-to-one ultramarathon coaching, from a first ultra to a hundred-miler, structured around the athlete's life.",

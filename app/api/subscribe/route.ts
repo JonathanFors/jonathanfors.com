@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { beehiivFields, experienceLevels } from "@/lib/site";
+import { beehiivFields, brand, experienceLevels } from "@/lib/site";
 
 /**
  * Subscribe endpoint — posts to beehiiv from the server so the signup can
@@ -101,7 +101,7 @@ export async function POST(request: Request) {
   const payload = {
     email: email.trim(),
     // Matches the tagging the magic links used.
-    utm_source: "jonathanfors.com",
+    utm_source: brand.domain,
     utm_medium: typeof utmMedium === "string" ? utmMedium : undefined,
     // A returning address shouldn't read as an error to the person typing it.
     reactivate_existing: true,
