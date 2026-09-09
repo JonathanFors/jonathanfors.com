@@ -105,11 +105,6 @@ export const siteLinks = {
   // in a bio or at the end of an edition, where the homepage anchor buries the
   // signup under three other sections.
   newsletter: "/newsletter",
-  // The number the sticky WhatsApp module opens — the same one 1:1 athletes
-  // text. `wa.me` prefills the message, so the first thing Jonathan sees is
-  // where the question came from.
-  whatsapp:
-    "https://wa.me/351932286853?text=Hi%20Jonathan%2C%20I%20have%20a%20question",
   instagram: "https://www.instagram.com/jonathans.pov/",
   linkedin: "https://www.linkedin.com/in/jonathanfors/",
   // ⚠️ Moved to the new domain with the Sept 2026 rename. The old address —
@@ -321,7 +316,7 @@ export const legal = {
    * the build date: a legal page that silently re-dates itself on every deploy
    * tells the reader nothing. Change it when the wording changes.
    */
-  updated: "8 September 2026",
+  updated: "9 September 2026",
   privacy: "/privacy",
   terms: "/terms",
 } as const;

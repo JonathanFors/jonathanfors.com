@@ -70,18 +70,26 @@ export default function StickyWaitlistBar() {
   /**
    * Broadcast the bar's height while it's up, as `bottombar:height`.
    *
-   * The sticky WhatsApp module is pinned to the same corner of the same
-   * viewport from the root layout, and listens for this so it can lift clear
-   * rather than sit on top of the page's own call to action. An event rather
-   * than a shared import: the module is global and this bar is one page's, so
-   * the module must not have to know which pages have one. Measured rather
-   * than hard-coded — the bar is one line on a desktop and two on a phone.
+   * Published two ways, because the two things that need it can't read the
+   * same one. The `bottombar:height` event is for React siblings; the
+   * `--bottombar-h` custom property on <html> is for the chat widget, which is
+   * loaded from the app, mounts its launcher straight onto <body> and runs no
+   * code of ours — CSS in `globals.css` lifts it by this variable. An event
+   * and a variable rather than a shared import either way: the things that
+   * move are global and this bar is one page's, so they must not have to know
+   * which pages have one. Measured rather than hard-coded — the bar is one
+   * line on a desktop and two on a phone.
    */
   useEffect(() => {
-    const send = (height: number) =>
+    const send = (height: number) => {
+      document.documentElement.style.setProperty(
+        "--bottombar-h",
+        `${height}px`,
+      );
       window.dispatchEvent(
         new CustomEvent("bottombar:height", { detail: { height } }),
       );
+    };
     if (!show) {
       send(0);
       return;

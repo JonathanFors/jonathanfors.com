@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import { Roboto, Roboto_Condensed } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
+import Script from "next/script";
 import BookingModal from "@/components/BookingModal";
 import CtaTracker from "@/components/CtaTracker";
 import ClubNav from "@/components/club/ClubNav";
 import MetaPixel from "@/components/MetaPixel";
-import WhatsAppButton from "@/components/WhatsAppButton";
 import "./globals.css";
 import { brand } from "@/lib/site";
 
@@ -103,12 +103,25 @@ export default function RootLayout({
         <CtaTracker />
         <BookingModal />
         <ClubNav />
-        <WhatsAppButton />
         {children}
         {/* Vercel Web Analytics — page views only, no cookies. */}
         <Analytics />
         {/* Meta Pixel — this one does set cookies. */}
         <MetaPixel />
+        {/* Ultra Endurant chat widget — the loader served by the app itself,
+            mounted once here so it is on every page. It reads its token from
+            its own tag via `document.currentScript`, then appends a launcher
+            button and an iframe to <body> on its own; nothing on the site
+            styles or positions it. `afterInteractive` is the closest match to
+            the `defer` the snippet ships with — it runs once the page is
+            interactive, without blocking the first render.
+
+            Replaced the sticky WhatsApp card on 9 September 2026. */}
+        <Script
+          src="https://app.ultraendurant.com/chat-widget.js"
+          data-token="a6a14d50-ad04-41ef-a505-18b4826cabea"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );

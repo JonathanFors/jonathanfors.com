@@ -16,8 +16,8 @@ import { brand, legal, siteLinks } from "@/lib/site";
  * Written to describe what the site and the coaching actually do, not from a
  * generator — every processor named below is one this codebase really talks to
  * (beehiiv in `app/api/subscribe/route.ts`, Meta in `components/MetaPixel.tsx`,
- * the Ultra Endurant App's booking page in `components/BookingModal.tsx`,
- * Notion in `app/athlete-intake`,
+ * the Ultra Endurant App's booking page in `components/BookingModal.tsx` and
+ * its chat widget in `app/layout.tsx`, Notion in `app/athlete-intake`,
  * YouTube in `components/videos/VideoEmbed.tsx`, Vercel as the host). If a
  * vendor is added or dropped, §5 and §6 change with it.
  *
@@ -189,6 +189,17 @@ const sections: LegalSection[] = [
           ),
         },
         {
+          term: "The chat widget",
+          body: (
+            <>
+              The first name and email address you give it, and whatever you
+              then write. It is the Ultra Endurant App&apos;s own chat, so the
+              conversation goes to {legal.company} directly rather than to an
+              outside support tool.
+            </>
+          ),
+        },
+        {
           term: "Emailing us",
           body: (
             <>
@@ -225,10 +236,11 @@ const sections: LegalSection[] = [
           to link your visit here to your Facebook or Instagram account.
         </>,
         <>
-          <strong>The Ultra Endurant App</strong>, but only once you open the
-          booking popup. Nothing loads from it until you click. It is run by{" "}
-          {legal.company} — the same company behind this site — rather than by
-          an outside scheduling service.
+          <strong>The Ultra Endurant App.</strong> The chat widget in the corner
+          loads on every page and sets a cookie there to tell one browser from
+          another. The booking popup is the same app, but it loads nothing until
+          you open it. Both are run by {legal.company} — the same company behind
+          this site — rather than by an outside scheduling or support service.
         </>,
         <>
           <strong>YouTube</strong>, on the training video pages, and only when

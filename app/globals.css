@@ -685,3 +685,30 @@ body {
     opacity: 0.05 !important;
   }
 }
+
+/* ---- Chat widget, out of the way of a page-level bottom bar ------------
+
+   The chat widget is loaded from the app and appends its own launcher and
+   panel to <body>, positioned with inline styles we don't control. A page's
+   sticky bottom bar (/waitlist has one) is pinned to the same corner, and the
+   launcher lands on top of that bar's call to action.
+
+   So the bar publishes its height as `--bottombar-h` on <html> and the closed
+   launcher lifts by it. Transform only — the widget still owns its position,
+   size and everything else, and if its markup ever changes these selectors
+   simply stop matching and it sits where it always would have.
+
+   Only the *closed* launcher moves, which is why the selector is the
+   "Open chat" label rather than the button. Lifting the open panel too would
+   push its top edge off screen on a short viewport: it is 560px tall against a
+   `max-height: calc(100vh - 120px)`, so there is no slack left to give. Once
+   the panel is open it covers the bar anyway. */
+body > button[aria-label="Open chat"] {
+  transform: translateY(calc(-1 * var(--bottombar-h, 0px)));
+  transition: transform 300ms ease-out;
+}
+@media (prefers-reduced-motion: reduce) {
+  body > button[aria-label="Open chat"] {
+    transition: none;
+  }
+}

@@ -74,26 +74,27 @@ Link 4 is "Group waitlist" rather than "Group coaching" so it can't be misread
 as a second coaching offer sitting next to link 3 — it names the action. The
 footer has room for the full "Group coaching waitlist".
 
-### Sticky WhatsApp module
+### Chat widget
 
-A small dark card pinned to the bottom-right corner of every page, opening a
-WhatsApp thread to the same number 1:1 athletes text. The ✕ dismisses it for an
-hour. On /waitlist it lifts above that page's sticky bar rather than covering
-it.
+A round launcher pinned to the bottom-right corner of every page. It opens the
+Ultra Endurant App's chat panel in an iframe from `app.ultraendurant.com`.
 
-| ▸ Field | Current text |
-| --- | --- |
-| Label | WhatsApp me |
-| Line | I usually reply in a few minutes. |
-| Link aria-label | Message Jonathan on WhatsApp |
-| Prefilled message | Hi Jonathan, I have a question |
+**None of this copy lives in the repo.** The widget is loaded from the app
+(`chat-widget.js`, keyed by a token in `app/layout.tsx`) and draws its own
+button and panel; the launcher's only text is a 💬 glyph and the aria-labels
+"Open chat" / "Close chat". Everything inside the panel — greeting, prompts,
+replies — is configured in the app, so changing it means changing it there,
+not here.
 
-⚠️ "A few minutes" is a faster promise than §15 of the terms makes for
-coaching WhatsApp access, which says "normally the same day, and rarely more
-than a day later". Different audiences — a stranger's pre-sales question versus
-a paying athlete's — but if the two should agree, the terms are the ones a
-reader can hold Jonathan to. "Usually" is doing the work of keeping this
-honest.
+Replaced the sticky WhatsApp card on 9 September 2026. That card said "WhatsApp
+me / I usually reply in a few minutes" and opened a `wa.me` thread to the same
+number 1:1 athletes text; it is gone, along with the response-time promise that
+ran ahead of §15 of the terms. WhatsApp is still a coaching channel everywhere
+it is described as one — it is just no longer the front door on the site.
+
+⚠️ On /waitlist the launcher overlaps that page's sticky bottom bar. The old
+card listened for the bar's height and lifted clear; the widget positions
+itself and doesn't.
 
 ---
 
@@ -1059,7 +1060,7 @@ here, tell me, and I'll apply it — but don't reformat the headings.
 | Headline | Privacy policy. |
 | Intro 1 | What we collect, why we have it, who else sees it, and how to get it back or have it deleted. Written to be read rather than to cover us — if a sentence here needed a lawyer to decode, it's the wrong sentence. |
 | Intro 2 | The short version: an email address for the newsletter, a name and an experience level for the waitlist, whatever you tell me about your running if I coach you. It isn't sold, it isn't traded, and you can have it deleted by asking. |
-| Date line | Last updated 1 September 2026 |
+| Date line | Last updated 9 September 2026 |
 
 ### 01 · Who we are — `#who-we-are`
 
@@ -1088,6 +1089,7 @@ Grouped by what you did, because that's how it actually arrives. Nothing here is
 - **Booking an intro call** — Your name, email address, the slot you chose and anything you type into the booking form. Since September 2026 this is handled by the Ultra Endurant App rather than a third-party scheduler, so the booking goes to Jon Corp OÜ directly and it is Jon Corp OÜ that creates the calendar entry.
 - **The athlete intake form** — Your running history, current training, goals, past injuries and any health information you choose to share. This is the most sensitive thing we hold, and it exists for one reason: a coach who doesn't know about your knee will write you a plan that hurts it. The form is hosted by Notion.
 - **Being coached** — WhatsApp messages, notes from our calls, the training you log, how sessions went, and whatever you tell me about sleep, stress, work and injury along the way. Payment records too — though card details are handled by the payment provider and never reach us.
+- **The chat widget** — The first name and email address you give it, and whatever you then write. It is the Ultra Endurant App's own chat, so the conversation goes to Jon Corp OÜ directly rather than to an outside support tool.
 - **Emailing us** — Whatever's in the email, kept in the mailbox like any other correspondence.
 
 > Some of this is **health information** — injuries, conditions, medication, how your body is holding up. Under the GDPR that's a special category of data, and we only hold it because you chose to tell us and gave explicit consent by sending it. You can withdraw that consent at any time, though it's worth saying plainly: without it, coaching you safely is guesswork.
@@ -1097,7 +1099,7 @@ Grouped by what you did, because that's how it actually arrives. Nothing here is
 **What sets a cookie**
 
 - **The Meta Pixel.** It loads on every page and reports your visit to Meta, along with your IP address, browser and the page you're on. It also reports when someone completes a signup, so we can tell whether an advert led to one. It sets cookies — _fbp and friends — which Meta can use to link your visit here to your Facebook or Instagram account.
-- **The Ultra Endurant App**, but only once you open the booking popup. Nothing loads from it until you click. It is run by Jon Corp OÜ — the same company behind this site — rather than by an outside scheduling service.
+- **The Ultra Endurant App.** The chat widget in the corner loads on every page and sets a cookie there to tell one browser from another. The booking popup is the same app, but it loads nothing until you open it. Both are run by Jon Corp OÜ — the same company behind this site — rather than by an outside scheduling or support service.
 - **YouTube**, on the training video pages, and only when you press play. The embeds use the no-cookie domain, so simply loading the page sends nothing.
 
 **What doesn't**
@@ -1203,7 +1205,7 @@ here, tell me, and I'll apply it — but don't reformat the headings.
 | Headline | Terms of service. |
 | Intro 1 | The terms for coaching, the group programme, the waitlist draw and the newsletter. Written in plain English, because terms nobody reads protect nobody. |
 | Intro 2 | If you read one clause, read §5 — coaching is not medical care, and the difference matters more than anything else on this page. |
-| Date line | Last updated 1 September 2026 |
+| Date line | Last updated 9 September 2026 |
 
 ### 01 · Who you're dealing with — `#who-you-deal-with`
 
