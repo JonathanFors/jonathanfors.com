@@ -90,11 +90,20 @@ JSON-LD (`Person` + coaching `Service`) is injected in
 
 ## Deploy
 
-1. Push to GitHub.
-2. Import at [vercel.com/new](https://vercel.com/new) — Next.js is auto-detected.
-3. Add the domain `ultraendurant.com` in the Vercel project's **Domains**
-   settings, and keep `jonathanfors.com` on the project as a permanent 301 to
-   it — the old domain is printed in published newsletter editions.
+Already set up and live. **Push to `main` and Vercel deploys it** — there is no
+local `.vercel` link and no CLI step.
+
+- **Repo:** [`JonathanFors/ultra-endurant`](https://github.com/JonathanFors/ultra-endurant)
+  — renamed from `jonathanfors.com` on 2026-09-09. GitHub redirects the old URL,
+  so an old clone still pushes, but update it: `git remote set-url origin
+  https://github.com/JonathanFors/ultra-endurant.git`.
+- **Vercel project:** `ultra-endurant` (renamed from `coaching`), team
+  `jonathan-fors-projects`.
+- **Domains** are already attached: `ultraendurant.com` (apex is canonical) and
+  `www`, plus `jonathanfors.com` / `www.jonathanfors.com`. Keep the old pair on
+  the project as a permanent, path-preserving 301 — that domain is printed in
+  published newsletter editions and in the live legal pages. The URL map is
+  `../Domain/jonathanfors-to-ultraendurant-redirects.csv`.
 
 See [`PLACEHOLDERS.md`](PLACEHOLDERS.md) for everything still marked
 `TODO:CONTENT` before launch.
